@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Certificados SDC</title>
+    <title>SAEEV</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Font Awesome -->
@@ -32,18 +32,21 @@
 
     <script src="{{ asset('axios.min.js') }}"></script>
     <script src="{{ asset('category.js') }}"></script>
-
-
     <script src="{{ asset('function.js') }}"></script>
-
     <script src="{{ asset('user.js') }}"></script>
     <script src="{{ asset('role.js') }}"></script>
+    <script src="{{ asset('type.js') }}"></script>
+
+    <script src="{{ asset('survey.js') }}"></script>
+        <script src="{{ asset('survey_detail.js') }}"></script>
+
+
+
     <script src="{{ asset('schedule.js') }}"></script>
     <script src="{{ asset('registry.js') }}"></script>
     <script src="{{ asset('certification.js') }}"></script>
 
     <script src="{{ asset('registry_detail.js') }}"></script>
-    <script src="{{ asset('type.js') }}"></script>
     <script src="{{ asset('course.js') }}"></script>
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
@@ -401,7 +404,7 @@
                                 </p>
                             </a>
                             <ul class="nav nav-treeview">
-@role('Administrador|Coordinación')
+@role('Administrador|Administrador')
       <li class="nav-item">
                                     <a href="{{ route('usuarios.index') }}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
@@ -414,36 +417,6 @@
                                         <p>Categorías</p>
                                     </a>
                                 </li>
-                                <li class="nav-item">
-                                    <a href="{{ route('cursos.index') }}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Cursos</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{ route('horarios.index') }}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Horarios</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{ route('registros.index') }}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Registros</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{ route('estudiantes.index') }}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Estudiantes</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{ route('roles.index') }}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Roles</p>
-                                    </a>
-                                </li>
 
 
                                 <li class="nav-item">
@@ -452,19 +425,13 @@
                                         <p>Tipos</p>
                                     </a>
                                 </li>
-                                           <li class="nav-item">
-                                    <a href="{{ route('certificados-mantenimiento.index')}}" class="nav-link">
+             <li class="nav-item">
+                                    <a href="{{ route('encuestas.index') }}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Certificados</p>
+                                        <p>Encuestas</p>
                                     </a>
                                 </li>
-                                <li class="nav-item">
-                                    <a href="{{ route('Mis-certificados.index')}}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Mis Certificados</p>
-                                    </a>
-                                </li>
-@elseif('Estudiante')
+@elseif('Encuestado')
                               <li class="nav-item">
                                     <a href="{{ route('Mis-certificados.index')}}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>

@@ -31,11 +31,11 @@ Route::resource('Mis-certificados', App\Http\Controllers\CertificationStudentCon
 
 
  Route::resource('Docente', App\Http\Controllers\TeacherController::class);
-Route::get('/Coordinación', [App\Http\Controllers\HomeController::class, 'sistema'])->name('sistema');
+Route::get('/Administrador', [App\Http\Controllers\HomeController::class, 'sistema'])->name('sistema');
 Route::get('/Administrador', [App\Http\Controllers\HomeController::class, 'sistema'])->name('sistema');
 /////////////////////////////////////////
 
-Route::group(['middleware' => ['role:Coordinación']], function () {
+Route::group(['middleware' => ['role:Administrador']], function () {
     //
    Route::resource("categorias", App\Http\Controllers\CategoryController::class);
    Route::post('categoryStore',[App\Http\Controllers\CategoryController::class, 'store']);
@@ -86,6 +86,26 @@ Route::group(['middleware' => ['role:Coordinación']], function () {
    Route::post('typeUpdate',[App\Http\Controllers\TypeController::class, 'update']);
    Route::post('typeDestroy',[App\Http\Controllers\TypeController::class, 'destroy']);
    Route::post('typeShow',[App\Http\Controllers\TypeController::class, 'show']);
+
+
+  Route::resource("encuestas", App\Http\Controllers\SurveyController::class);
+   Route::post('surveyStore',[App\Http\Controllers\SurveyController::class, 'store']);
+   Route::post('surveyEdit',[App\Http\Controllers\SurveyController::class, 'edit']);
+   Route::post('surveyUpdate',[App\Http\Controllers\SurveyController::class, 'update']);
+   Route::post('surveyDestroy',[App\Http\Controllers\SurveyController::class, 'destroy']);
+   Route::post('surveyShow',[App\Http\Controllers\SurveyController::class, 'show']);
+
+
+   Route::post('survey_detail',[App\Http\Controllers\SurveyController::class, 'survey_detail']);
+
+   Route::resource("encuestas_mantenimiento", App\Http\Controllers\SurveyDetailController::class);
+
+
+
+
+
+
+
 
    Route::resource("cursos", App\Http\Controllers\CourseController::class);
    Route::post('courseStore',[App\Http\Controllers\CourseController::class, 'store']);

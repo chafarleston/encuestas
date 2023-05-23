@@ -9,7 +9,7 @@
 <meta property="og:description" content="El presente certificado es expedido como reconocimiento alcanzado en el proceso formativo en. {{$registry_detail->registry->course->description}}"/>
 <meta name="image" id="oimage"property="og:image" content="{{url('storage/certificados/r/edicion/40/'.$registry_detail->code_certification.".png")}}">
 
-    <title>Certificados SDC</title>
+    <title>SAEEV</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Font Awesome -->
@@ -134,7 +134,7 @@ $route_qr = "data:image/png;base64,".base64_encode(QrCode::format('png')->size(1
   </button>
 
 
-@role('Coordinación')
+@role('Administrador')
                     <form  id="certification" method="post" action="" enctype="multipart/form-data"
                                 name="certification">
                                 {{-- <button class="btn btn-danger"   onclick="certificationSavePhoto();" >Guardar </button>

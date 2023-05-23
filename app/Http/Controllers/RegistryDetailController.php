@@ -6,11 +6,11 @@ use App\Models\RegistryDetail;
 use App\Http\Requests\StoreRegistryDetailRequest;
 use App\Http\Requests\UpdateRegistryDetailRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 use App\Models\Registry;
 use App\Models\Student;
 use Illuminate\Support\Facades\DB;
 use App\Helpers;
-use Illuminate\Support\Facades\Session;
 class RegistryDetailController extends Controller
 {
 
@@ -29,7 +29,7 @@ class RegistryDetailController extends Controller
         $student =DB::select("select u.firstname,u.lastname,u.names,m.model_id,m.model_type,m.role_id from users u
         inner join model_has_roles m on u.id = m.model_id where role_id=5");
 
-      
+
        return view('registry_detail',compact('registry_id','registry_detail','student','registry'));
 
 
