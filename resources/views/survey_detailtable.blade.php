@@ -19,6 +19,7 @@
                                     <th class="sorting">ID</th>
                                     <th class="sorting">Pregunta</th>
                                     <th class="sorting">Tipo</th>
+                                    <th class="sorting">Opciones</th>
                                     <th class="sorting">Estado</th>
                                     <th class="sorting">Obligatorio</th>
 
@@ -36,6 +37,21 @@
                                             <td></td>
                                             {{-- <td>{{ $survey_details->id }}</td> --}}
                                             <td>{{ $enumeracion = $enumeracion + 1 }}</td>
+                                            <td>{{ $survey_details->question }}</td>
+                                            <td>{{ $survey_details->type }}</td>
+                                            <td>
+                                                @php
+                                                
+                                                    $arrayDatos = json_decode($survey_details->option);
+                                                @endphp
+                                                @if (is_array($arrayDatos))
+                                                @foreach ($arrayDatos as $index => $valor)
+                                                    {{$valor.","}}
+                                                @endforeach
+                                                @endif   
+                                            </td>
+                                            <td>{{ $survey_details->state }}</td>
+                                            <td>{{ $survey_details->requerid }}</td>
                                             <td>
                                                 <!-- Button trigger modal -->
                                                 <button type="button" class="btn btn-success note-icon-pencil"

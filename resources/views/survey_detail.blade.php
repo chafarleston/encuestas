@@ -33,17 +33,20 @@
     <div class="row mb-2">
 
 
-        <div class="col col-md-8">
+        <div class="col col-md-12">
 
             <form action="" method="post" role="form" id="survey_detail" name="survey_detail">
                 <input type="hidden" name="id" id="id">
                 {{ csrf_field() }}
-                Pregunta :
-                <textarea type="text" name="description" id="description" class="form-control" rows="2px"> </textarea>
+                <h2>Pregunta</h2>
+                <textarea type="text" name="question" id="quiestion" class="form-control" rows="4px"> </textarea>
         </div>
-
-        <div class="col col-md-4">
-            Tipo de Pregunta :
+        <p></p>
+        <div class="col col-md-12">
+            <p></p>
+        </div>
+        <div class="col col-md-6">
+            <h2>Tipo de Pregunta</h2>
             <select name="type" id="type" class="form-control">
                 <option value="short_answer">Eligir Tipo de Pregunta</option>
                 <option value="short_answer">Respuesta Corta</option>
@@ -55,12 +58,23 @@
             </select>
         </div>
 
+
+        <div class="col col-md-6">
+            <h2>Requerido</h2>
+            <input type="radio" name="requerid" id="requerid" value="yes"> &nbsp;&nbsp;Sí &nbsp;&nbsp;
+            <input type="radio" name="requerid" id="requerid"value="not"> &nbsp;&nbsp;No
+        </div>
+
+
         <div class="col-md-6">
             <p></p>
             <div id="radioContainer" style="display: none;">
-
+                <input id="count_option"type="number" value="5" class="form-control">
+                <p></p>
                 <div class="input-group mb-3">
-                    <div class="input-group-prepend">
+
+                    <div class="input-group-prepend"id="inputContainer">
+
                         <span class="input-group-text"><input type="radio" disabled></span>
                     </div>
                     <input type="text"id="radio_option" class="form-control" placeholder="Opción">
@@ -76,20 +90,62 @@
         </div>
 
 
-     
+
 
 
     </div>
 
-<h1>Controls</h1>
-        <input type="button" value="Nuevo" class="btn btn-warning" onclick="New();$('#survey_detail')[0].reset();"
-            name="new">
-        <input type="button" value="Guardar" class="btn btn-success"id="create" onclick="survey_detailStore()"
-            name="create">
-        <input type="button" value="Modificar" class="btn btn-danger"id="update" onclick="survey_detailUpdate();"
-            name="update">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-   </form>
+    <script>
+
+   function addAlternativer() {
+         // Obtener el elemento input de tipo número
+                var countInput = document.getElementById('count_option');
+
+                // Escuchar el evento 'input' en el campo de entrada
+                countInput.addEventListener('input', function() {
+                    // Obtener el valor del campo de entrada
+                    var countValue = parseInt(countInput.value);
+
+                    // Verificar si el valor es un número válido
+                    if (!isNaN(countValue) && countValue > 0) {
+                        // Obtener el contenedor donde se agregarán los campos de entrada
+                        var container = document.getElementById('inputContainer');
+
+                        // Limpiar el contenedor antes de agregar nuevos campos
+                        container.innerHTML = '';
+
+                        // Generar los campos de entrada de tipo radio consecutivos
+                        for (var i = 1; i <= countValue; i++) {
+                            var radioInput = document.createElement('input');
+                            radioInput.type = 'radio';
+                            radioInput.value = i;
+                            radioInput.name = 'option';
+
+                            var label = document.createElement('label');
+                            label.innerHTML = i;
+
+                            container.appendChild(radioInput);
+                            container.appendChild(label);
+                            container.appendChild(document.createElement('br'));
+                        }
+                    }
+                });
+   }
+      
+           
+    </script>
+
+
+
+    <h1>Controls</h1>
+    <input type="button" value="Nuevo" class="btn btn-warning" onclick="New();$('#survey_detail')[0].reset();"
+        name="new">
+    <input type="button" value="Guardar" class="btn btn-success"id="create" onclick="survey_detailStore()"
+        name="create">
+    <input type="button" value="Modificar" class="btn btn-danger"id="update" onclick="survey_detailUpdate();"
+        name="update">
+    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+    </form>
     <script>
         const selectElement = document.getElementById('type');
         const radioContainer = document.getElementById('radioContainer');
@@ -99,9 +155,13 @@
         selectElement.addEventListener('change', function() {
             if (selectElement.value === 'multiple_option') {
                 radioContainer.style.display = 'block';
+
+
+                
             } else {
-                radioContainer.style.display = 'none';
+  
             }
+
             if (selectElement.value === 'short_answer') {
                 textContainer.style.display = 'block';
             } else {

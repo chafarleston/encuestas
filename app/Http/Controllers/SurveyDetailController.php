@@ -26,15 +26,31 @@ class SurveyDetailController extends Controller
      */
     public function create()
     {
-        //
+        $survey_id = Session::get('survey_id');
+        $survey = Survey::find($survey_id);
+        $survey_detail = surveyDetail::where("survey_id","=",$survey_id)->get();
+        return view("survey_detailtable", compact("survey_detail","survey"));
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreSurveyDetailRequest $request)
+    public function store(Request $request)
     {
-        //
+        $survey_id = Session::get('survey_id');
+
+
+         $survey_detail = new SurveyDetail;  
+        $survey_detail->survey_id   =   $survey_id;
+         $survey_detail->question   =   $request->question;
+          $survey_detail->type   =   $request->type;
+              $survey_detail->option   =  json_encode($request->option);
+           $survey_detail->state   =   $request->state;
+  $survey_detail->requerid   =   $request->requerid;
+
+      $survey_detail->save();
+
+    return $this->create();
     }
 
     /**
@@ -64,8 +80,9 @@ class SurveyDetailController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(SurveyDetail $surveyDetail)
+    public function destroy(Request $request)
     {
-        //
+             SurveyDetail::find($request->id)->delete();
+        return $this->create();
     }
 }

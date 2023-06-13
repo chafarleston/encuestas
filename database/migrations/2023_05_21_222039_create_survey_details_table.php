@@ -15,6 +15,11 @@ return new class extends Migration
             $table->id();
                         $table->bigInteger('survey_id')->unsigned();
             $table->foreign('survey_id')->references('id')->on('surveys');
+                   $table->string('question');
+                   $table->string('type');
+                     $table->json('option');
+                    $table->string('requerid');
+            $table->string('state')->nullable();
             $table->timestamps();
         });
     }

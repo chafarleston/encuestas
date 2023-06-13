@@ -99,9 +99,12 @@ Route::group(['middleware' => ['role:Administrador']], function () {
    Route::post('survey_detail',[App\Http\Controllers\SurveyController::class, 'survey_detail']);
 
    Route::resource("encuestas_mantenimiento", App\Http\Controllers\SurveyDetailController::class);
+ Route::post('survey_detailStore',[App\Http\Controllers\SurveyDetailController::class, 'store']);
 
-
-
+   Route::post('survey_detailStore',[App\Http\Controllers\SurveyDetailController::class, 'store']);
+   Route::post('survey_detailEdit',[App\Http\Controllers\SurveyDetailController::class, 'edit']);
+   Route::post('survey_detailUpdate',[App\Http\Controllers\SurveyDetailController::class, 'update']);
+   Route::post('survey_detailDestroy',[App\Http\Controllers\SurveyDetailController::class, 'destroy']);
 
 
 
