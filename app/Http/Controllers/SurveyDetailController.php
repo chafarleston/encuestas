@@ -38,19 +38,38 @@ class SurveyDetailController extends Controller
     public function store(Request $request)
     {
         $survey_id = Session::get('survey_id');
+    $valor = array(); // Crear un array vacío
 
-
+$options = array(
+    $request->option1,
+    $request->option2,
+    $request->option3,
+    $request->option4,
+    $request->option5,
+    $request->option6,
+    $request->option7,
+    $request->option8,
+    $request->option9,
+    $request->option10
+);
+foreach ($options as $option) {
+    if (!empty($option)) {
+        $valor[] = $option;
+    }
+}
+     
          $survey_detail = new SurveyDetail;  
         $survey_detail->survey_id   =   $survey_id;
-         $survey_detail->question   =   $request->question;
+         $survey_detail->question   =    $request->question;
           $survey_detail->type   =   $request->type;
-              $survey_detail->option   =  json_encode($request->option);
+              $survey_detail->option   =  json_encode($valor);
            $survey_detail->state   =   $request->state;
   $survey_detail->requerid   =   $request->requerid;
 
       $survey_detail->save();
 
-    return $this->create();
+   return $this->create();
+     
     }
 
     /**

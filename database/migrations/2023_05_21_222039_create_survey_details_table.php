@@ -17,8 +17,8 @@ return new class extends Migration
             $table->foreign('survey_id')->references('id')->on('surveys');
                    $table->string('question');
                    $table->string('type');
-                     $table->json('option');
-                    $table->string('requerid');
+                     $table->json('option')->nullable();
+                    $table->string('requerid')->nullable();
             $table->string('state')->nullable();
             $table->timestamps();
         });

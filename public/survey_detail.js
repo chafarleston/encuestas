@@ -14,7 +14,9 @@ function survey_detailStore() {
       contentdiv.innerHTML = response.data;
       //carga pdf- csv - excel
       datatable_load();
+      
       alert("Registrado Correctamente");
+
     })
     .catch(function(response) {
       //handle error

@@ -51,35 +51,71 @@
                 <option value="short_answer">Eligir Tipo de Pregunta</option>
                 <option value="short_answer">Respuesta Corta</option>
                 <option value="multiple_option">Varias Opciones</option>
-                <option value="boxes">Casillas</option>
+                {{-- <option value="boxes">Casillas</option>
                 <option value="">Desplegable</option>
                 <option value="option_date">Fecha</option>
-                <option value="option_hour">Hora</option>
+                <option value="option_hour">Hora</option> --}}
             </select>
         </div>
 
 
         <div class="col col-md-6">
             <h2>Requerido</h2>
-            <input type="radio" name="requerid" id="requerid" value="yes"> &nbsp;&nbsp;Sí &nbsp;&nbsp;
+            <input type="radio" name="requerid" id="requerid" value="yes" checked> &nbsp;&nbsp;Sí &nbsp;&nbsp;
             <input type="radio" name="requerid" id="requerid"value="not"> &nbsp;&nbsp;No
         </div>
-
-
-        <div class="col-md-6">
-            <p></p>
+        <p></p>
+        <div class="col col-md-3">
             <div id="radioContainer" style="display: none;">
-                <input id="count_option"type="number" value="5" class="form-control">
+                <h3>Opciones</h3>
+                <input id="count_option"type="number" value="0" class="form-control">
                 <p></p>
-                <div class="input-group mb-3">
 
-                    <div class="input-group-prepend"id="inputContainer">
+            </div>
+        </div>
+        <div class="col-md-12">
+            <p></p>
 
-                        <span class="input-group-text"><input type="radio" disabled></span>
-                    </div>
-                    <input type="text"id="radio_option" class="form-control" placeholder="Opción">
-                </div>
 
+            <div id="inputContainer1" style="display: none;">
+                <textarea name="option1" id="option1" cols="100%"></textarea>
+                <p></p>
+            </div>
+            <div id="inputContainer2" style="display: none;">
+                <textarea name="option2" id="option2" cols="100%"></textarea>
+                <p></p>
+            </div>
+            <div id="inputContainer3" style="display: none;">
+                <textarea name="option3" id="option3" cols="100%"></textarea>
+                <p></p>
+            </div>
+            <div id="inputContainer4" style="display: none;">
+                <textarea name="option4" id="option4" cols="100%"></textarea>
+                <p></p>
+            </div>
+            <div id="inputContainer5" style="display: none;">
+                <textarea name="option5" id="option5" cols="100%"></textarea>
+                <p></p>
+            </div>
+            <div id="inputContainer6" style="display: none;">
+                <textarea name="option6" id="option6" cols="100%"></textarea>
+                <p></p>
+            </div>
+            <div id="inputContainer7" style="display: none;">
+                <textarea name="option7" id="option7" cols="100%"></textarea>
+                <p></p>
+            </div>
+            <div id="inputContainer8" style="display: none;">
+                <textarea name="option8" id="option8" cols="100%"></textarea>
+                <p></p>
+            </div>
+            <div id="inputContainer9" style="display: none;">
+                <textarea name="option9" id="option9" cols="100%"></textarea>
+                <p></p>
+            </div>
+            <div id="inputContainer10" style="display: none;">
+                <textarea name="option10" id="option10" cols="100%"></textarea>
+                <p></p>
             </div>
             <div id="textContainer" style="display: none;">
                 <div class="input-group mb-3">
@@ -96,48 +132,36 @@
     </div>
 
     <script>
+        var countOptionInput = document.getElementById('count_option');
 
-   function addAlternativer() {
-         // Obtener el elemento input de tipo número
-                var countInput = document.getElementById('count_option');
+        countOptionInput.addEventListener('input', function() {
+            var countOption = parseInt(countOptionInput.value);
 
-                // Escuchar el evento 'input' en el campo de entrada
-                countInput.addEventListener('input', function() {
-                    // Obtener el valor del campo de entrada
-                    var countValue = parseInt(countInput.value);
+            // Ocultar todos los contenedores de texto
+            hideAllInputContainers();
 
-                    // Verificar si el valor es un número válido
-                    if (!isNaN(countValue) && countValue > 0) {
-                        // Obtener el contenedor donde se agregarán los campos de entrada
-                        var container = document.getElementById('inputContainer');
+            // Mostrar los contenedores de texto según el valor de count_option
+            for (var i = 1; i <= countOption; i++) {
+                var inputContainer = document.getElementById('inputContainer' + i);
+                if (inputContainer) {
+                    inputContainer.style.display = 'block';
+                }
+            }
+        });
 
-                        // Limpiar el contenedor antes de agregar nuevos campos
-                        container.innerHTML = '';
-
-                        // Generar los campos de entrada de tipo radio consecutivos
-                        for (var i = 1; i <= countValue; i++) {
-                            var radioInput = document.createElement('input');
-                            radioInput.type = 'radio';
-                            radioInput.value = i;
-                            radioInput.name = 'option';
-
-                            var label = document.createElement('label');
-                            label.innerHTML = i;
-
-                            container.appendChild(radioInput);
-                            container.appendChild(label);
-                            container.appendChild(document.createElement('br'));
-                        }
-                    }
-                });
-   }
-      
-           
+        function hideAllInputContainers() {
+            for (var i = 1; i <= 10; i++) {
+                var inputContainer = document.getElementById('inputContainer' + i);
+                if (inputContainer) {
+                    inputContainer.style.display = 'none';
+                }
+            }
+        }
     </script>
 
 
 
-    <h1>Controls</h1>
+    <h3>Controls</h3>
     <input type="button" value="Nuevo" class="btn btn-warning" onclick="New();$('#survey_detail')[0].reset();"
         name="new">
     <input type="button" value="Guardar" class="btn btn-success"id="create" onclick="survey_detailStore()"
@@ -146,32 +170,37 @@
         name="update">
     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
     </form>
+
+
+
+
     <script>
         const selectElement = document.getElementById('type');
         const radioContainer = document.getElementById('radioContainer');
         const textContainer = document.getElementById('textContainer');
-        const radio_option = document.getElementById('radio_option');
+        // const radio_option = document.getElementById('radio_option');
         //VALIDAR TIPO DE PREGUNTA
         selectElement.addEventListener('change', function() {
             if (selectElement.value === 'multiple_option') {
                 radioContainer.style.display = 'block';
 
-
-                
             } else {
-  
+                radioContainer.style.display = 'none';
+                // Ocultar todos los contenedores de texto
+                hideAllInputContainers();
             }
 
             if (selectElement.value === 'short_answer') {
                 textContainer.style.display = 'block';
+              New();$('#survey_detail')[0].reset()
             } else {
                 textContainer.style.display = 'none';
             }
         });
 
-        radio_option.addEventListener('keydown', function() {
+        // radio_option.addEventListener('keydown', function() {
 
-        });
+        // });
     </script>
 
 
