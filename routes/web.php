@@ -178,6 +178,9 @@ Route::group(['middleware' => ['role:Administrador']], function () {
 //
 
 
+Route::get('encuesta/{survey_id}',[App\Http\Controllers\SurveyClientController::class, 'index']);
+
+
 
 
     Route::get('certificaciones/{registry_detail_id}/{language}/{id}',[App\Http\Controllers\CertificationController::class, 'report']);
