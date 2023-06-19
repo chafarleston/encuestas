@@ -22,10 +22,10 @@
         </div><!-- /.container-fluid -->
     </section>
     <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
+    {{-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
         onclick="New();$('#survey_detail')[0].reset();">
         Agregar Pregunta
-    </button>
+    </button> --}}
     <p></p>
 
 
@@ -162,13 +162,13 @@
 
 
     <h3>Controls</h3>
-    <input type="button" value="Nuevo" class="btn btn-warning" onclick="New();$('#survey_detail')[0].reset();"
-        name="new">
+    {{-- <input type="button" value="Nuevo" class="btn btn-warning" onclick="New();$('#survey_detail')[0].reset();"
+        name="new"> --}}
     <input type="button" value="Guardar" class="btn btn-success"id="create" onclick="survey_detailStore()"
         name="create">
-    <input type="button" value="Modificar" class="btn btn-danger"id="update" onclick="survey_detailUpdate();"
+    {{-- <input type="button" value="Modificar" class="btn btn-danger"id="update" onclick="survey_detailUpdate();"
         name="update">
-    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button> --}}
     </form>
 
 
@@ -192,7 +192,7 @@
 
             if (selectElement.value === 'short_answer') {
                 textContainer.style.display = 'block';
-              New();$('#survey_detail')[0].reset()
+              //New();$('#survey_detail')[0].reset()
             } else {
                 textContainer.style.display = 'none';
             }

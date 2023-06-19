@@ -23,13 +23,39 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/sistema', [App\Http\Controllers\HomeController::class, 'sistema'])->name('sistema');
 
 
+Route::get('encuesta/{survey_id}',[App\Http\Controllers\SurveyClientController::class, 'index']);
+
+
+
+   Route::resource("Encuestas_respuestas", App\Http\Controllers\CategoryController::class);
+   Route::post('survey_clientStore',[App\Http\Controllers\surveyClientController::class, 'store']);
+   Route::post('survey_clientEdit',[App\Http\Controllers\surveyClientController::class, 'edit']);
+   Route::post('survey_clientUpdate',[App\Http\Controllers\surveyClientController::class, 'update']);
+   Route::post('survey_clientDestroy',[App\Http\Controllers\surveyClientController::class, 'destroy']);
+   Route::post('survey_clientShow',[App\Http\Controllers\surveyClientController::class, 'show']);
+
+
+
+
+
+
+
+
+
+
+
 Route::resource('Estudiante', App\Http\Controllers\StudentController::class);
 
 
+
+
+
+
+
+
+
+
 Route::resource('Mis-certificados', App\Http\Controllers\CertificationStudentController::class);
-
-
-
  Route::resource('Docente', App\Http\Controllers\TeacherController::class);
 Route::get('/Administrador', [App\Http\Controllers\HomeController::class, 'sistema'])->name('sistema');
 Route::get('/Administrador', [App\Http\Controllers\HomeController::class, 'sistema'])->name('sistema');
@@ -176,9 +202,6 @@ Route::group(['middleware' => ['role:Administrador']], function () {
    Route::post('socialMediaShare',[App\Http\Controllers\SocialMediaController::class, 'share']);
 
 //
-
-
-Route::get('encuesta/{survey_id}',[App\Http\Controllers\SurveyClientController::class, 'index']);
 
 
 
