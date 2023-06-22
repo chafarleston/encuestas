@@ -51,8 +51,10 @@
                 <option value="short_answer">Eligir Tipo de Pregunta</option>
                 <option value="short_answer">Respuesta Corta</option>
                 <option value="multiple_option">Varias Opciones</option>
-                {{-- <option value="boxes">Casillas</option>
-                <option value="">Desplegable</option>
+                <option value="boxes">Desplegable</option>
+
+                {{--  <option value="boxes">Casillas</option>
+               
                 <option value="option_date">Fecha</option>
                 <option value="option_hour">Hora</option> --}}
             </select>
@@ -63,6 +65,19 @@
             <h2>Requerido</h2>
             <input type="radio" name="requerid" id="requerid" value="yes" checked> &nbsp;&nbsp;Sí &nbsp;&nbsp;
             <input type="radio" name="requerid" id="requerid"value="not"> &nbsp;&nbsp;No
+        </div>
+        <p></p>
+              <div class="col col-md-12">
+            <div id="boxesContainer" style="display: none;">
+                <h3>Opciones</h3>
+               <select name="" id="" class="form-control">
+                <option value="sd">sd</option>
+                <option value="sd">sd</option>
+                <option value="sd">sd</option>
+               </select>
+                <p></p>
+
+            </div>
         </div>
         <p></p>
         <div class="col col-md-3">
@@ -178,6 +193,7 @@
         const selectElement = document.getElementById('type');
         const radioContainer = document.getElementById('radioContainer');
         const textContainer = document.getElementById('textContainer');
+           const boxesContainer = document.getElementById('boxesContainer');
         // const radio_option = document.getElementById('radio_option');
         //VALIDAR TIPO DE PREGUNTA
         selectElement.addEventListener('change', function() {
@@ -195,6 +211,12 @@
               //New();$('#survey_detail')[0].reset()
             } else {
                 textContainer.style.display = 'none';
+            }
+             if (selectElement.value === 'boxes') {
+                boxesContainer.style.display = 'block';
+         
+            } else {
+                boxesContainer.style.display = 'none';
             }
         });
 

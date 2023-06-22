@@ -1,7 +1,7 @@
 
 
-function survey_clientStore() {
-    var formData = new FormData(document.getElementById("survey_client"));
+function survey_clientStore(form) {
+    var formData = new FormData(document.getElementById("survey_client"+form));
     axios({
             method: 'post',
             url: '../survey_clientStore',
@@ -13,11 +13,12 @@ function survey_clientStore() {
         .then(function(response) {
             //handle success
             
-          var contentdiv = document.getElementById("mycontent");
-          contentdiv.innerHTML = response.data;
+        //  var contentdiv = document.getElementById("mycontent");
+       // f   contentdiv.innerHTML = response.data;
   //carga pdf- csv - excel
  // datatable_load();
-// nextPage();
+//$('#survey_client')[0].reset();
+ nextPage();
     
         })
         .catch(function(response) {
@@ -25,6 +26,10 @@ function survey_clientStore() {
             console.log(response);
         });
 
+}
+
+function refresh() {
+    window.location.reload();
 }
 
 function survey_clientEdit(id,student) {

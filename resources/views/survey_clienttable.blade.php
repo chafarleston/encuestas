@@ -33,41 +33,52 @@
                            <div class="page" style="display: none;">
                                {{-- {{$survey_details->id}} --}}
 
-                               <form action="" method="post" id="survey_client" name="survey_client">
+                               <form action="" method="post" id="survey_client{{$enumeracion + 1 }}" name="survey_client">
                                    <p></p>
-                                   <input type="hidden" value="{{$survey_details->id}}" name="survey_detail_id" id="survey_detail_id">
-                                   <input type="hidden" value="{{$survey_details->type}}" name="type" id="type">
-                                   
+                                   <input type="hidden" value="{{ $survey_details->id }}" name="survey_detail_id"
+                                       id="survey_detail_id">
+                                   <input type="hidden" value="{{ $survey_details->type }}" name="type"
+                                       id="type">
+
                                    {{ csrf_field() }}
                                    <h4>
                                        {{ $enumeracion = $enumeracion + 1 }}
                                        {{ '. ' . $survey_details->question }}</h4>
                                    @if ($survey_details->type == 'short_answer')
-                                       <textarea  cols="90%" id="answer"name="answer"></textarea>
+                                       <textarea cols="90%" id="answer"name="answer">
+                                        
+                                       </textarea>
                                    @elseif($survey_details->type == 'multiple_option')
                                        <?php
                                        $array = json_decode($survey_details->option);
                                        ?>
                                        @foreach ($array as $item)
                                            <label style="display: flex; align-items: center;">
+
                                                <input style="" type="radio" name="option"
                                                    value="{{ $item }}" id="option">&nbsp;
                                                {{ $item }}
                                            </label>
-                                           <p></p>
                                        @endforeach
+                                       <label style="display: none; align-items: center;">
+
+                                               <input style="" type="radio" name="option"
+                                                   value="no_respondido" id="option" checked>&nbsp;
+                                               No respondido
+                                           </label>
+                                       <p></p>
                                    @endif
                                    @if (!$loop->last)
                                        <button id="prev" class="btn btn-success btn-lg"
                                            onclick="prevPage()">atras</button>
                                        <button id="next" class="btn btn-success btn-lg"
-                                           onclick="survey_clientStore();return false;">Siguiente</button>
+                                           onclick="survey_clientStore('{{$enumeracion}}'); return false;">Siguiente</button>
                                        <p></p>
                                    @endif
 
                                    @if ($loop->last)
-                                       <button id="next" class="btn btn-success btn-lg"
-                                           onclick="">Finalizar</button>
+                                       <button  class="btn btn-success btn-lg"
+                                           onclick="survey_clientStore('{{$enumeracion}}'); refresh();return false;">Finalizar</button>
                                    @endif
                                </form>
                            </div>
