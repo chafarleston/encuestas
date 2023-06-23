@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\SelectionDetail;
 use App\Models\SurveyDetail;
 use App\Models\Survey;
+use App\Models\Selection;
 use App\Http\Requests\StoreSurveyDetailRequest;
 use App\Http\Requests\UpdateSurveyDetailRequest;
 use Illuminate\Http\Request;
@@ -17,8 +19,10 @@ class SurveyDetailController extends Controller
     {
             $survey_id = Session::get('survey_id');
         $survey = Survey::find($survey_id);
+        $selection = Selection::all();
+        
         $survey_detail = surveyDetail::where("survey_id","=",$survey_id)->get();
-            return view("survey_detail", compact("survey_detail","survey"));
+            return view("survey_detail", compact("survey_detail","survey",'selection'));
     }
 
     /**
@@ -28,8 +32,9 @@ class SurveyDetailController extends Controller
     {
         $survey_id = Session::get('survey_id');
         $survey = Survey::find($survey_id);
+          $selection = Selection::all();
         $survey_detail = surveyDetail::where("survey_id","=",$survey_id)->get();
-        return view("survey_detailtable", compact("survey_detail","survey"));
+        return view("survey_detailtable", compact("survey_detail","survey",'selection'));
     }
 
     /**

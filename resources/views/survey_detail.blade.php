@@ -51,9 +51,9 @@
                 <option value="short_answer">Eligir Tipo de Pregunta</option>
                 <option value="short_answer">Respuesta Corta</option>
                 <option value="multiple_option">Varias Opciones</option>
-                <option value="boxes">Desplegable</option>
+                <option value="selection">Selección</option>
 
-                {{--  <option value="boxes">Casillas</option>
+                {{--  <option value="selection">Casillas</option>
                
                 <option value="option_date">Fecha</option>
                 <option value="option_hour">Hora</option> --}}
@@ -67,14 +67,15 @@
             <input type="radio" name="requerid" id="requerid"value="not"> &nbsp;&nbsp;No
         </div>
         <p></p>
-              <div class="col col-md-12">
-            <div id="boxesContainer" style="display: none;">
+        <div class="col col-md-12">
+            <div id="selectionContainer" style="display: none;">
                 <h3>Opciones</h3>
-               <select name="" id="" class="form-control">
-                <option value="sd">sd</option>
-                <option value="sd">sd</option>
-                <option value="sd">sd</option>
-               </select>
+                <select name="selection" id="selection" class="form-control">
+                    @foreach ($selection as $item)
+                        <option value="{{ $item->id }}">{{ $item->description }} 
+                        </option>
+                    @endforeach
+                </select>
                 <p></p>
 
             </div>
@@ -193,7 +194,7 @@
         const selectElement = document.getElementById('type');
         const radioContainer = document.getElementById('radioContainer');
         const textContainer = document.getElementById('textContainer');
-           const boxesContainer = document.getElementById('boxesContainer');
+        const selectionContainer = document.getElementById('selectionContainer');
         // const radio_option = document.getElementById('radio_option');
         //VALIDAR TIPO DE PREGUNTA
         selectElement.addEventListener('change', function() {
@@ -208,15 +209,15 @@
 
             if (selectElement.value === 'short_answer') {
                 textContainer.style.display = 'block';
-              //New();$('#survey_detail')[0].reset()
+                //New();$('#survey_detail')[0].reset()
             } else {
                 textContainer.style.display = 'none';
             }
-             if (selectElement.value === 'boxes') {
-                boxesContainer.style.display = 'block';
-         
+            if (selectElement.value === 'selection') {
+                selectionContainer.style.display = 'block';
+
             } else {
-                boxesContainer.style.display = 'none';
+                selectionContainer.style.display = 'none';
             }
         });
 

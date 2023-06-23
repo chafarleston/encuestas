@@ -28,7 +28,7 @@
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 
-    <link rel="icon" type="image/jpg" href="{{asset('dist/img/favicon.png')}}"/>
+    <link rel="icon" type="image/jpg" href="{{ asset('dist/img/favicon.png') }}" />
 
     <script src="{{ asset('axios.min.js') }}"></script>
     <script src="{{ asset('category.js') }}"></script>
@@ -38,9 +38,9 @@
     <script src="{{ asset('type.js') }}"></script>
 
     <script src="{{ asset('survey.js') }}"></script>
-        <script src="{{ asset('survey_detail.js') }}"></script>
-
-
+    <script src="{{ asset('survey_detail.js') }}"></script>
+    <script src="{{ asset('selection.js') }}"></script>
+    <script src="{{ asset('selection_detail.js') }}"></script>
 
     <script src="{{ asset('schedule.js') }}"></script>
     <script src="{{ asset('registry.js') }}"></script>
@@ -57,7 +57,6 @@
     <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
     <script>
         $.widget.bridge('uibutton', $.ui.button)
-
     </script>
 
 
@@ -85,7 +84,7 @@
     <script src="{{ asset('dist/js/adminlte.js') }}"></script>
 
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-     {{-- <script src="{{asset('dist/js/pages/dashboard.js')}}"></script> --}}
+    {{-- <script src="{{asset('dist/js/pages/dashboard.js')}}"></script> --}}
     <!-- AdminLTE for demo purposes -->
     <script src="{{ asset('dist/js/demo.js') }}"></script>
 
@@ -107,13 +106,15 @@
             <!-- Left navbar links -->
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+                    <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i
+                            class="fas fa-bars"></i></a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
                     <a href="{{ url('/home') }}" class="nav-link">Perfil</a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();
+                    <a class="nav-link" href="{{ route('logout') }}"
+                        onclick="event.preventDefault();
                                   document.getElementById('logout-form').submit();">
                         {{ __('Cerrar Sesión') }}
                     </a>
@@ -160,7 +161,7 @@
                     <div class="image">
                         @if (Auth::user()->photo == '' && Auth::user()->sex == 'M')
                             <img src="{{ asset('male.png') }}" class="img-circle elevation-2" alt="User Image">
-                        @elseif (Auth::user()->photo=="" && Auth::user()->sex=="F" )
+                        @elseif (Auth::user()->photo == '' && Auth::user()->sex == 'F')
                             <img src="{{ asset('female.png') }}" class="img-circle elevation-2" alt="User Image">
                         @else
                             <img src="{{ asset('imageusers/' . Auth::user()->photo) }}" class="img-circle elevation-2"
@@ -181,7 +182,7 @@
                         data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-                         {{-- <li class="nav-item has-treeview menu-open">
+                        {{-- <li class="nav-item has-treeview menu-open">
                             <a href="#" class="nav-link active">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
                                 <p>
@@ -405,41 +406,47 @@
                                 </p>
                             </a>
                             <ul class="nav nav-treeview">
-@role('Administrador|Administrador')
-      <li class="nav-item">
-                                    <a href="{{ route('usuarios.index') }}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Usuarios</p>
-                                    </a>
-                                </li>
-      <li class="nav-item">
-                                    <a href="{{ route('categorias.index') }}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Categorías</p>
-                                    </a>
-                                </li>
+                                @role('Administrador|Administrador')
+                                    <li class="nav-item">
+                                        <a href="{{ route('usuarios.index') }}" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Usuarios</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{{ route('categorias.index') }}" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Categorías</p>
+                                        </a>
+                                    </li>
 
 
-                                <li class="nav-item">
-                                    <a href="{{ route('tipos.index') }}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Tipos</p>
-                                    </a>
-                                </li>
-             <li class="nav-item">
-                                    <a href="{{ route('encuestas.index') }}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Encuestas</p>
-                                    </a>
-                                </li>
-@elseif('Encuestado')
-                              <li class="nav-item">
-                                    <a href="{{ route('Mis-certificados.index')}}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Mis Certificados</p>
-                                    </a>
-                                </li>
-@endrole
+                                    <li class="nav-item">
+                                        <a href="{{ route('tipos.index') }}" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Tipos</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{{ route('encuestas.index') }}" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Encuestas</p>
+                                        </a>
+                                    </li>
+                                     <li class="nav-item">
+                                        <a href="{{ route('seleccion.index') }}" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Listas</p>
+                                        </a>
+                                    </li>
+                                @elseif('Encuestado')
+                                    <li class="nav-item">
+                                        <a href="{{ route('Mis-certificados.index') }}" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Mis Certificados</p>
+                                        </a>
+                                    </li>
+                                @endrole
 
 
 
@@ -752,7 +759,8 @@
 
 
 
-                    <a href="{{ route('logout') }}" onclick="event.preventDefault();
+                    <a href="{{ route('logout') }}"
+                        onclick="event.preventDefault();
                     document.getElementById('logout-form').submit();">
                         {{ __('Cerrar Sesión') }}
                     </a>
@@ -812,97 +820,96 @@
 
 
     <script>
- function datatable_load(){
-    $("#example1").DataTable({
-        "language": {
-            "lengthMenu": "Display _MENU_ records per page",
-            "zeroRecords": "No se encontró nada, lo siento",
-            "info": "Mostrando página _PAGE_ de _PAGES_",
-            "infoEmpty": "No records available",
-            "infoFiltered": "(filtered from _MAX_ total records)",
-            "search":"Busqueda avanzada : ",
-            "paginate": {
-        "first":      "Primero",
-        "last":       "Último",
-        "next":       "Siguiente",
-        "previous":   "Anterior"
-    }
+        function datatable_load() {
+            $("#example1").DataTable({
+                "language": {
+                    "lengthMenu": "Display _MENU_ records per page",
+                    "zeroRecords": "No se encontró nada, lo siento",
+                    "info": "Mostrando página _PAGE_ de _PAGES_",
+                    "infoEmpty": "No records available",
+                    "infoFiltered": "(filtered from _MAX_ total records)",
+                    "search": "Busqueda avanzada : ",
+                    "paginate": {
+                        "first": "Primero",
+                        "last": "Último",
+                        "next": "Siguiente",
+                        "previous": "Anterior"
+                    }
+                },
+                "info": true,
+                "responsive": false,
+                "autoWidth": false,
+                "paging": true,
+                "searching": true,
+                "ordering": false,
+
+                dom: 'Bfrtip',
+                buttons: [
+
+                    {
+                        extend: 'pdfHtml5',
+                        download: 'open',
+                        orientation: 'landscape',
+                        pageSize: 'LEGAL'
+                    },
+                    {
+                        extend: 'excelHtml5',
+                        text: 'Excel',
+                        exportOptions: {
+                            modifier: {
+                                page: 'current'
+                            }
+                        }
+                    }, {
+
+                        extend: 'csvHtml5',
+                        text: 'CSV',
+                        exportOptions: {
+                            modifier: {
+                                search: 'none'
+                            }
+                        }
+
+                    },
+                    {
+                        extend: 'print',
+                        text: 'Imprimir',
+                        autoPrint: true
+                    },
+                    {
+                        extend: 'copyHtml5',
+                        text: 'Copiar Datos',
+                        exportOptions: {
+                            modifier: {
+                                page: 'current'
+                            }
+                        }
+                    },
+                    {
+                        extend: 'collection',
+                        text: 'Mostrar Campos',
+                        buttons: ['columnsVisibility'],
+                        visibility: true
+                    }
+
+
+                ],
+                columnDefs: [{
+                    orderable: false,
+                    className: 'select-checkbox',
+                    targets: 0
+                }],
+                select: {
+                    style: 'multi',
+                    selector: 'td:first-child'
+                },
+                // order: [
+                //     [1, 'asc']
+                // ]
+
+            });
         }
-        ,
-            "info": true,
-            "responsive": false,
-            "autoWidth": false,
-            "paging": true,
-            "searching": true,
-            "ordering": false,
-
-            dom: 'Bfrtip',
-            buttons: [
-
-                {
-                    extend: 'pdfHtml5',
-                    download: 'open',
-                    orientation: 'landscape',
-                pageSize: 'LEGAL'
-                },
-                {
-                    extend: 'excelHtml5',
-                    text: 'Excel',
-                    exportOptions: {
-                        modifier: {
-                            page: 'current'
-                        }
-                    }
-                }, {
-
-                    extend: 'csvHtml5',
-                    text: 'CSV',
-                    exportOptions: {
-                        modifier: {
-                            search: 'none'
-                        }
-                    }
-
-                },
-                {
-                    extend: 'print',
-                    text: 'Imprimir',
-                    autoPrint: true
-                },
-                {
-                    extend: 'copyHtml5',
-                    text: 'Copiar Datos',
-                    exportOptions: {
-                        modifier: {
-                            page: 'current'
-                        }
-                    }
-                },
-                {
-                    extend: 'collection',
-                    text: 'Mostrar Campos',
-                    buttons: ['columnsVisibility'],
-                    visibility: true
-                }
-
-
-            ],
-            columnDefs: [{
-                orderable: false,
-                className: 'select-checkbox',
-                targets: 0
-            }],
-            select: {
-                style: 'multi',
-                selector: 'td:first-child'
-            },
-            // order: [
-            //     [1, 'asc']
-            // ]
-
-        });
- }
- datatable_load();
+        datatable_load();
     </script>
 
 

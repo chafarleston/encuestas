@@ -35,9 +35,18 @@ Route::get('encuesta/{survey_id}',[App\Http\Controllers\SurveyClientController::
    Route::post('survey_clientShow',[App\Http\Controllers\surveyClientController::class, 'show']);
 
 
+   Route::resource("seleccion", App\Http\Controllers\SelectionController::class);
+   Route::post('selectionStore',[App\Http\Controllers\SelectionController::class, 'store']);
+   Route::post('selectionEdit',[App\Http\Controllers\SelectionController::class, 'edit']);
+   Route::post('selectionUpdate',[App\Http\Controllers\SelectionController::class, 'update']);
+   Route::post('selectionDestroy',[App\Http\Controllers\SelectionController::class, 'destroy']);
 
 
-
+//Route::resource("seleccion", App\Http\Controllers\SelectionController::class);
+   Route::post('selection_detailStore',[App\Http\Controllers\SelectionDetailController::class, 'store']);
+   Route::post('selection_detailEdit',[App\Http\Controllers\SelectionDetailController::class, 'edit']);
+   Route::post('selection_detailUpdate',[App\Http\Controllers\SelectionDetailController::class, 'update']);
+   Route::post('selection_detailDestroy',[App\Http\Controllers\SelectionDetailController::class, 'destroy']);
 
 
 
