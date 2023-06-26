@@ -13,4 +13,9 @@ class SurveyDetail extends Model
         return $this->hasOne('App\Models\Survey', 'id','survey_id');
 
     }
+                    public function selection()
+    {
+        return $this->hasOne('App\Models\Selection', 'id','selection_id');
+
+    }
 }

@@ -25,12 +25,7 @@
                                 Agregar
                             </button>
                             <p></p>
-                            Buscar
-                            <form  name="for"id="show">
-                                <input type="text"name="show" class="form-control" style="width: 50%"  onkeydown="surveyShow();">
-                            </form>
-
-                            <p></p>
+                
                              <!-- /.content -->
                              {{-- {{ $survey->onEachSide(5)->links() }} --}}
                             <div id="mycontent">

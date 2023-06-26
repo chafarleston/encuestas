@@ -70,6 +70,7 @@ foreach ($options as $option) {
               $survey_detail->option   =  json_encode($valor);
            $survey_detail->state   =   $request->state;
   $survey_detail->requerid   =   $request->requerid;
+    $survey_detail->selection_id   =   $request->selection_id;
 
       $survey_detail->save();
 

@@ -15,8 +15,12 @@ return new class extends Migration
             $table->id();
                $table->string("description");
             $table->string("detail")->nullable();
+              $table->string("state")->nullable();
+               $table->unsignedBigInteger('associate_id')->nullable();
             $table->timestamps();
+            $table->foreign('associate_id')->references('id')->on('selections');
         });
+
     }
 
     /**

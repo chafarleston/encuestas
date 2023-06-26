@@ -12,8 +12,10 @@ class SelectionSeeder extends Seeder
      */
     public function run(): void
     {
-              Selection::create(['description' => 'Paises','detail' =>'']);
-          Selection::create(['description' => 'Perú Regiones','detail' =>'']);
-            Selection::create(['description' => 'Perú Departamentos','detail' =>'']);
+        Selection::create(['description' => 'Ninguno','detail' =>'No eliminar','state' =>'0']);
+        Selection::create(['description' => 'Paises','detail' =>'','state' =>'0']);
+        Selection::create(['description' => 'Perú Regiones','detail' =>'','state' =>'1']);
+        Selection::create(['description' => 'Perú Provincias','detail' =>'','state' =>'2']);
+             
     }
 }

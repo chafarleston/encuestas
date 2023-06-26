@@ -33,7 +33,8 @@
                            <div class="page" style="display: none;">
                                {{-- {{$survey_details->id}} --}}
 
-                               <form action="" method="post" id="survey_client{{$enumeracion + 1 }}" name="survey_client">
+                               <form action="" method="post" id="survey_client{{ $enumeracion + 1 }}"
+                                   name="survey_client">
                                    <p></p>
                                    <input type="hidden" value="{{ $survey_details->id }}" name="survey_detail_id"
                                        id="survey_detail_id">
@@ -62,23 +63,53 @@
                                        @endforeach
                                        <label style="display: none; align-items: center;">
 
-                                               <input style="" type="radio" name="option"
-                                                   value="no_respondido" id="option" checked>&nbsp;
-                                               No respondido
-                                           </label>
+                                           <input style="" type="radio" name="option" value="no_respondido"
+                                               id="option" checked>&nbsp;
+                                           No respondido
+                                       </label>
+                                       <p></p>
+                                   @elseif($survey_details->type == 'selection')
+                                       @if ($survey_details->selection->state == '0')
+                                         <select name="selection_detail_id" id="selection_detail_id"
+                                               class="form-control">
+                                               @foreach ($survey_details->selection->selection_detail as $item)
+                                                   <option value="{{ $item->id . '-' . $item->description }}">
+                                                       {{ $item->description }} </option>
+                                               @endforeach
+                                           </select>
+                                       @elseif($survey_details->selection->state == '2')
+                                            <div id="mycontent_associate">
+
+                                           </div>
+                                        
+                                       @else
+                                           <input type="hidden" name="associate"id="associate" value="true">
+                                           <select name="selection_detail_id" id="selection_detail_id"
+                                               class="form-control" onchange="associateShow(this.value)">
+                                               <option value="0">- Elija una Opción -</option>
+                                               @foreach ($survey_details->selection->selection_detail as $item)
+                                                   <option value="{{ $item->id . '-' . $item->description }}">
+                                                       {{ $item->description }} </option>
+                                               @endforeach
+                                           </select>
+                                       @endif
+
+
+
+
                                        <p></p>
                                    @endif
                                    @if (!$loop->last)
                                        <button id="prev" class="btn btn-success btn-lg"
                                            onclick="prevPage()">atras</button>
                                        <button id="next" class="btn btn-success btn-lg"
-                                           onclick="survey_clientStore('{{$enumeracion}}'); return false;">Siguiente</button>
+                                           onclick="survey_clientStore('{{ $enumeracion }}'); return false;">Siguiente</button>
                                        <p></p>
                                    @endif
 
                                    @if ($loop->last)
-                                       <button  class="btn btn-success btn-lg"
-                                           onclick="survey_clientStore('{{$enumeracion}}'); refresh();return false;">Finalizar</button>
+                                       <button class="btn btn-success btn-lg"
+                                           onclick="survey_clientStore('{{ $enumeracion }}'); refresh();return false;">Finalizar</button>
                                    @endif
                                </form>
                            </div>

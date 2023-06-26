@@ -38,6 +38,7 @@ class SelectionController extends Controller
         $selection = new Selection;
         $selection->description = $request->description;
         $selection->detail = $request->detail;
+            $selection->state = $request->state;
         $selection->save();
         return $this->create();
     }
@@ -68,6 +69,7 @@ class SelectionController extends Controller
         $selection = Selection::find($request->id);
         $selection->description = $request->description;
         $selection->detail = $request->detail;
+        $selection->state = $request->state;
         $selection->save();
         return $this->create();
     }

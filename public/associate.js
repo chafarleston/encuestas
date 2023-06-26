@@ -1,9 +1,9 @@
 
-function selectionStore() {
-    var formData = new FormData(document.getElementById("selection"));
+function associateStore() {
+    var formData = new FormData(document.getElementById("associate"));
     axios({
             method: 'post',
-            url: 'selectionStore',
+            url: 'associateStore',
             data: formData,
             headers: {
                 'Content-Type': 'multipart/form-data'
@@ -24,12 +24,12 @@ function selectionStore() {
 
 }
 
-function selectionEdit(id) {
-    var formData = new FormData(document.getElementById("selection"));
+function associateEdit(id) {
+    var formData = new FormData(document.getElementById("associate"));
     formData.append("id",id);
     axios({
             method: 'post',
-            url: 'selectionEdit',
+            url: 'associateEdit',
             data: formData,
             headers: {
                 'Content-Type': 'multipart/form-data'
@@ -39,10 +39,9 @@ function selectionEdit(id) {
             //handle success
             var contentdiv = document.getElementById("mycontent");
            // contentdiv.innerHTML = response.data["description"];
-            selection.id.value=response.data["id"];
-            selection.description.value=response.data["description"];
-            selection.detail.value = response.data["detail"];
-            selection.state.value=response.data["state"];
+            associate.id.value=response.data["id"];
+            associate.description.value=response.data["description"];
+            associate.detail.value=response.data["detail"];
 
         })
         .catch(function(response) {
@@ -52,11 +51,11 @@ function selectionEdit(id) {
 
 }
 
-function selectionUpdate() {
-    var formData = new FormData(document.getElementById("selection"));
+function associateUpdate() {
+    var formData = new FormData(document.getElementById("associate"));
     axios({
             method: 'post',
-            url: 'selectionUpdate',
+            url: 'associateUpdate',
             data: formData,
             headers: {
                 'Content-Type': 'multipart/form-data'
@@ -78,14 +77,14 @@ function selectionUpdate() {
 
 }
 
-function selectionDestroy(id) {
+function associateDestroy(id) {
 
 if(confirm("¿Quieres eliminar este registro?")){
-  var formData = new FormData(document.getElementById("selection"));
+  var formData = new FormData(document.getElementById("associate"));
     formData.append("id",id)
     axios({
             method: 'post',
-            url: 'selectionDestroy',
+            url: 'associateDestroy',
             data: formData,
             headers: {
                 'Content-Type': 'multipart/form-data'
@@ -107,19 +106,20 @@ if(confirm("¿Quieres eliminar este registro?")){
 }
 }
 
-function selectionShow() {
-    var formData = new FormData(document.getElementById("show"));
+function associateShow(id) {
+    var formData = new FormData();
+    formData.append('id', id);
     axios({
             method: 'post',
-            url: 'selectionShow',
+            url: '../associateShow',
             data: formData,
         })
         .then(function(response) {
             //handle success
-            var contentdiv = document.getElementById("mycontent");
+            var contentdiv = document.getElementById("mycontent_associate");
             contentdiv.innerHTML = response.data;
               //carga pdf- csv - excel
-              datatable_load();
+           //   datatable_load();
         })
         .catch(function(response) {
             //handle error

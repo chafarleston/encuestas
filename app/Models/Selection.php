@@ -14,4 +14,10 @@ class Selection extends Model
         return $this->hasMany('App\Models\SelectionDetail', 'selection_id','id');
 
     }
+                       public function associate()
+    {
+        //delacion de uno a muchos
+        return $this->hasOne('App\Models\Selection', 'id','associate_id');
+
+    }
 }

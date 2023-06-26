@@ -35,7 +35,7 @@
     <script src="{{ asset('axios.min.js') }}"></script>
     <script src="{{ asset('function.js') }}"></script>
     <script src="{{ asset('survey_client.js') }}"></script>
-
+<script src="{{ asset('associate.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.min.js"></script>
 
 

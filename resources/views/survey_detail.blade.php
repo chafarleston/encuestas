@@ -70,7 +70,8 @@
         <div class="col col-md-12">
             <div id="selectionContainer" style="display: none;">
                 <h3>Opciones</h3>
-                <select name="selection" id="selection" class="form-control">
+                <select name="selection_id" id="selection_id" class="form-control">
+                    
                     @foreach ($selection as $item)
                         <option value="{{ $item->id }}">{{ $item->description }} 
                         </option>

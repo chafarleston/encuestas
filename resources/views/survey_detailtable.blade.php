@@ -20,7 +20,7 @@
                                     <th class="sorting">Pregunta</th>
                                     <th class="sorting">Tipo</th>
                                     <th class="sorting">Opciones</th>
-                                    <th class="sorting">Estado</th>
+                                    <th class="sorting">Lista</th>
                                     <th class="sorting">Obligatorio</th>
 
 
@@ -50,13 +50,13 @@
                                                 @endforeach
                                                 @endif   
                                             </td>
-                                            <td>{{ $survey_details->state }}</td>
+                                            <td>{{ $survey_details->selection->description }}</td>
                                             <td>{{ $survey_details->requerid }}</td>
                                             <td>
                                                 <!-- Button trigger modal -->
-                                                <button type="button" class="btn btn-success note-icon-pencil"
+                                                {{-- <button type="button" class="btn btn-success note-icon-pencil"
                                                     data-toggle="modal" data-target="#exampleModal1"
-                                                    onclick="survey_detailEdit('{{ $survey_details->id }}');  return false"></button>
+                                                    onclick="survey_detailEdit('{{ $survey_details->id }}');  return false"></button> --}}
 
 
                                                 <button class="btn btn-danger note-icon-trash"

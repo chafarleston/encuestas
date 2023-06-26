@@ -15,6 +15,10 @@ return new class extends Migration
             $table->id();
                         $table->bigInteger('survey_id')->unsigned();
             $table->foreign('survey_id')->references('id')->on('surveys');
+
+               $table->bigInteger('selection_id')->unsigned()->nullable();
+            $table->foreign('selection_id')->references('id')->on('selections');
+
                    $table->string('question');
                    $table->string('type');
                      $table->json('option')->nullable();

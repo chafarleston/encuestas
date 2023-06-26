@@ -14,6 +14,7 @@ class SurveyDetailSeeder extends Seeder
     {
        SurveyDetail::create([
                 'survey_id' => '1',
+                'selection_id' => '1',
            'question' => 'pregunta1',
             'type' => 'multiple_option',
             'requerid' => 'yes',
