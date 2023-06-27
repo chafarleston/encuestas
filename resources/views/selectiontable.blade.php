@@ -35,7 +35,9 @@
                                              @if ($selections->state=="1")
                                                 <td style="background-color: yellow">Sí </td>
                                              @elseif ($selections->state=="0")
-                                                <td >No</td>  
+                                                <td >No</td>
+                                            @elseif ($selections->state=="2")  
+                                                <td>Dependiente</td>
                                              @endif
                                              <td>{{ $selections->detail }}</td>
                                             <td>

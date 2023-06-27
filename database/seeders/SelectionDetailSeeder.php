@@ -87,7 +87,7 @@ $provincias = [
 // Iterar sobre cada región
 foreach ($regions as $region) {
 
-      SelectionDetail::create([
+   $region_ =   SelectionDetail::create([
             'description' => $region,
             'detail' => '',
             'selection_id' => '3',
@@ -99,7 +99,8 @@ foreach ($regions as $region) {
     foreach ($provinciasRegion as $provincia) {
         SelectionDetail::create([
             'description' => $provincia,
-            'detail' => $region,
+            'associate_detail_id' => $region_->id,
+                 'detail' => '',
             'selection_id' => '4',
         ]);
     }

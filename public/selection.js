@@ -42,7 +42,8 @@ function selectionEdit(id) {
             selection.id.value=response.data["id"];
             selection.description.value=response.data["description"];
             selection.detail.value = response.data["detail"];
-            selection.state.value=response.data["state"];
+            selection.state.value = response.data["state"];
+            selection.associate_id.value=response.data["associate_id"];
 
         })
         .catch(function(response) {

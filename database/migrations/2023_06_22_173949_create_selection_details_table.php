@@ -17,6 +17,8 @@ return new class extends Migration
             $table->string("detail")->nullable();
                   $table->bigInteger('selection_id')->unsigned();
              $table->foreign('selection_id')->references('id')->on('selections');
+    $table->unsignedBigInteger('associate_detail_id')->nullable();
+                     $table->foreign('associate_detail_id')->references('id')->on('selection_details');
             $table->timestamps();
         });
     }

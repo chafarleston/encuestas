@@ -2,6 +2,7 @@
 <table class="table table-responsive">
     <th>id</th>
     <th>Descripción</th>
+    <th>Asociado a</th>
     <th>Eliminar</th>
     <tbody>
         @php
@@ -15,6 +16,9 @@
                 </td>  
                 <td>
                     {{ $item->description}}
+                </td>
+                  <td>
+                    {{ $item->detail}}
                 </td>
                 <td>
                  <!-- Button trigger modal -->

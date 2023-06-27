@@ -77,8 +77,8 @@ class SurveyClientController extends Controller
     {
         
            $criterio=  explode("-", $request->id);
-        $criterio = $criterio[1];
-        $survey_details = SelectionDetail::where("detail", "=", $criterio)->get();
+        $criterio = $criterio[0];
+        $survey_details = SelectionDetail::where("associate_detail_id", "=", $criterio)->get();
             
             return view("survey_clienttable_select",compact('survey_details'));
           

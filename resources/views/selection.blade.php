@@ -49,10 +49,17 @@
                         <input type="hidden" name="id" id="id">
                         {{ csrf_field() }}
                         Descripción : <input type="text" name="description" id="description" class="form-control">
-                        Estado : 
+                        Elegir Relación
+                        <select name="associate_id" id="associate_id" class="form-control">
+                            @foreach ($selection as $item)
+                                <option value="{{ $item->id }}">{{ $item->description }} </option>
+                            @endforeach
+                        </select>
+                        Estado :
                         <select name="state" id="state" class="form-control">
                             <option value="0">No Asociado</option checked>
                             <option value="1">Asociado</option>
+                                 <option value="2">Dependiente</option>
                         </select>
 
                         Detalle : <input type="text" name="detail" id="detail" class="form-control">

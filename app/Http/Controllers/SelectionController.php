@@ -15,7 +15,7 @@ class SelectionController extends Controller
      */
     public function index()
     {
-         $selection = Selection::orderBy('id','DESC')->get();
+         $selection = Selection::orderBy('id','asc')->get();
         $selection_detail = SelectionDetail::all();
         return view("selection", compact("selection","selection_detail"));
     }
@@ -25,7 +25,7 @@ class SelectionController extends Controller
      */
     public function create()
     {
-             $selection = Selection::orderBy('id','DESC')->get();
+             $selection = Selection::orderBy('id','asc')->get();
               $selection_detail = SelectionDetail::all();
         return view("selectiontable", compact("selection","selection_detail"));
     }
@@ -38,6 +38,7 @@ class SelectionController extends Controller
         $selection = new Selection;
         $selection->description = $request->description;
         $selection->detail = $request->detail;
+         $selection->associate_id = $request->associate_id;
             $selection->state = $request->state;
         $selection->save();
         return $this->create();
@@ -69,6 +70,7 @@ class SelectionController extends Controller
         $selection = Selection::find($request->id);
         $selection->description = $request->description;
         $selection->detail = $request->detail;
+                 $selection->associate_id = $request->associate_id;
         $selection->state = $request->state;
         $selection->save();
         return $this->create();
