@@ -111,8 +111,8 @@
                                        <p></p>
                                    @endif
                                    @if (!$loop->last)
-                                       <button id="prev" class="btn btn-success btn-lg"
-                                           onclick="prevPage()">atras</button>
+                                       {{-- <button id="prev" class="btn btn-success btn-lg"
+                                           onclick="prevPage()">atras</button> --}}
                                        <button id="next" class="btn btn-success btn-lg"
                                            onclick="survey_clientStore('{{ $enumeracion }}'); return false;">Siguiente</button>
                                        <p></p>
