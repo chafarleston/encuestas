@@ -1,6 +1,7 @@
-       Asociar con:
+       
        @if (optional($selection->associate)->selection_detail == '')
        @else
+       Asociar con:
            <select name="associate_detail_id" id="associate_detail_id" class="form-control">
                <option value="">Ninguno</option>
                @foreach ($selection->associate->selection_detail as $item)
