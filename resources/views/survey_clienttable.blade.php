@@ -46,9 +46,9 @@
                                        {{ $enumeracion = $enumeracion + 1 }}
                                        {{ '. ' . $survey_details->question }}</h4>
                                    @if ($survey_details->type == 'short_answer')
-                                       <textarea cols="90%" id="answer"name="answer">
-                                        
-                                       </textarea>
+                                       <input  id="answer"name="answer" class="form-control">
+                                        <p></p>
+                                       
                                    @elseif($survey_details->type == 'multiple_option')
                                        <?php
                                        $array = json_decode($survey_details->option);
