@@ -55,8 +55,8 @@ class SelectionDetailController extends Controller
      */
     public function edit(Request $request)
     {
-             $selection_detail = Selection::find($request["id"]);
-            return view("selection_detailtable", compact("selection_detail"));
+             $selection = Selection::find($request["id"]);
+           return view("selection_detailtable", compact("selection"));
        
     }
 
