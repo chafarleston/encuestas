@@ -28,11 +28,11 @@ Route::get('encuesta/{survey_id}',[App\Http\Controllers\SurveyClientController::
 
 
    Route::resource("Encuestas_respuestas", App\Http\Controllers\CategoryController::class);
-   Route::post('survey_clientStore',[App\Http\Controllers\surveyClientController::class, 'store']);
-   Route::post('survey_clientEdit',[App\Http\Controllers\surveyClientController::class, 'edit']);
-   Route::post('survey_clientUpdate',[App\Http\Controllers\surveyClientController::class, 'update']);
-   Route::post('survey_clientDestroy',[App\Http\Controllers\surveyClientController::class, 'destroy']);
-   Route::post('survey_clientShow',[App\Http\Controllers\surveyClientController::class, 'show']);
+   Route::post('survey_clientStore',[App\Http\Controllers\SurveyClientController::class, 'store']);
+   Route::post('survey_clientEdit',[App\Http\Controllers\SurveyClientController::class, 'edit']);
+   Route::post('survey_clientUpdate',[App\Http\Controllers\SurveyClientController::class, 'update']);
+   Route::post('survey_clientDestroy',[App\Http\Controllers\SurveyClientController::class, 'destroy']);
+   Route::post('survey_clientShow',[App\Http\Controllers\SurveyClientController::class, 'show']);
 
 
    Route::resource("seleccion", App\Http\Controllers\SelectionController::class);
