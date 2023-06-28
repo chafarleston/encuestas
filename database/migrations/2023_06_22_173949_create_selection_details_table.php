@@ -18,7 +18,7 @@ return new class extends Migration
                   $table->bigInteger('selection_id')->unsigned();
              $table->foreign('selection_id')->references('id')->on('selections');
     $table->unsignedBigInteger('associate_detail_id')->nullable();
-                     $table->foreign('associate_detail_id')->references('id')->on('selection_details');
+                     $table->foreign('associate_detail_id')->references('id')->on('selection_details')->onDelete('cascade');
             $table->timestamps();
         });
     }

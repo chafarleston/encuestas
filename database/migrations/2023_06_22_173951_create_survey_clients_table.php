@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->bigInteger('survey_detail_id')->unsigned();
             $table->foreign('survey_detail_id')->references('id')->on('survey_details');
-                 $table->bigInteger('selection_detail_id')->unsigned()->nullable();
-            $table->foreign('selection_detail_id')->references('id')->on('selection_details');
+                 $table->bigInteger('selection_detail_id')->unsigned()->nullable()->onDelete('cascade');;
+            $table->foreign('selection_detail_id')->references('id')->on('selection_details')->onDelete('cascade');
             $table->string('answer')->nullable();
             $table->json('option')->nullable();
             $table->timestamps();

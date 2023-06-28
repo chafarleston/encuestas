@@ -36,6 +36,7 @@ class SelectionDetailController extends Controller
         $selection_detail->description =    $request->description;
         $selection_detail->detail =         $request->detail;
           $selection_detail->selection_id =         $request->primary;
+             $selection_detail->associate_detail_id =         $request->associate_detail_id;
         $selection_detail->save();
         return $this->create($request->primary);
     

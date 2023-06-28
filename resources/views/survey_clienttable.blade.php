@@ -70,7 +70,7 @@
                                        <p></p>
                                    @elseif($survey_details->type == 'selection')
                                        @if ($survey_details->selection->state == '0')
-                                         <select name="selection_detail_id" id="selection_detail_id"
+                                           <select name="selection_detail_id" id="selection_detail_id"
                                                class="form-control">
                                                @foreach ($survey_details->selection->selection_detail as $item)
                                                    <option value="{{ $item->id . '-' . $item->description }}">
@@ -78,17 +78,25 @@
                                                @endforeach
                                            </select>
                                        @elseif($survey_details->selection->state == '2')
-                                            <div id="mycontent_associate{{$enumeracion}}">
-
+                                           <div id="mycontent_associate{{ $enumeracion }}">
+                                               <select name="selection_detail_id" id="selection_detail_id"
+                                                   class="form-control"
+                                                   onchange="associateShow(this.value,'{{ $enumeracion + 1 }}')">
+                                                   <option value="0">- Elija una Opción -</option>
+                                                   @foreach ($survey_details->selection->selection_detail as $item)
+                                                       <option value="{{ $item->id . '-' . $item->description }}">
+                                                           {{ $item->description }} </option>
+                                                   @endforeach
+                                               </select>
                                            </div>
-                                           
-                                        @else
-                                       {{-- Aquí enumeracion es + 1 para imprimir el cambio en la siguiente vuelta  o iteracion donde
+                                       @else
+                                           {{-- Aquí enumeracion es + 1 para imprimir el cambio en la siguiente vuelta  o iteracion donde
                                         aparecerá el div myconten_associate
                                         --}}
                                            <input type="hidden" name="associate"id="associate" value="true">
                                            <select name="selection_detail_id" id="selection_detail_id"
-                                               class="form-control" onchange="associateShow(this.value,'{{$enumeracion +1}}')">
+                                               class="form-control"
+                                               onchange="associateShow(this.value,'{{ $enumeracion + 1 }}')">
                                                <option value="0">- Elija una Opción -</option>
                                                @foreach ($survey_details->selection->selection_detail as $item)
                                                    <option value="{{ $item->id . '-' . $item->description }}">

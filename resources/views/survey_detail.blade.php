@@ -178,7 +178,7 @@
 
 
 
-    <h3>Controls</h3>
+    <h3>Controles</h3>
     {{-- <input type="button" value="Nuevo" class="btn btn-warning" onclick="New();$('#survey_detail')[0].reset();"
         name="new"> --}}
     <input type="button" value="Guardar" class="btn btn-success"id="create" onclick="survey_detailStore()"

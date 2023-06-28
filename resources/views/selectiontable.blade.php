@@ -19,7 +19,7 @@
                                     <th class="sorting">ID</th>
                                     <th class="sorting">Descripción</th>
                                       <th class="sorting">Conectado con</th>
-                                         <th class="sorting">¿Asociado?</th>
+                                         <th class="sorting">Estado</th>
                                     <th class="sorting">Detalle</th>
                                     <th><img width="20"
                                             src="https://img1.freepng.es/20180622/aac/kisspng-computer-icons-download-share-icon-nut-vector-5b2d36055f5105.9823437615296896053904.jpg"
@@ -33,11 +33,11 @@
                                             <td>{{ $selections->description }}</td>
                                              <td>{{ optional($selections->associate)->description }}</td>
                                              @if ($selections->state=="1")
-                                                <td style="background-color: yellow">Sí </td>
+                                                <td style="background-color: yellow">Padre </td>
                                              @elseif ($selections->state=="0")
                                                 <td >No</td>
                                             @elseif ($selections->state=="2")  
-                                                <td>Dependiente</td>
+                                                <td style="background-color: orange">Hijo</td>
                                              @endif
                                              <td>{{ $selections->detail }}</td>
                                             <td>

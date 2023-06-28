@@ -58,8 +58,9 @@
                         Estado :
                         <select name="state" id="state" class="form-control">
                             <option value="0">No Asociado</option checked>
-                            <option value="1">Asociado</option>
-                                 <option value="2">Dependiente</option>
+                            <option value="1">Padre</option>
+                                 <option value="2">Hijo</option>
+                       
                         </select>
 
                         Detalle : <input type="text" name="detail" id="detail" class="form-control">
@@ -96,10 +97,13 @@
                         <input type="hidden" name="id"id="id">
                         <input type="hidden" name="primary"id="primary">
                         {{ csrf_field() }}
+                          <input type="button" value="Agregar" class="btn btn-success" onclick="selection_detailStore()"
+                            name="create">
+                            <p></p>
+                            Descripción:
                         <input type="text"name="description"id="description" class="form-control">
                         <p></p>
-                        <input type="button" value="Agregar" class="btn btn-success" onclick="selection_detailStore()"
-                            name="create">
+                 
 
 
                         <div id="mycontent_detail">
@@ -114,10 +118,10 @@
 
                 </div>
                 <div class="modal-footer">
-                    <input type="button" value="Nuevo" class="btn btn-warning" onclick="New();$('#role')[0].reset();"
+                    {{-- <input type="button" value="Nuevo" class="btn btn-warning" onclick="New();$('#role')[0].reset();"
                         name="new">
 
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button> --}}
                     </form>
                 </div>
             </div>
