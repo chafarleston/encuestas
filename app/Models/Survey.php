@@ -9,8 +9,8 @@ class Survey extends Model
 {
     use HasFactory;
         public function survey_detail()
-    {
+    {  
 
-        return $this->belongsTo('App\Models\SurveyDetail', 'id','survey_id');
+        return $this->hasMany('App\Models\SurveyDetail', 'survey_id','id');
     }
 }

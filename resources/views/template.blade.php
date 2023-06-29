@@ -790,9 +790,9 @@
             </div>
             <!-- /.content-wrapper -->
             <footer class="main-footer">
-                <strong>Copyright &copy; 2014-2019 <a target="_blank"
-                        href="https://www.facebook.com/anthony.cardenas.5602728">Cardenas Aquino Anthony -
-                        997852483</a>.</strong>
+                <strong>Copyright &copy; 2023 <a target="_blank"
+                        href="https://www.facebook.com/anthonycodeperu">Cardenas Aquino Anthony -
+                        +51 991945300</a>.</strong>
                 Todos los derechos reservados.
                 <div class="float-right d-none d-sm-inline-block">
                     <b>Version</b> 1.0

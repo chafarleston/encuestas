@@ -20,6 +20,7 @@
                                     <th class="sorting">Descripción</th>
                                     <th class="sorting">Detalle</th>
                                     <th class="sorting">Url</th>
+                                    <th class="sorting">Reportes</th>
                                     <th class="sorting">Fecha Inicio</th>
                                     <th class="sorting">Fecha Fin</th>
                                     <th><img width="20"
@@ -37,7 +38,12 @@
                                                 <a target="_blank" href="{{url('encuesta/'.$surveys->id)}}"class="nav-link">
                                                     Ver Encuesta
                                                 </a>
-
+                                            </td> 
+       <td> 
+                                                <a target="_blank" href="{{url('reportes/'.$surveys->id)}}"class="nav-link">
+                                                    Ver Reporte
+                                                </a>
+                                            </td> 
                                             <td>{{ $surveys->date_start }}</td>
                                             <td>{{ $surveys->date_end }}</td>
                                             <td>

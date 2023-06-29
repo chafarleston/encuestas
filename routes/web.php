@@ -22,6 +22,13 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/sistema', [App\Http\Controllers\HomeController::class, 'sistema'])->name('sistema');
 
+   
+   Route::get('reportes/{survey_id}',[App\Http\Controllers\ReportController::class, 'index']);
+   Route::post('reportStore',[App\Http\Controllers\ReportController::class, 'store']);
+   Route::post('reportEdit',[App\Http\Controllers\ReportController::class, 'edit']);
+   Route::post('reportUpdate',[App\Http\Controllers\ReportController::class, 'update']);
+   Route::post('reportDestroy',[App\Http\Controllers\ReportController::class, 'destroy']);
+   Route::post('reportShow',[App\Http\Controllers\ReportController::class, 'show']);
 
 Route::get('encuesta/{survey_id}',[App\Http\Controllers\SurveyClientController::class, 'index']);
 
@@ -35,6 +42,9 @@ Route::get('encuesta/{survey_id}',[App\Http\Controllers\SurveyClientController::
    Route::post('survey_clientShow',[App\Http\Controllers\SurveyClientController::class, 'show']);
 
    Route::post('clientStore',[App\Http\Controllers\ClientController::class, 'store']);
+
+
+
 
    Route::resource("seleccion", App\Http\Controllers\SelectionController::class);
    Route::post('selectionStore',[App\Http\Controllers\SelectionController::class, 'store']);
