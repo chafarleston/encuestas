@@ -29,7 +29,9 @@ function survey_clientStore(form) {
 }
 
 function refresh() {
+    alert('Registrado Correctamente');
     window.location.reload();
+
 }
 
 function survey_clientEdit(id,student) {

@@ -30,11 +30,30 @@
                            $enumeracion = 0;
                        @endphp
                        @foreach ($survey_detail as $survey_details)
+                           @if ($loop->first)
+                               <div class="page" style="display: none;">
+                                   <form action="" name="client" id="client">
+
+
+
+                                       {{ $survey_details->survey->detail }}
+                                       <p></p>
+                                       <button id="next" class="btn btn-danger btn-lg"
+                                           onclick="clientStore(); return false;">Responder
+                                           Formulario</button>
+
+                                   </form>
+                               </div>
+                           @endif
+
+
+
                            <div class="page" style="display: none;">
                                {{-- {{$survey_details->id}} --}}
 
                                <form action="" method="post" id="survey_client{{ $enumeracion + 1 }}"
                                    name="survey_client">
+                                   <input type="hidden"class="client_id"  name="client_id"id="client_id">
                                    <p></p>
                                    <input type="hidden" value="{{ $survey_details->id }}" name="survey_detail_id"
                                        id="survey_detail_id">
@@ -46,9 +65,8 @@
                                        {{ $enumeracion = $enumeracion + 1 }}
                                        {{ '. ' . $survey_details->question }}</h4>
                                    @if ($survey_details->type == 'short_answer')
-                                       <input  id="answer"name="answer" class="form-control">
-                                        <p></p>
-                                       
+                                       <input id="answer"name="answer" class="form-control">
+                                       <p></p>
                                    @elseif($survey_details->type == 'multiple_option')
                                        <?php
                                        $array = json_decode($survey_details->option);

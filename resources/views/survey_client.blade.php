@@ -35,6 +35,7 @@
     <script src="{{ asset('axios.min.js') }}"></script>
     <script src="{{ asset('function.js') }}"></script>
     <script src="{{ asset('survey_client.js') }}"></script>
+        <script src="{{ asset('client.js') }}"></script>
 <script src="{{ asset('associate.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.min.js"></script>
 
@@ -54,7 +55,7 @@
     <p></p>
     <div class="container">
 
-        <h1>Encuestas SAEEV</h1>
+        <h6>SDC FORMULARIOS - ANTHONY CODE</h6>
     </div>
     <div class="container">
 
@@ -63,7 +64,7 @@
             <div class="card">
                 <div class="card-header">
                     <h3 class="card-title">
-                        <h4>{{ $survey->description }}</h4>
+                        <h1><b>{{ $survey->description }}</b></h1>
                     </h3>
                     <div class="card-tools">
                         <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
