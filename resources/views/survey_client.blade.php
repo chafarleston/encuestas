@@ -55,7 +55,7 @@
     <p></p>
     <div class="container">
 
-        <h6>SDC FORMULARIOS - ANTHONY CODE</h6>
+        <h6>SDC FORMULARIOS</h6>
     </div>
     <div class="container">
 
