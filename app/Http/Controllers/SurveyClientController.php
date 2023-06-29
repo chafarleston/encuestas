@@ -47,23 +47,25 @@ class SurveyClientController extends Controller
               // return $request->option;
               if ($request->type=="multiple_option") {
                   $survey_client->option = json_encode($request->option);
+                   $survey_client->answer = $request->option;
                 }
                 else {
                 $survey_client->option = json_encode("");
+
    
             }
               if ($request->type=="short_answer") {
                   $survey_client->answer = $request->answer;
                 }
                 else {
-                $survey_client->answer = "";
+             //   $survey_client->answer = "";
           
             }
                if ($request->type=="selection") {
             $selection_detail_id = explode("-", $request->selection_detail_id);
 
                   $survey_client->selection_detail_id = $selection_detail_id[0];
-                 
+                     $survey_client->answer = $selection_detail_id[1];
 
                 }
                 else {
