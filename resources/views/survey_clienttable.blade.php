@@ -1,6 +1,6 @@
    <div class="row">
        <div class="col-12 col-md-12 col-lg-8 order-2 order-md-1">
-           <div class="row">
+           {{-- <div class="row">
                <div class="col-12 col-sm-4">
                    <div class="info-box bg-light">
                        <div class="info-box-content">
@@ -13,7 +13,7 @@
                </div>
 
 
-           </div>
+           </div> --}}
            <div class="row">
                <div class="col-12">
                    {{-- <h4>Recent Activity</h4> --}}
@@ -32,12 +32,17 @@
                        @foreach ($survey_detail as $survey_details)
                            @if ($loop->first)
                                <div class="page" style="display: none;">
+                                  <p>&nbsp; </p>
+                                
                                    <form action="" name="client" id="client">
 
 
 
                                        {{ $survey_details->survey->detail }}
-                                       <p></p>
+                                      <p>&nbsp; </p>
+                                <p>&nbsp; </p>
+                                <p>&nbsp; </p>
+                              
                                        <button id="next" class="btn btn-danger btn-lg"
                                            onclick="clientStore(); return false;">Responder
                                            Formulario</button>
@@ -129,15 +134,15 @@
                                        <p></p>
                                    @endif
                                    @if (!$loop->last)
-                                       {{-- <button id="prev" class="btn btn-success btn-lg"
+                                       {{-- <button id="prev" class="btn btn-warning btn-lg"
                                            onclick="prevPage()">atras</button> --}}
-                                       <button id="next" class="btn btn-success btn-lg"
+                                       <button id="next" class="btn btn-warning btn-lg"
                                            onclick="survey_clientStore('{{ $enumeracion }}'); return false;">Siguiente</button>
                                        <p></p>
                                    @endif
 
                                    @if ($loop->last)
-                                       <button class="btn btn-success btn-lg"
+                                       <button class="btn btn-warning btn-lg"
                                            onclick="survey_clientStore('{{ $enumeracion }}'); refresh();return false;">Finalizar</button>
                                    @endif
                                </form>
@@ -145,10 +150,10 @@
                        @endforeach
 
 
-                       <p>
+                       {{-- <p>
                            <a href="#" class="link-black text-sm"><i class="fas fa-link mr-1"></i>
                                Demo v1</a>
-                       </p>
+                       </p> --}}
 
 
                    </div>
@@ -197,7 +202,7 @@
 
 
        <div class="col-12 col-md-12 col-lg-4 order-1 order-md-2">
-           <img width="100%" src="https://cdn.pixabay.com/photo/2019/01/26/21/40/survey-3957027_1280.jpg"
+           <img width="100%" src="{{asset('sdc.jpeg')}}"
                alt="" srcset="">
            {{-- <h3 class="text-primary"><i class="fas fa-paint-brush"></i> AdminLTE v3</h3>
                             <p class="text-muted">Raw denim you probably haven't heard of them jean shorts Austin.

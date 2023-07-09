@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
 
-    <title>SAEEV</title>
+    <title>SDC - Formularios</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Font Awesome -->
@@ -35,8 +35,8 @@
     <script src="{{ asset('axios.min.js') }}"></script>
     <script src="{{ asset('function.js') }}"></script>
     <script src="{{ asset('survey_client.js') }}"></script>
-        <script src="{{ asset('client.js') }}"></script>
-<script src="{{ asset('associate.js') }}"></script>
+    <script src="{{ asset('client.js') }}"></script>
+    <script src="{{ asset('associate.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.min.js"></script>
 
 
@@ -52,11 +52,28 @@
 </head>
 
 <body class="pos-relative">
-    <p></p>
-    <div class="container">
+    <nav class="navbar navbar-expand-md  shadow-sm"style="background-color: #003399">
+        <div class="row">
+            <div class="col col-lg-4">
+                <a class="navbar-brand" href="{{ url('/') }}">
+                    <img src="{{ asset('LOGO-CERTIFICACIONES.png') }}" alt="" width="100%">
+                </a>
 
-        <h6>SDC FORMULARIOS</h6>
-    </div>
+            </div>
+            <div class="col col-lg-4">
+
+            </div>
+
+            <div class="col col-lg-4" style="justify-content: center; align-items: center; display: flex;">
+                {{-- <img src="{{ asset('CERRAR-SESION-BLANCO.png') }}" alt="" width="10%"> --}}
+                {{-- <a class="text-blue" href="{{ route('logout') }}" style="color: white;">Cerrar Sesión</a> --}}
+            </div>
+
+        </div>
+    </nav>
+
+    <p></p>
+
     <div class="container">
 
         <section class="content">

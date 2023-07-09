@@ -23,8 +23,8 @@ class SelectionDetailController extends Controller
      */
     public function create($id)
     {
-                    $selection_detail = Selection::find($id);
-            return view("selection_detailtable", compact("selection_detail"));
+                    $selection = Selection::find($id);
+            return view("selection_detailtable", compact("selection"));
     }
 
     /**
@@ -38,7 +38,8 @@ class SelectionDetailController extends Controller
           $selection_detail->selection_id =         $request->primary;
              $selection_detail->associate_detail_id =         $request->associate_detail_id;
         $selection_detail->save();
-        return $this->create($request->primary);
+       return $this->create($request->primary);
+       
     
     }
 
@@ -73,7 +74,7 @@ class SelectionDetailController extends Controller
      */
     public function destroy(Request $request)
     {
-        SelectionDetail::find($request->id)->delete();
-        return $this->create($request->primary);
+ SelectionDetail::find($request->id)->delete();
+       return $this->create($request->primary);
     }
 }

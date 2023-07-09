@@ -53,20 +53,36 @@
 </head>
 
 <body class="pos-relative">
-    <p></p>
-    <div class="container">
+    <nav class="navbar navbar-expand-md  shadow-sm"style="background-color: #003399">
+        <div class="row">
+            <div class="col col-lg-4">
+                <a class="navbar-brand" href="{{ url('/') }}">
+                    <img src="{{ asset('LOGO-CERTIFICACIONES.png') }}" alt="" width="100%">
+                </a>
 
-        <h6>SDC FORMULARIOS</h6>
-    </div>
+            </div>
+            <div class="col col-lg-4">
+
+            </div>
+
+            <div class="col col-lg-4" style="justify-content: center; align-items: center; display: flex;">
+                {{-- <img src="{{ asset('CERRAR-SESION-BLANCO.png') }}" alt="" width="10%"> --}}
+                {{-- <a class="text-blue" href="{{ route('logout') }}" style="color: white;">Cerrar Sesión</a> --}}
+            </div>
+
+        </div>
+    </nav>
+    <p></p>
+ 
     <div class="container">
 
         <section class="content">
 
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">
-                        <h1><b>REPORTE: </b>{{ $survey->description }}</h1>
-                    </h3>
+                    <h1 class="card-title">
+                        <b>{{ $survey->description }}</b>
+                    </h1>
                     <div class="card-tools">
                         <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
                             <i class="fas fa-minus"></i>
