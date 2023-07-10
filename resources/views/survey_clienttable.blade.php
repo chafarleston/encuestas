@@ -92,7 +92,24 @@
                                        </label>
                                        <p></p>
                                    @elseif($survey_details->type == 'date')
-                                       <input type="date" name="date" id="date" class="form-control">&nbsp;
+                                       <input type="date" name="date" id="date" class="form-control">
+
+                                       <script>
+                                           // Obtener el elemento de entrada de fecha por su ID
+                                           var dateInput = document.getElementById("date");
+
+                                           // Crear un objeto de fecha actual
+                                           var fechaActual = new Date();
+
+                                           // Formatear la fecha actual en el formato "YYYY-MM-DD"
+                                           var fechaFormatted = fechaActual.toISOString().slice(0, 10);
+
+                                           // Asignar la fecha actual al valor del campo de entrada
+                                           dateInput.value = fechaFormatted;
+                                       </script>
+
+
+
 
 
                                        <p></p>
