@@ -25,7 +25,7 @@
                src="https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.10.22/b-1.6.4/b-colvis-1.6.4/b-html5-1.6.4/b-print-1.6.4/sl-1.3.1/datatables.min.js">
            </script>
            <div class="row">
-
+      
                <div class="col col-lg-12">
                    <table id="example1" class="table table-bordered table-striped table-responsive">
                        <thead>
@@ -34,14 +34,22 @@
                                @foreach ($question as $questions)
                                    <th>{{ $questions }}</th>
                                @endforeach
+                               <th>Fecha</th>
                            </tr>
                        </thead>
                        <tbody>
                            @foreach ($results as $result)
                                <tr>
                                    <td>{{ $result->client_id }}</td>
+
                                    @foreach ($ids as $id)
                                        <td>{{ $result->{'pregunta' . $id} ?? '' }}</td>
+                                   @endforeach
+
+                                   @foreach ($ids as $id)
+                                       @if ($loop->first)
+                                     <td>{{ $result->{'updated_at' . $id} ?? '' }}</td>
+                                       @endif
                                    @endforeach
                                </tr>
                            @endforeach

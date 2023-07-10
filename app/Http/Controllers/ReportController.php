@@ -24,8 +24,11 @@ $question = DB::table('survey_details')->where('survey_id', "=", $request->surve
 
 $selects = ['sc.client_id']; // Incluye el campo sc.created_at
 
-// Construir dinámicamente las líneas para cada ID
+
+
 foreach ($ids as $id) {
+   // $selects[] = DB::raw("(SELECT MAX(sd.created_at) FROM survey_details sd WHERE sd.survey_id = " . $request->survey_id . ") as created_at");
+    $selects[] = DB::raw("MAX(CASE WHEN sd.id =" . $id . " THEN sc.updated_at END) as 'updated_at" . $id . "'");
     $selects[] = DB::raw("MAX(CASE WHEN sd.id =" . $id . " THEN sc.answer END) as 'pregunta" . $id . "'");
 }
 
