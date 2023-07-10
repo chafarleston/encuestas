@@ -61,6 +61,12 @@ class SurveyClientController extends Controller
              //   $survey_client->answer = "";
           
             }
+              if ($request->type=="date") {
+                  $survey_client->answer = $request->date;
+                }
+                else {
+             //   $survey_client->answer = "";
+            }
                if ($request->type=="selection") {
             $selection_detail_id = explode("-", $request->selection_detail_id);
 

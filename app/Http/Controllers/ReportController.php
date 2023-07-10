@@ -40,7 +40,7 @@ foreach ($ids as $id) {
 $results = DB::table('survey_clients as sc')
     ->join('survey_details as sd', 'sc.survey_detail_id', '=', 'sd.id')
     ->groupBy('sc.client_id') // Incluye sc.created_at en el GROUP BY
-    ->havingRaw(implode(' OR ', $havings)) // Combina las condiciones con OR
+    ->havingRaw(implode(' or ', $havings)) // Combina las condiciones con OR
     ->orderBy('sc.client_id', 'desc')
     ->select($selects)
     ->get();

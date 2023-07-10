@@ -54,9 +54,9 @@
                                             <td>{{ $survey_details->requerid }}</td>
                                             <td>
                                                 <!-- Button trigger modal -->
-                                                {{-- <button type="button" class="btn btn-success note-icon-pencil"
-                                                    data-toggle="modal" data-target="#exampleModal1"
-                                                    onclick="survey_detailEdit('{{ $survey_details->id }}');  return false"></button> --}}
+                                                <button type="button" class="btn btn-success note-icon-pencil"
+                                                    data-toggle="modal" data-target="#exampleModal"
+                                                    onclick="survey_detailEdit('{{ $survey_details->id }}');  return false"></button>
 
 
                                                 <button class="btn btn-danger note-icon-trash"

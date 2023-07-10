@@ -52,6 +52,7 @@
                 <option value="short_answer">Respuesta Corta</option>
                 <option value="multiple_option">Varias Opciones</option>
                 <option value="selection">Selección</option>
+                <option value="date">Fecha</option>
 
                 {{--  <option value="selection">Casillas</option>
                
@@ -71,9 +72,9 @@
             <div id="selectionContainer" style="display: none;">
                 <h3>Opciones</h3>
                 <select name="selection_id" id="selection_id" class="form-control">
-                    
+
                     @foreach ($selection as $item)
-                        <option value="{{ $item->id }}">{{ $item->description }} 
+                        <option value="{{ $item->id }}">{{ $item->description }}
                         </option>
                     @endforeach
                 </select>
@@ -90,6 +91,15 @@
 
             </div>
         </div>
+        <div class="col col-md-12">
+            <div id="dateContainer" style="display: none;">
+                <h3>Calendario</h3>
+                <input id="date_option"type="date"  class="form-control" disabled>
+                <p></p>
+
+            </div>
+        </div>
+
         <div class="col-md-12">
             <p></p>
 
@@ -194,6 +204,7 @@
     <script>
         const selectElement = document.getElementById('type');
         const radioContainer = document.getElementById('radioContainer');
+         const dateContainer = document.getElementById('dateContainer');
         const textContainer = document.getElementById('textContainer');
         const selectionContainer = document.getElementById('selectionContainer');
         // const radio_option = document.getElementById('radio_option');
@@ -219,6 +230,12 @@
 
             } else {
                 selectionContainer.style.display = 'none';
+            }
+            if (selectElement.value === 'date') {
+                dateContainer.style.display = 'block';
+
+            } else {
+                dateContainer.style.display = 'none';
             }
         });
 
@@ -247,12 +264,15 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Mantenimiento</h5>
+
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
 
+                    <input type="text" class="form-control" name="question_edit" id="question_edit">
+                      <input type="text" class="form-control" name="detail_edit"id="detail_id">
                     <div class="modal-footer">
 
                     </div>
