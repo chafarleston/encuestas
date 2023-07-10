@@ -18,27 +18,56 @@ class ReportController extends Controller
    public function index(Request $request)
     {
       
-            $survey = Survey::find($request->survey_id);
-          //$survey_client =DB::select("select id,question from survey_details where survey_id =".$criterio[0]);
-     // Obtén todos los IDs de las preguntas
-$ids = DB::table('survey_details')->where('survey_id',"=", $request->survey_id)->pluck('id');
-$question = DB::table('survey_details')->where('survey_id',"=", $request->survey_id)->pluck('question');
-// Inicio de la consulta SQL
-$selects = ['sc.client_id'];
+   $survey = Survey::find($request->survey_id);
+$ids = DB::table('survey_details')->where('survey_id', "=", $request->survey_id)->pluck('id');
+$question = DB::table('survey_details')->where('survey_id', "=", $request->survey_id)->pluck('question');
+
+$selects = ['sc.client_id']; // Incluye el campo sc.created_at
 
 // Construir dinámicamente las líneas para cada ID
 foreach ($ids as $id) {
-    $selects[] = DB::raw("MAX(CASE WHEN sd.id =".$id." THEN sc.answer END) as 'pregunta".$id."'");
+    $selects[] = DB::raw("MAX(CASE WHEN sd.id =" . $id . " THEN sc.answer END) as 'pregunta" . $id . "'");
 }
 
-// Realizar la consulta
+$havings = [];
+foreach ($ids as $id) {
+    $havings[] = "MAX(CASE WHEN sd.id =" . $id . " THEN sc.answer END) IS NOT NULL";
+}
+
 $results = DB::table('survey_clients as sc')
     ->join('survey_details as sd', 'sc.survey_detail_id', '=', 'sd.id')
-    ->groupBy('sc.client_id')
+    ->groupBy('sc.client_id') // Incluye sc.created_at en el GROUP BY
+    ->havingRaw(implode(' OR ', $havings)) // Combina las condiciones con OR
     ->orderBy('sc.client_id', 'desc')
     ->select($selects)
     ->get();
-            return view('report',compact("survey","results","ids","question"));
+
+return view('report', compact("survey", "results", "ids", "question"));
+
+
+
+
+/*
+QUEY SQL
+
+SELECT 
+  sc.client_id, 
+  MAX(CASE WHEN sd.id = '1' THEN sc.answer END)  as '1',
+  MAX(CASE WHEN sd.id = '2' THEN sc.answer END)  as '2',
+  MAX(CASE WHEN sd.id = '3' THEN sc.answer END) as '3',
+ MAX(CASE WHEN sd.id = '4' THEN sc.answer END) as '4',
+MAX(CASE WHEN sd.id = '5' THEN sc.answer END) as '5'
+FROM survey_clients sc 
+INNER JOIN survey_details sd ON sc.survey_detail_id = sd.id
+
+GROUP BY sc.client_id
+ORDER BY sc.client_id DESC;
+
+select id,question from survey_details where survey_id = 1
+
+*/
+
+
     }
 
     /**
