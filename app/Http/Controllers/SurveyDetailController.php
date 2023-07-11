@@ -42,6 +42,7 @@ class SurveyDetailController extends Controller
      */
     public function store(Request $request)
     {
+ 
         $survey_id = Session::get('survey_id');
     $valor = array(); // Crear un array vacío
 
@@ -66,6 +67,7 @@ foreach ($options as $option) {
          $survey_detail = new SurveyDetail;  
         $survey_detail->survey_id   =   $survey_id;
          $survey_detail->question   =    $request->question;
+            $survey_detail->detail   =    $request->detail;
           $survey_detail->type   =   $request->type;
               $survey_detail->option   =  json_encode($valor);
            $survey_detail->state   =   $request->state;
@@ -89,17 +91,22 @@ foreach ($options as $option) {
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(SurveyDetail $surveyDetail)
+    public function edit(Request $request)
     {
-        //
+        $survey_detail = SurveyDetail::find($request->id);
+        return $survey_detail;
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateSurveyDetailRequest $request, SurveyDetail $surveyDetail)
+    public function update(Request $request)
     {
-        //
+            $survey_detail = SurveyDetail::find($request->id);
+        $survey_detail->question = $request->question_edit;
+        $survey_detail->detail = $request->detail_edit;
+        $survey_detail->save();
+        return $this->create();
     }
 
     /**

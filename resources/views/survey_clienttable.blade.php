@@ -69,8 +69,12 @@
                                    <h4>
                                        {{ $enumeracion = $enumeracion + 1 }}
                                        {{ '. ' . $survey_details->question }}</h4>
+                                   <span> {{ $survey_details->detail }}</span>
+
                                    @if ($survey_details->type == 'short_answer')
-                                       <input id="answer"name="answer" class="form-control">
+                                       <input id="answer" name="answer" class="form-control" required>
+                                 
+                                     
                                        <p></p>
                                    @elseif($survey_details->type == 'multiple_option')
                                        <?php

@@ -25,7 +25,7 @@ function survey_detailStore() {
 }
 
 function survey_detailEdit(id) {
-  var formData = new FormData(document.getElementById("survey_detail"));
+  var formData = new FormData(document.getElementById("survey_detail_edit"));
   formData.append("id", id);
   axios({
     method: "post",
@@ -37,11 +37,12 @@ function survey_detailEdit(id) {
   })
     .then(function(response) {
       //handle success
-      var contentdiv = document.getElementById("mycontent");
+      //var contentdiv = document.getElementById("mycontent");
       // contentdiv.innerHTML = response.data["description"];
-      survey_detail.id.value = response.data["id"];
-      survey_detail.description.value = response.data["description"];
-      survey_detail.detail.value = response.data["detail"];
+     
+      survey_detail_edit.id.value = response.data["id"];
+      survey_detail_edit.question_edit.value = response.data["question"];
+     survey_detail_edit.detail_edit.value = response.data["detail"];
     })
     .catch(function(response) {
       //handle error
@@ -50,7 +51,7 @@ function survey_detailEdit(id) {
 }
 
 function survey_detailUpdate() {
-  var formData = new FormData(document.getElementById("survey_detail"));
+  var formData = new FormData(document.getElementById("survey_detail_edit"));
   axios({
     method: "post",
     url: "survey_detailUpdate",

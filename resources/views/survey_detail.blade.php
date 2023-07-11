@@ -39,7 +39,9 @@
                 <input type="hidden" name="id" id="id">
                 {{ csrf_field() }}
                 <h2>Pregunta</h2>
-                <textarea type="text" name="question" id="quiestion" class="form-control" rows="4px"> </textarea>
+                <textarea type="text" name="question" id="question" class="form-control" rows="2px"> </textarea>
+                 <h2>Detalle</h2>
+                <textarea type="text" name="detail" id="detail" class="form-control" rows="2px"> </textarea>
         </div>
         <p></p>
         <div class="col col-md-12">
@@ -94,7 +96,7 @@
         <div class="col col-md-12">
             <div id="dateContainer" style="display: none;">
                 <h3>Calendario</h3>
-                <input id="date_option"type="date"  class="form-control" disabled>
+                <input id="date_option"type="date" class="form-control" disabled>
                 <p></p>
 
             </div>
@@ -193,9 +195,8 @@
         name="new"> --}}
     <input type="button" value="Guardar" class="btn btn-success"id="create" onclick="survey_detailStore()"
         name="create">
-    {{-- <input type="button" value="Modificar" class="btn btn-danger"id="update" onclick="survey_detailUpdate();"
-        name="update">
-    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button> --}}
+{{-- 
+    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>  --}}
     </form>
 
 
@@ -204,7 +205,7 @@
     <script>
         const selectElement = document.getElementById('type');
         const radioContainer = document.getElementById('radioContainer');
-         const dateContainer = document.getElementById('dateContainer');
+        const dateContainer = document.getElementById('dateContainer');
         const textContainer = document.getElementById('textContainer');
         const selectionContainer = document.getElementById('selectionContainer');
         // const radio_option = document.getElementById('radio_option');
@@ -270,13 +271,21 @@
                     </button>
                 </div>
                 <div class="modal-body">
+                    <form action=""name="survey_detail_edit"id="survey_detail_edit">
+                        @csrf
+                        <input type="hidden" name="id"id="id">
+                        Pregunta:
+                        <input type="text" class="form-control" name="question_edit" id="question_edit">
+                        Detalle:
+                        <input type="text" class="form-control" name="detail_edit"id="detail_id">
+                        <div class="modal-footer">
+                            <input type="button" value="Modificar" class="btn btn-danger"id="update"
+                                onclick="survey_detailUpdate();" name="update">
 
-                    <input type="text" class="form-control" name="question_edit" id="question_edit">
-                      <input type="text" class="form-control" name="detail_edit"id="detail_id">
-                    <div class="modal-footer">
+                    </form>
 
-                    </div>
                 </div>
             </div>
         </div>
-    @endsection
+    </div>
+@endsection

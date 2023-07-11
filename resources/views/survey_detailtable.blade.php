@@ -22,7 +22,7 @@
                                     <th class="sorting">Opciones</th>
                                     <th class="sorting">Lista</th>
                                     <th class="sorting">Obligatorio</th>
-
+<th class="sorting">Detalle</th>
 
                                     <th><img width="20"
                                             src="https://img1.freepng.es/20180622/aac/kisspng-computer-icons-download-share-icon-nut-vector-5b2d36055f5105.9823437615296896053904.jpg"
@@ -52,6 +52,7 @@
                                             </td>
                                             <td>{{ $survey_details->selection->description }}</td>
                                             <td>{{ $survey_details->requerid }}</td>
+                                                 <td>{{ $survey_details->detail }}</td>
                                             <td>
                                                 <!-- Button trigger modal -->
                                                 <button type="button" class="btn btn-success note-icon-pencil"
