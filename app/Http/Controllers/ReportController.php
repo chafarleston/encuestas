@@ -131,8 +131,9 @@ select id,question from survey_details where survey_id = 1
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Report $report)
+    public function destroy(Request $request)
     {
-        //
+           SurveyClient::where("client_id","=",$request->id)->delete();
+       // return $this->create();
     }
 }

@@ -1,20 +1,4 @@
-   <div class="row">
-       <div class="col-12 col-md-12 col-lg-12 order-2 order-md-1">
-           {{-- <div class="row">
-               <div class="col-12 col-sm-4">
-                   <div class="info-box bg-light">
-                       <div class="info-box-content">
-                           <span class="info-box-text text-center text-muted">Cantidad de
-                               Preguntas</span>
-                           <span class="info-box-number text-center text-muted mb-0">0
-                           </span>
-                       </div>
-                   </div>
-               </div>
-
-
-           </div> --}}
-
+  
            <!--  USO DE DATATABLE PARA GENERAR PDF - CSV  -->
            <link rel="stylesheet" type="text/css"
                href="https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.10.22/b-1.6.4/b-colvis-1.6.4/b-html5-1.6.4/b-print-1.6.4/sl-1.3.1/datatables.min.css" />
@@ -24,9 +8,8 @@
            <script type="text/javascript"
                src="https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.10.22/b-1.6.4/b-colvis-1.6.4/b-html5-1.6.4/b-print-1.6.4/sl-1.3.1/datatables.min.js">
            </script>
-           <div class="row">
-      
-               <div class="col col-lg-12">
+
+
                    <table id="example1" class="table table-bordered table-striped table-responsive">
                        <thead>
                            <tr>
@@ -35,6 +18,7 @@
                                    <th>{{ $questions }}</th>
                                @endforeach
                                <th>Fecha</th>
+                             <th ><img width="20" src="https://img1.freepng.es/20180622/aac/kisspng-computer-icons-download-share-icon-nut-vector-5b2d36055f5105.9823437615296896053904.jpg" alt="" srcset=""></th>
                            </tr>
                        </thead>
                        <tbody>
@@ -48,75 +32,24 @@
 
                                    @foreach ($ids as $id)
                                        @if ($loop->first)
-                                     <td>{{ $result->{'updated_at' . $id} ?? '' }}</td>
+                                           <td>{{ $result->{'updated_at' . $id} ?? '' }}</td>
                                        @endif
                                    @endforeach
+                                   <td>
+                                    <form name="report" id="report">
+                                        @csrf
+                                        <button class="btn btn-danger note-icon-trash" onclick="reportDestroy('{{ $result->client_id }}'); return false"></button>
+                                    </form>
+                                       <!-- <button class="note-icon-pencil" ></button> -->
+                                   </td>
                                </tr>
                            @endforeach
                        </tbody>
                    </table>
 
-               </div>
-           </div>
 
 
 
-       </div>
-
-
-
-       {{-- <div class="col-12 col-md-12 col-lg-4 order-1 order-md-2">
-            <img width="100%" src="{{asset('sdc.jpeg')}}"
-               alt="" srcset="">
-           <h3 class="text-primary"><i class="fas fa-paint-brush"></i> AdminLTE v3</h3>
-                            <p class="text-muted">Raw denim you probably haven't heard of them jean shorts Austin.
-                                Nesciunt
-                                tofu stumptown aliqua butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh
-                                mi,
-                                qui irure terr.</p>
-                            <br>
-                            <div class="text-muted">
-                                <p class="text-sm">Client Company
-                                    <b class="d-block">Deveint Inc</b>
-                                </p>
-                                <p class="text-sm">Project Leader
-                                    <b class="d-block">Tony Chicken</b>
-                                </p>
-                            </div>
-                            <h5 class="mt-5 text-muted">Project files</h5>
-                            <ul class="list-unstyled">
-                                <li>
-                                    <a href="" class="btn-link text-secondary"><i
-                                            class="far fa-fw fa-file-word"></i>
-                                        Functional-requirements.docx</a>
-                                </li>
-                                <li>
-                                    <a href="" class="btn-link text-secondary"><i
-                                            class="far fa-fw fa-file-pdf"></i>
-                                        UAT.pdf</a>
-                                </li>
-                                <li>
-                                    <a href="" class="btn-link text-secondary"><i
-                                            class="far fa-fw fa-envelope"></i>
-                                        Email-from-flatbal.mln</a>
-                                </li>
-                                <li>
-                                    <a href="" class="btn-link text-secondary"><i
-                                            class="far fa-fw fa-image "></i>
-                                        Logo.png</a>
-                                </li>
-                                <li>
-                                    <a href="" class="btn-link text-secondary"><i
-                                            class="far fa-fw fa-file-word"></i>
-                                        Contract-10_12_2014.docx</a>
-                                </li>
-                            </ul>
-                            <div class="text-center mt-5 mb-3">
-                                <a href="#" class="btn btn-sm btn-primary">Add files</a>
-                                <a href="#" class="btn btn-sm btn-warning">Report contact</a>
-                            </div> 
-       </div> --}}
-   </div>
 
    <script>
        function datatable_load() {
