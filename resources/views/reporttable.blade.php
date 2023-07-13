@@ -38,7 +38,11 @@
                                    <td>
                                     <form name="report" id="report">
                                         @csrf
-                                        <button class="btn btn-danger note-icon-trash" onclick="reportDestroy('{{ $result->client_id }}'); return false"></button>
+                                         <!-- Button trigger modal -->
+                                                <button type="button" class="btn btn-success note-icon-pencil"
+                                                    data-toggle="modal" data-target="#exampleModal"
+                                                    onclick="reportEdit('{{$result->client_id}}'); Up();  return false"></button>
+                                        <button class="btn btn-danger note-icon-trash" onclick="reportDestroy('{{$result->client_id}}'); return false"></button>
                                     </form>
                                        <!-- <button class="note-icon-pencil" ></button> -->
                                    </td>

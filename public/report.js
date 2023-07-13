@@ -67,3 +67,29 @@ if(confirm("¿Quieres eliminar este registro?")){
         });
 }
 }
+
+
+function reportEdit(id) {
+    var formData = new FormData(document.getElementById("report"));
+    formData.append("id",id);
+    axios({
+            method: 'post',
+            url: 'reportEdit',
+            data: formData,
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            }
+        })
+        .then(function(response) {
+            //handle success
+            var contentdiv = document.getElementById("mycontent");
+           // contentdiv.innerHTML = response.data["description"];
+            registry.id.value=          response.data["id"];
+
+        })
+        .catch(function(response) {
+            //handle error
+            console.log(response);
+        });
+
+}
