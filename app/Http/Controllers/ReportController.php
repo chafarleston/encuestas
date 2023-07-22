@@ -115,9 +115,11 @@ select id,question from survey_details where survey_id = 1
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Report $report)
+    public function edit(Request $request)
     {
-        //
+        $report = Report::where("client_id","=",$request->id)->get();
+ return $report[0];
+
     }
 
     /**

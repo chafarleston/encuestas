@@ -74,7 +74,7 @@ function reportEdit(id) {
     formData.append("id",id);
     axios({
             method: 'post',
-            url: 'reportEdit',
+            url: '../reportEdit',
             data: formData,
             headers: {
                 'Content-Type': 'multipart/form-data'
@@ -82,9 +82,12 @@ function reportEdit(id) {
         })
         .then(function(response) {
             //handle success
-            var contentdiv = document.getElementById("mycontent");
-           // contentdiv.innerHTML = response.data["description"];
-            registry.id.value=          response.data["id"];
+          
+           //  var contentdiv = document.getElementById("mycontent");
+          // contentdiv.innerHTML = response.data["id"];
+           report.id.value = response.data["id"];
+             report.description.value = response.data["description"];
+           report.detail.value= response.data["detail"];  
 
         })
         .catch(function(response) {

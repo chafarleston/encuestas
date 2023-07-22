@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Client;
+use App\Models\Report;
 use App\Http\Requests\StoreClientRequest;
 use App\Http\Requests\UpdateClientRequest;
 use Illuminate\Http\Request;
@@ -32,7 +33,13 @@ class ClientController extends Controller
              $client = new Client;
     
 
-            $client->save();
+        $client->save();
+        $report = new Report;
+        $report->client_id = $client->id;
+        $report->description = "";
+        $report->detail = "";
+        $report->save();
+
         return $client->id;
     }
 
