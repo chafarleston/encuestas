@@ -39,7 +39,7 @@ class PermissionsSeeder extends Seeder
         ///////////////////////////////////////////////////////////////////////
 
 Permission::create(['name' => 'Responder encuesta']);
-$role = Role::create(['name' => 'Encuestado']);
+$role = Role::create(['name' => 'Encuestador']);
 $role->syncPermissions("Responder encuesta");
 //
 
@@ -56,7 +56,7 @@ $user3= User::create([
     'email' => 'logicainformatica18@gmail.com',
 ]);
 //
-$user3->assignRole('Encuestado');
+$user3->assignRole('Encuestador');
 //
  }
 }

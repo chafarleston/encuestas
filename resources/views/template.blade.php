@@ -439,7 +439,7 @@
                                             <p>Listas</p>
                                         </a>
                                     </li>
-                                @elseif('Encuestado')
+                                @elseif('Encuestador')
                                     <li class="nav-item">
                                         <a href="{{ route('Mis-certificados.index') }}" class="nav-link">
                                             <i class="far fa-circle nav-icon"></i>

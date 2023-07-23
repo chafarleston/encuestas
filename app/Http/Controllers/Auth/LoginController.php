@@ -51,7 +51,7 @@ class LoginController extends Controller
             //create a user using socialite driver google
             $user = Socialite::driver('google')->user();
             // if the user exits, use that user and login
-            $finduser = User::where('google_id', $user->id)->first();
+            $finduser = User::where('email', $user->email)->first();
             if($finduser){
                 //if the user exists, login and show dashboard
                 Auth::login($finduser);
@@ -59,24 +59,25 @@ class LoginController extends Controller
             }else{
                 //user is not yet created, so create first
                 $newUser = User::create([
-                    'name' => $user->name,
+                    'names' => $user->name,
                     'email' => $user->email,
                     'google_id'=> $user->id,
                     'password' => encrypt('')
                 ]);
                 //every user needs a team for dashboard/jetstream to work.
-                //create a personal team for the user
-                $newTeam = Team::forceCreate([
-                    'user_id' => $newUser->id,
-                    'name' => explode(' ', $user->name, 2)[0]."'s Team",
-                    'personal_team' => true,
-                ]);
+                // //create a personal team for the user
+                // $newTeam = Team::forceCreate([
+                //     'user_id' => $newUser->id,
+                //     'names' => explode(' ', $user->name, 2)[0]."'s Team",
+                //     'personal_team' => true,
+                // ]);
                 // save the team and add the team to the user.
-                $newTeam->save();
-                $newUser->current_team_id = $newTeam->id;
+                // $newTeam->save();
+                // $newUser->current_team_id = $newTeam->id;
                 $newUser->save();
                 //login as the new user
                 Auth::login($newUser);
+                $newUser->assignRole('Encuestador');
                 // go to the dashboard
                 return redirect('/home');
             }
