@@ -109,11 +109,11 @@ function reportUpdate() {
         })
         .then(function(response) {
             //handle success
-            var contentdiv = document.getElementById("mycontent");
-            contentdiv.innerHTML = response.data;
+          //  var contentdiv = document.getElementById("mycontent");
+           // contentdiv.innerHTML = response.data;
                  //carga pdf- csv - excel
                //  datatable_load();
-                 alert('Modificado Correctamente');
+                 window.location.reload();
         })
         .catch(function(response) {
             //handle error

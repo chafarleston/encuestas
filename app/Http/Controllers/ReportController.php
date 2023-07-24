@@ -80,7 +80,7 @@ select id,question from survey_details where survey_id = 1
      */
     public function create()
     {
-        //
+      
     }
 
     /**
