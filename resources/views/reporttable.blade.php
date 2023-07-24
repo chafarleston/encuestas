@@ -17,6 +17,8 @@
                   <th>{{ $questions }}</th>
               @endforeach
               <th>Fecha</th>
+              <th style="background-color: yellow;color:black">Anotación Descripción</th>
+              <th style="background-color: yellow;color:black">Anotación Detalle</th>
               <th><img width="20"
                       src="https://img1.freepng.es/20180622/aac/kisspng-computer-icons-download-share-icon-nut-vector-5b2d36055f5105.9823437615296896053904.jpg"
                       alt="" srcset=""></th>
@@ -36,15 +38,19 @@
                           <td>{{ $result->{'updated_at' . $id} ?? '' }}</td>
                       @endif
                   @endforeach
+
+                  <td>{{ $result->description }}</td>
+                  <td>{{ $result->detail }}</td>
                   <td>
+
                       {{-- <form name="report" id="report">
                           @csrf --}}
-                          <!-- Button trigger modal -->
-                          <button type="button" class="btn btn-success note-icon-pencil" data-toggle="modal"
-                              data-target="#exampleModal1"
-                              onclick="reportEdit('{{ $result->client_id }}'); Up();  return false"></button>
-                          <button class="btn btn-danger note-icon-trash"
-                              onclick="reportDestroy('{{ $result->client_id }}'); return false"></button>
+                      <!-- Button trigger modal -->
+                      <button type="button" class="btn btn-success note-icon-pencil" data-toggle="modal"
+                          data-target="#exampleModal1"
+                          onclick="reportEdit('{{ $result->client_id }}'); Up();  return false"></button>
+                      <button class="btn btn-danger note-icon-trash"
+                          onclick="reportDestroy('{{ $result->client_id }}'); return false"></button>
                       {{-- </form> --}}
                       <!-- <button class="note-icon-pencil" ></button> -->
                   </td>
@@ -148,7 +154,7 @@
       }
       datatable_load();
   </script>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>

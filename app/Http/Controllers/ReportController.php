@@ -22,7 +22,7 @@ class ReportController extends Controller
 $ids = DB::table('survey_details')->where('survey_id', "=", $request->survey_id)->pluck('id');
 $question = DB::table('survey_details')->where('survey_id', "=", $request->survey_id)->pluck('question');
 
-$selects = ['sc.client_id']; // Incluye el campo sc.created_at
+        $selects = ['sc.client_id','re.description','re.detail'];
 
 
 
@@ -39,7 +39,9 @@ foreach ($ids as $id) {
 
 $results = DB::table('survey_clients as sc')
     ->join('survey_details as sd', 'sc.survey_detail_id', '=', 'sd.id')
-    ->groupBy('sc.client_id') // Incluye sc.created_at en el GROUP BY
+    ->join('clients as c', 'c.id', '=', 'sc.client_id')
+     ->join('reports as re', 'c.id', '=', 're.client_id')
+    ->groupBy('sc.client_id','re.description','re.detail') // Incluye sc.created_at en el GROUP BY
     ->havingRaw(implode(' or ', $havings)) // Combina las condiciones con OR
     ->orderBy('sc.client_id', 'desc')
     ->select($selects)
@@ -117,17 +119,27 @@ select id,question from survey_details where survey_id = 1
      */
     public function edit(Request $request)
     {
-        $report = Report::where("client_id","=",$request->id)->get();
- return $report[0];
+       $report = Report::where("client_id","=",$request->id)->get();
+// return $report[0];
+try {
+  return $report[0];
+} catch (\Throwable $th) {
+    
+}
+       
 
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateReportRequest $request, Report $report)
+    public function update(Request $request)
     {
-        //
+          $report = Report::find($request["id"]);
+        $report->description = $request["description"];
+        $report->detail = $request["detail"];
+       return $report->save();
+ //       return $request->id;
     }
 
     /**

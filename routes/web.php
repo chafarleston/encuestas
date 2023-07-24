@@ -82,7 +82,8 @@ Route::group(['middleware' => ['role:Administrador']], function () {
 
        Route::post('reportDestroy',[App\Http\Controllers\ReportController::class, 'destroy']);
         Route::post('reportEdit',[App\Http\Controllers\ReportController::class, 'edit']);
-   Route::post('reportUpdate',[App\Http\Controllers\ReportController::class, 'update']);
+
+        Route::post('reportUpdate',[App\Http\Controllers\ReportController::class, 'update']);
     //
    Route::resource("categorias", App\Http\Controllers\CategoryController::class);
    Route::post('categoryStore',[App\Http\Controllers\CategoryController::class, 'store']);

@@ -141,9 +141,9 @@
 
               </div>
               <div class="modal-footer">
-                  <input type="button" value="Nuevo" class="btn btn-warning" onclick="New();$('#course')[0].reset();"
+                  <input type="button" value="Nuevo" class="btn btn-warning" onclick="New();$('#report')[0].reset();"
                       name="new">
-                  <input type="button" value="Guardar" class="btn btn-success"id="create" onclick="courseStore()"
+                  <input type="button" value="Guardar" class="btn btn-success"id="create" onclick=""
                       name="create">
                   <input type="button" value="Modificar" class="btn btn-danger"id="update" onclick="reportUpdate();"
                       name="update">
