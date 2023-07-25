@@ -13,10 +13,11 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get('/', function () {
+// Route::get('/', function () {
 
-      return view('welcome');
-});
+//    //   return view('welcome');
+// });
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
