@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>SAEEV</title>
+    <title>SDC Formularios</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Font Awesome -->
@@ -102,62 +102,53 @@
     <div class="wrapper">
 
         <!-- Navbar -->
-        <nav class="main-header navbar navbar-expand navbar-white navbar-light">
-            <!-- Left navbar links -->
+        <nav class="main-header navbar navbar-expand"style="background-color: #00bf6f">
             <ul class="navbar-nav">
                 <li class="nav-item">
                     <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i
                             class="fas fa-bars"></i></a>
                 </li>
-                <li class="nav-item d-none d-sm-inline-block">
-                    <a href="{{ url('/home') }}" class="nav-link">Perfil</a>
-                </li>
-                <li class="nav-item d-none d-sm-inline-block">
-                    <a class="nav-link" href="{{ route('logout') }}"
-                        onclick="event.preventDefault();
-                                  document.getElementById('logout-form').submit();">
-                        {{ __('Cerrar Sesión') }}
-                    </a>
 
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                        @csrf
-                    </form>
-                </li>
+
             </ul>
 
-            <!-- SEARCH FORM -->
-            {{-- <form class="form-inline ml-3">
-                <div class="input-group input-group-sm">
-                    <input class="form-control form-control-navbar" type="search" placeholder="Search"
-                        aria-label="Search">
-                    <div class="input-group-append">
-                        <button class="btn btn-navbar" type="submit">
-                            <i class="fas fa-search"></i>
-                        </button>
-                    </div>
+            <div class="row">
+                <div class="col col-lg-4">
+
+                    <a class="navbar-brand" href="{{ url('/') }}">
+                        <img src="{{ asset('LOGO-CERTIFICACIONES.png') }}" alt="" width="60%">
+                    </a>
+
                 </div>
-            </form> --}}
+                <div class="col col-lg-4">
 
-            <!-- Right navbar links -->
+                </div>
 
+                <div class="col col-lg-4" style="justify-content: center; align-items: center; display: flex;">
+                    <img src="{{ asset('CERRAR-SESION-BLANCO.png') }}" alt="" width="10%">
+                    <a href="{{ route('logout') }}" style="color: white;">Cerrar Sesión</a>
+                </div>
+
+            </div>
         </nav>
         <!-- /.navbar -->
 
         <!-- Main Sidebar Container -->
-        <aside class="main-sidebar sidebar-dark-primary elevation-4">
+        <aside class="main-sidebar sidebar-dark-primary elevation-4" style="background-color: #042d89;color:white">
             <!-- Brand Logo -->
             <a href="" class="brand-link">
-                <h1>SAEEV</h1>
-                {{-- <img src="" alt="AdminLTE Logo" class="" width="100%"                 style="opacity: .8"> --}}
-                <p></p>
-                <span class="brand-text font-weight-light center">Certificaciones</span>
+     
+                <span class="brand-text font-weight-light center">
+  <img src="{{asset('logo-sdcre-corto-blanco.png')}}" alt="AdminLTE Logo" class="" width="100%"                 style="">
+                </span>
                 <p></p>
             </a>
 
             <!-- Sidebar -->
             <div class="sidebar">
+         <br>
                 <!-- Sidebar user panel (optional) -->
-                <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                <div class="user-panel mt-1 pb-1 mb-3 d-flex">
                     <div class="image">
                         @if (Auth::user()->photo == '' && Auth::user()->sex == 'M')
                             <img src="{{ asset('male.png') }}" class="img-circle elevation-2" alt="User Image">
@@ -171,9 +162,6 @@
                     <div class="info">
                         <a href="#" class="d-block">{{ Auth::user()->names }}</a><br>
                     </div>
-                    <br>
-
-
                 </div>
 
                 <!-- Sidebar Menu -->
@@ -398,7 +386,7 @@
                             </ul>
                         </li> --}}
                         <li class="nav-item has-treeview menu-open">
-                            <a href="#" class="nav-link">
+                            <a href="#" class="nav-link" style="background-color: #00bf6f;color:black">
                                 <i class="nav-icon fas fa-table"></i>
                                 <p>
                                     Módulos
@@ -409,34 +397,40 @@
                                 @role('Administrador|Administrador')
                                     <li class="nav-item">
                                         <a href="{{ route('usuarios.index') }}" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Usuarios</p>
+                                            {{-- <i class="far fa-circle nav-icon"></i> --}}
+                                            <img src="{{ asset('usuario.png') }}" alt="" srcset=""
+                                                width="30px">
+                                            <p>USUARIOS</p>
                                         </a>
                                     </li>
-                                    <li class="nav-item">
+                                    {{-- <li class="nav-item">
                                         <a href="{{ route('categorias.index') }}" class="nav-link">
                                             <i class="far fa-circle nav-icon"></i>
                                             <p>Categorías</p>
                                         </a>
-                                    </li>
+                                    </li> --}}
 
 
-                                    <li class="nav-item">
+                                    {{-- <li class="nav-item">
                                         <a href="{{ route('tipos.index') }}" class="nav-link">
                                             <i class="far fa-circle nav-icon"></i>
                                             <p>Tipos</p>
                                         </a>
-                                    </li>
+                                    </li> --}}
                                     <li class="nav-item">
                                         <a href="{{ route('encuestas.index') }}" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Encuestas</p>
+                                            {{-- <i class="far fa-circle nav-icon"></i> --}}
+                                               <img src="{{ asset('formularioss.png') }}" alt="" srcset=""
+                                                width="30px">
+                                            <p>ENCUESTAS</p>
                                         </a>
                                     </li>
                                      <li class="nav-item">
                                         <a href="{{ route('seleccion.index') }}" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Listas</p>
+                                            {{-- <i class="far fa-circle nav-icon"></i> --}}
+                                               <img src="{{ asset('listas.png') }}" alt="" srcset=""
+                                                width="30px">
+                                            <p>LISTAS</p>
                                         </a>
                                     </li>
                                 @elseif('Encuestador')
@@ -755,15 +749,13 @@
 
 
                 </div>
-                <div class="user-panel pl-5 mt-3 pb-3 mb-3 d-flex">
+                
+                  <div class="user-panel pl-5 mt-3 pb-3 mb-3 d-flex">
 
 
+                    <img src="{{ asset('CERRAR-SESION-BLANCO.png') }}" alt="" width="10%">
+                    <a href="{{ route('logout') }}" style="color: white;">Cerrar Sesión</a>
 
-                    <a href="{{ route('logout') }}"
-                        onclick="event.preventDefault();
-                    document.getElementById('logout-form').submit();">
-                        {{ __('Cerrar Sesión') }}
-                    </a>
 
                 </div>
             </div>
@@ -789,16 +781,13 @@
                 </div>
             </div>
             <!-- /.content-wrapper -->
-            <footer class="main-footer">
-                <strong>Copyright &copy; 2023 <a target="_blank"
-                        href="https://www.facebook.com/anthonycodeperu">Cardenas Aquino Anthony -
-                        +51 991945300</a>.</strong>
-                Todos los derechos reservados.
+           <footer class="main-footer">
+                <span
+                    style="background-image: linear-gradient(45deg, rgb(255, 0, 149), red); -webkit-background-clip: text; color: transparent;">
+                  <a href="https://anthonycode.com"target="_blank">Copyright © 2023 Dev. AnthonyCode</a></span>
                 <div class="float-right d-none d-sm-inline-block">
-                    <b>Version</b> 1.0
                 </div>
             </footer>
-
             <!-- Control Sidebar -->
             <aside class="control-sidebar control-sidebar-dark">
                 <!-- Control sidebar content goes here -->
