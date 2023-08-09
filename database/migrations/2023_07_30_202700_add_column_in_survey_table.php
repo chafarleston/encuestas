@@ -13,12 +13,11 @@ return new class extends Migration
     {
         Schema::table('surveys', function (Blueprint $table) {
     //     $table->engine = 'InnoDB';
-    //    $table->bigInteger('pollster_m')->nullable()->unsigned();
+       // $table->string('type')->nullable();
     // $table->string('pollster_t')->nullable();
     // $table->bigInteger('pollster_r')->nullable()->unsigned();
 
-       $table->foreign(['pollster_m','pollster_t','pollster_r'])
-             ->references(['model_id','model_type','role_id'])->on('model_has_roles');
+ 
         });
         
     }

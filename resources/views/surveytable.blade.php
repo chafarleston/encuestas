@@ -19,6 +19,7 @@
                                     <th class="sorting">ID</th>
                                     <th class="sorting">Descripción</th>
                                     <th class="sorting">Detalle</th>
+                                        <th class="sorting">Tipo</th>
                                     <th class="sorting">Url</th>
                                     <th class="sorting">Reportes</th>
                                     <th class="sorting">Fecha Inicio</th>
@@ -34,6 +35,7 @@
                                             <td>{{ $surveys->id }}</td>
                                             <td>{{ $surveys->description }}</td>
                                             <td>{{ $surveys->detail }}</td>
+                                              <td>{{ $surveys->type }}</td>
                                             <td> 
                                                 <a target="_blank" href="{{url('encuesta/'.$surveys->id)}}"class="nav-link">
                                                     Ver Encuesta

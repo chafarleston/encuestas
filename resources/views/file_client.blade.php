@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
 
-    <title>SDC - Encuesta</title>
+    <title>SDC - Ficha</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Font Awesome -->
@@ -52,11 +52,11 @@
 </head>
 
 <body class="pos-relative">
-    <nav class="navbar navbar-expand-md  shadow-sm"style="background-color: #00bf6f">
+    <nav class="navbar navbar-expand-md  shadow-sm"style="background-color: #042d89">
         <div class="row">
-            <div class="col col-lg-6">
+            <div class="col col-lg-4">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    <img src="{{ asset('logo-sdcre-corto-blanco.png') }}" alt="" width="100%">
+                    <img src="{{ asset('LOGO-CERTIFICACIONES.png') }}" alt="" width="100%">
                 </a>
 
             </div>
@@ -74,32 +74,39 @@
 
     <p></p>
 
+    <div class="container">
 
+        <section class="content">
 
-    <div class="row container-fluid">
-        <div class="col-lg-4">
-            <img src="{{ asset('imagen-de-encuesta.png') }}" alt="" srcset="" width="100%">
-        </div>
-        <div class="col-lg-8 flex">
-            <p>
-                &nbsp;
-            </p>
-            <p>
-                &nbsp;
-            </p>
-            <h1 style="color:#042d89;font-size:400%"><b>{{ $survey->description }}</b></h1>
-            <h2 ><b>{{ $survey->detail }}</b></h2>
-                <div id="mycontent">
-                    @include('survey_clienttable')
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">
+                        <h1><b>{{ $survey->description }}</b></h1>
+                    </h3>
+                    <div class="card-tools">
+                        <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                            <i class="fas fa-minus"></i>
+                        </button>
+                        <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
                 </div>
-        </div>
+                <div class="card-body">
+                    <div id="mycontent">
+
+
+
+                        @include('file_clienttable')
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
     </div>
-
-
-
-
-
-
 
 
 
