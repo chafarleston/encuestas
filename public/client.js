@@ -13,6 +13,12 @@ function clientStore() {
     .then(function(response) {
         // Manejar el éxito de la respuesta
         
+        if (response.data == "denegado") {
+            alert("Acceso denegado");
+            window.location.reload();
+            return;
+        }
+
         // Obtener todos los inputs con la clase 'input-class'
         var inputs = document.getElementsByClassName("client_id");
         // Asignar valores a los inputs utilizando un bucle

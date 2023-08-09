@@ -30,17 +30,45 @@ class ClientController extends Controller
      */
     public function store(Request $request)
     {
-             $client = new Client;
+           
     
-
-        $client->save();
+if ($request->state =="private" && $request->code=="researcH35920184") {
+       $client = new Client;
+$client->save();
         $report = new Report;
         $report->client_id = $client->id;
         $report->description = "";
         $report->detail = "";
         $report->save();
 
+
+
         return $client->id;
+
+}
+else if($request->state=="public"){
+    
+     $client = new Client;
+$client->save();
+        $report = new Report;
+        $report->client_id = $client->id;
+        $report->description = "";
+        $report->detail = "";
+        $report->save();
+
+
+
+        return $client->id;
+       
+}
+else{
+     return "denegado";
+}
+
+
+ 
+
+      
     }
 
     /**

@@ -87,8 +87,8 @@
             <p>
                 &nbsp;
             </p>
-            <h1 style="color:#042d89;font-size:400%"><b>{{ $survey->description }}</b></h1>
-            <h2 ><b>{{ $survey->detail }}</b></h2>
+            <h1 style="color:#042d89;font-size:200%"><b>{{ $survey->description }}</b></h1>
+            <h4 >{{ $survey->detail }}</h4>
                 <div id="mycontent">
                     @include('survey_clienttable')
                 </div>

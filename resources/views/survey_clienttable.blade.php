@@ -35,9 +35,20 @@
                                    <p>&nbsp; </p>
 
                                    <form action="" name="client" id="client">
-                                       <button id="next" class="btn btn-lg" style="background-color: #00bf6f;color:white"
-                                           onclick="clientStore(); return false;">&nbsp; Iniciar &nbsp;</button>
 
+                                       @if ($survey_details->survey->state == 'private')
+                                           <p>Este es un formulario privado, ingrese el código por favor:</p>
+                                           <input type="hidden" value="private"name="state" id="state">
+                                           <input type="password"name="code" id="code" class="form-control">
+                                         @elseif ($survey_details->survey->state == 'public')
+                                           <input type="hidden" value="public"name="state" id="state">
+                                       @endif
+
+
+                                       <p></p>
+                                       <button id="next" class="btn btn-lg"
+                                           style="background-color: #00bf6f;color:white"
+                                           onclick="clientStore(); return false;">&nbsp; Iniciar &nbsp;</button>
                                    </form>
                                </div>
                            @endif
@@ -49,6 +60,7 @@
 
                                <form action="" method="post" id="survey_client{{ $enumeracion + 1 }}"
                                    name="survey_client">
+                                   
                                    <input type="hidden"class="client_id" name="client_id"id="client_id">
                                    <p></p>
                                    <input type="hidden" value="{{ $survey_details->id }}" name="survey_detail_id"
@@ -63,6 +75,13 @@
                                    <span> {{ $survey_details->detail }}</span>
 
                                    @if ($survey_details->type == 'short_answer')
+                                       <input id="answer" name="answer" class="form-control" required>
+                                       @error('answer')
+                                           <div class="alert alert-danger">{{ $message }}</div>
+                                       @enderror
+
+                                       <p></p>
+                                   @elseif($survey_details->type == 'code')
                                        <input id="answer" name="answer" class="form-control" required>
                                        @error('answer')
                                            <div class="alert alert-danger">{{ $message }}</div>
@@ -220,5 +239,5 @@
 
 
 
-   
+
    </div>

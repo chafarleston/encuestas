@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\SurveyClient;
 use App\Models\Client;
 use App\Models\SurveyDetail;
+use Illuminate\Support\Facades\Route;
 
 use App\Models\SelectionDetail;
 use App\Models\Survey;
@@ -52,6 +53,9 @@ class SurveyClientController extends Controller
             $survey_client = new SurveyClient;
          $survey_client->survey_detail_id = $request->survey_detail_id;
           $survey_client->client_id = $request->client_id;
+
+
+
               // return $request->option;
               if ($request->type=="multiple_option") {
                   $survey_client->option = json_encode($request->option);

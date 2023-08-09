@@ -55,6 +55,7 @@
                 <option value="multiple_option">Varias Opciones</option>
                 <option value="selection">Selección</option>
                 <option value="date">Fecha</option>
+                  <option value="code">Código</option>
 
                 {{--  <option value="selection">Casillas</option>
                
@@ -101,7 +102,12 @@
 
             </div>
         </div>
+ <div id="codeContainer" style="display: none;">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control"placeholder="Código aquí" disabled>
+                </div>
 
+</div>
         <div class="col-md-12">
             <p></p>
 
@@ -206,6 +212,7 @@
         const selectElement = document.getElementById('type');
         const radioContainer = document.getElementById('radioContainer');
         const dateContainer = document.getElementById('dateContainer');
+          const codeContainer = document.getElementById('codeContainer');
         const textContainer = document.getElementById('textContainer');
         const selectionContainer = document.getElementById('selectionContainer');
         // const radio_option = document.getElementById('radio_option');
@@ -237,6 +244,12 @@
 
             } else {
                 dateContainer.style.display = 'none';
+            }
+               if (selectElement.value === 'code') {
+                codeContainer.style.display = 'block';
+
+            } else {
+                codeContainer.style.display = 'none';
             }
         });
 
