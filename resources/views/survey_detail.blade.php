@@ -40,7 +40,7 @@
                 {{ csrf_field() }}
                 <h2>Pregunta</h2>
                 <textarea type="text" name="question" id="question" class="form-control" rows="2px"> </textarea>
-                 <h2>Detalle</h2>
+                <h2>Detalle</h2>
                 <textarea type="text" name="detail" id="detail" class="form-control" rows="2px"> </textarea>
         </div>
         <p></p>
@@ -55,8 +55,8 @@
                 <option value="multiple_option">Varias Opciones</option>
                 <option value="selection">Selección</option>
                 <option value="date">Fecha</option>
-                  <option value="code">Código</option>
-
+                <option value="code">Código</option>
+                <option value="file">File</option>
                 {{--  <option value="selection">Casillas</option>
                
                 <option value="option_date">Fecha</option>
@@ -102,12 +102,20 @@
 
             </div>
         </div>
- <div id="codeContainer" style="display: none;">
-                <div class="input-group mb-3">
-                    <input type="text" class="form-control"placeholder="Código aquí" disabled>
-                </div>
+        <div class="col col-md-12">
+            <div id="fileContainer" style="display: none;">
+                <h3>Archivo</h3>
+                <input id="file" name="file"type="file" class="form-control" disabled>
+                <p></p>
 
-</div>
+            </div>
+        </div>
+        <div id="codeContainer" style="display: none;">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control"placeholder="Código aquí" disabled>
+            </div>
+
+        </div>
         <div class="col-md-12">
             <p></p>
 
@@ -201,7 +209,7 @@
         name="new"> --}}
     <input type="button" value="Guardar" class="btn btn-success"id="create" onclick="survey_detailStore()"
         name="create">
-{{-- 
+    {{-- 
     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>  --}}
     </form>
 
@@ -212,8 +220,9 @@
         const selectElement = document.getElementById('type');
         const radioContainer = document.getElementById('radioContainer');
         const dateContainer = document.getElementById('dateContainer');
-          const codeContainer = document.getElementById('codeContainer');
+        const codeContainer = document.getElementById('codeContainer');
         const textContainer = document.getElementById('textContainer');
+        const fileContainer = document.getElementById('fileContainer');
         const selectionContainer = document.getElementById('selectionContainer');
         // const radio_option = document.getElementById('radio_option');
         //VALIDAR TIPO DE PREGUNTA
@@ -245,11 +254,17 @@
             } else {
                 dateContainer.style.display = 'none';
             }
-               if (selectElement.value === 'code') {
+            if (selectElement.value === 'code') {
                 codeContainer.style.display = 'block';
 
             } else {
                 codeContainer.style.display = 'none';
+            }
+                 if (selectElement.value === 'file') {
+                fileContainer.style.display = 'block';
+
+            } else {
+                fileContainer.style.display = 'none';
             }
         });
 

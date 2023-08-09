@@ -52,6 +52,11 @@
                             <option value="encuesta">Encuesta</option>
                             <option value="ficha">Ficha</option>
                         </select>
+                         Elija visibilidad
+                        <select name="type" id="type" class="form-control">
+                            <option value="public">Público</option>
+                            <option value="private">Privado</option>
+                        </select>
                         Fecha Inicio :
                         <input type="date" name="date_start" id="date_start" class="form-control">
                         Fecha Fin :
