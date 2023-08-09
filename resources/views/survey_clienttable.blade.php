@@ -1,5 +1,5 @@
    <div class="row">
-       <div class="col-12 col-md-12 col-lg-8 order-2 order-md-1">
+       <div class="col-12 col-md-12 col-lg-12 order-2 order-md-1">
            {{-- <div class="row">
                <div class="col-12 col-sm-4">
                    <div class="info-box bg-light">
@@ -32,24 +32,33 @@
                        @foreach ($survey_detail as $survey_details)
                            @if ($loop->first)
                                <div class="page" style="display: none;">
-                                   <p>&nbsp; </p>
+                                   <div class="row container d-flex justify-content-center align-items-center">
+                                        <div class="col col-lg-4 col-mb-4">
+                                           <img src="{{ asset('imagen-de-encuesta.png') }}" alt=""
+                                               srcset="" width="95%">
+                                       </div>
 
-                                   <form action="" name="client" id="client">
+                                       <div class="col col-lg-8">
+                                           <form action="" name="client" id="client">
 
-                                       @if ($survey_details->survey->state == 'private')
-                                           <p>Este es un formulario privado, ingrese el código por favor:</p>
-                                           <input type="hidden" value="private"name="state" id="state">
-                                           <input type="password"name="code" id="code" class="form-control">
-                                         @elseif ($survey_details->survey->state == 'public')
-                                           <input type="hidden" value="public"name="state" id="state">
-                                       @endif
+                                               @if ($survey_details->survey->state == 'private')
+                                                   <p>Este es un formulario privado, ingrese el código por favor:</p>
+                                                   <input type="hidden" value="private" name="state" id="state">
+                                                   <input type="password" name="code" id="code"
+                                                       class="form-control">
+                                               @elseif ($survey_details->survey->state == 'public')
+                                                   <input type="hidden" value="public" name="state" id="state">
+                                               @endif
 
+                                               <p></p>
+                                               <button id="next" class="btn btn-lg"
+                                                   style="background-color: #00bf6f; color: white"
+                                                   onclick="clientStore(); return false;">&nbsp; Iniciar &nbsp;</button>
+                                           </form>
+                                       </div>
 
-                                       <p></p>
-                                       <button id="next" class="btn btn-lg"
-                                           style="background-color: #00bf6f;color:white"
-                                           onclick="clientStore(); return false;">&nbsp; Iniciar &nbsp;</button>
-                                   </form>
+                                      
+                                   </div>
                                </div>
                            @endif
 
@@ -60,7 +69,7 @@
 
                                <form action="" method="post" id="survey_client{{ $enumeracion + 1 }}"
                                    name="survey_client">
-                                   
+
                                    <input type="hidden"class="client_id" name="client_id"id="client_id">
                                    <p></p>
                                    <input type="hidden" value="{{ $survey_details->id }}" name="survey_detail_id"
@@ -69,10 +78,12 @@
                                        id="type">
 
                                    {{ csrf_field() }}
-                                   <h4>
+                                    <span style="color:red"> {{ $survey_details->detail }}</span>
+                                    <p></p>
+                                   <h4 style="color:black">
                                        {{ $enumeracion = $enumeracion + 1 }}
                                        {{ '. ' . $survey_details->question }}</h4>
-                                   <span> {{ $survey_details->detail }}</span>
+                                  <p></p>
 
                                    @if ($survey_details->type == 'short_answer')
                                        <input id="answer" name="answer" class="form-control" required>
@@ -174,13 +185,13 @@
                                    @if (!$loop->last)
                                        {{-- <button id="prev" class="btn btn-warning btn-lg"
                                            onclick="prevPage()">atras</button> --}}
-                                       <button id="next" class="btn btn-warning btn-lg"
+                                       <button id="next" class="btn btn-lg" style="background-color: #00bf6f;color: white"
                                            onclick="survey_clientStore('{{ $enumeracion }}'); return false;">Siguiente</button>
                                        <p></p>
                                    @endif
 
                                    @if ($loop->last)
-                                       <button class="btn btn-warning btn-lg"
+                                       <button class="btn  btn-lg" style="background-color: #00bf6f;color: white"
                                            onclick="survey_clientStore('{{ $enumeracion }}'); refresh();return false;">Finalizar</button>
                                    @endif
                                </form>

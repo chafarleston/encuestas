@@ -75,29 +75,40 @@
     <p></p>
 
 
-
-    <div class="row container-fluid">
-        <div class="col-lg-4">
-            <img src="{{ asset('imagen-de-encuesta.png') }}" alt="" srcset="" width="100%">
-        </div>
-        <div class="col-lg-8 flex">
-            <p>
-                &nbsp;
-            </p>
-            <p>
-                &nbsp;
-            </p>
-            <h1 style="color:#042d89;font-size:200%"><b>{{ $survey->description }}</b></h1>
-            <h4 >{{ $survey->detail }}</h4>
+<div class="container">
+    <div class="row">
+       
+        <div class="col-lg-12">
+        <p></p>
+            <h2 style="color:#042d89;text-align:left"><b>{{ $survey->description }}</b></h2>
+           
                 <div id="mycontent">
+            
                     @include('survey_clienttable')
                 </div>
         </div>
+        <div class="col-lg-1">
+        </div>
+         {{-- <div class="col-lg-3">
+             <p>
+                &nbsp;
+            </p>
+            <p>
+                &nbsp;
+            </p>
+           
+        </div> --}}
     </div>
+</div>
 
 
 
-
+<p>
+    &nbsp;
+</p>
+<p class="container" style="text-align:justify">
+    {{ $survey->detail }}
+</p>
 
 
 
