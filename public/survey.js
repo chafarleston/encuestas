@@ -40,6 +40,8 @@ function surveyEdit(id) {
       survey.id.value = response.data["id"];
       survey.description.value = response.data["description"];
       survey.detail.value = response.data["detail"];
+         survey.state.value = response.data["state"];
+            survey.type.value = response.data["type"];
     })
     .catch(function(response) {
       //handle error

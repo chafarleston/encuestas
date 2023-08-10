@@ -53,7 +53,7 @@
                             <option value="ficha">Ficha</option>
                         </select>
                          Elija visibilidad
-                        <select name="type" id="type" class="form-control">
+                        <select name="state" id="state" class="form-control">
                             <option value="public">Público</option>
                             <option value="private">Privado</option>
                         </select>

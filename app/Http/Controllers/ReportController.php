@@ -22,7 +22,7 @@ class ReportController extends Controller
 $ids = DB::table('survey_details')->where('survey_id', "=", $request->survey_id)->pluck('id');
 $question = DB::table('survey_details')->where('survey_id', "=", $request->survey_id)->pluck('question');
 
-        $selects = ['sc.client_id','re.description','re.detail'];
+        $selects = ['sc.client_id','re.description','re.detail','sd.type'];
 
 
 
@@ -41,7 +41,7 @@ $results = DB::table('survey_clients as sc')
     ->join('survey_details as sd', 'sc.survey_detail_id', '=', 'sd.id')
     ->join('clients as c', 'c.id', '=', 'sc.client_id')
      ->join('reports as re', 'c.id', '=', 're.client_id')
-    ->groupBy('sc.client_id','re.description','re.detail') // Incluye sc.created_at en el GROUP BY
+    ->groupBy('sc.client_id','re.description','re.detail','sd.type') // Incluye sc.created_at en el GROUP BY
     ->havingRaw(implode(' or ', $havings)) // Combina las condiciones con OR
     ->orderBy('sc.client_id', 'desc')
     ->select($selects)

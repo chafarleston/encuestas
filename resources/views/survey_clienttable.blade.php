@@ -92,8 +92,16 @@
                                        @enderror
 
                                        <p></p>
+
                                    @elseif($survey_details->type == 'code')
                                        <input id="answer" name="answer" class="form-control" required>
+                                       @error('answer')
+                                           <div class="alert alert-danger">{{ $message }}</div>
+                                       @enderror
+
+                                       <p></p>
+                                    @elseif($survey_details->type == 'file')
+                                       <input id="answer" type="file" name="answer" class="form-control" required>
                                        @error('answer')
                                            <div class="alert alert-danger">{{ $message }}</div>
                                        @enderror

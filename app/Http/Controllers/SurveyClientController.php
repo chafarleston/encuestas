@@ -66,6 +66,20 @@ class SurveyClientController extends Controller
 
    
             }
+         if ($request->type == "file" && $request->hasFile('answer')) {
+    $file = $request->file('answer'); // Obtener el archivo del input
+
+    $destinationPath = 'storage'; // Cambiar esto al directorio donde deseas guardar los archivos
+    $fileName = time() . '_' . $file->getClientOriginalName(); // Generar un nombre de archivo único
+
+    $file->move($destinationPath, $fileName); // Mover el archivo a la carpeta destino
+
+    $survey_client->answer = $fileName; // Almacenar el nombre del archivo en la propiedad
+}
+
+// Resto de tu código...
+
+
               if ($request->type=="short_answer") {
                   $survey_client->answer = $request->answer;
                 }

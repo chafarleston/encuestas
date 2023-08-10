@@ -29,8 +29,18 @@
               <tr>
                   <td>{{ $result->client_id }}</td>
 
+
                   @foreach ($ids as $id)
+                  @if ($result->type=="file")
+                  @php
+                      $rpta=$result->{'pregunta' . $id} ?? '';
+                      
+                  @endphp
+                       <td><a href="{{asset('storage/'.$rpta)}}">{{$rpta}}</a> </td>
+                  @else
                       <td>{{ $result->{'pregunta' . $id} ?? '' }}</td>
+                  @endif
+                      
                   @endforeach
 
                   @foreach ($ids as $id)
@@ -41,6 +51,7 @@
 
                   <td>{{ $result->description }}</td>
                   <td>{{ $result->detail }}</td>
+                 
                   <td>
 
                       {{-- <form name="report" id="report">

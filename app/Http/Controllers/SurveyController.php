@@ -39,6 +39,7 @@ class SurveyController extends Controller
                         $survey->date_end = $request->date_end;
         $survey->url = $request->url;
          $survey->type = $request->type;
+               $survey->state = $request->state;
         $survey->save();
         return $this->create();
     }
@@ -71,6 +72,7 @@ class SurveyController extends Controller
              $survey->date_start = $request->date_start;
                         $survey->date_end = $request->date_end;
                                $survey->type = $request->type;
+                        $survey->state = $request->state;
         $survey->save();
         return $this->create();
     }
