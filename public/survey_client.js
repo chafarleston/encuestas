@@ -3,10 +3,15 @@ function survey_clientStore(form) {
 
 var formData = new FormData(document.getElementById("survey_client" + form));
 var answerValue = formData.get("answer");
-
-if (answerValue === "") {
-  alert("Debe realizar alguna respuesta");
-} else {
+  var optionValue = formData.get("option");
+  
+  if (answerValue === "") {
+    alert("Debe realizar alguna respuesta");
+  } else if (optionValue === "no_respondido") {
+    alert("Debe marcar una opción");
+   }
+  
+  else{
   axios({
     method: "post",
     url: "../survey_clientStore",
