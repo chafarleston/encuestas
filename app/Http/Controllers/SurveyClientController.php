@@ -55,20 +55,39 @@ class SurveyClientController extends Controller
 
             $survey_client = new SurveyClient;
          $survey_client->survey_detail_id = $request->survey_detail_id;
+        $survey_detail = SurveyDetail::where('id','=',$request->survey_detail_id)->get();
+
           $survey_client->client_id = $request->client_id;
 
+         $option_rpta = explode("-", $request->option);
+        $option_1 = $option_rpta[0];
+        $correct =$survey_detail[0]->correct;
+       
 
 
-              // return $request->option;
-              if ($request->type=="multiple_option") {
-                  $survey_client->option = json_encode($request->option);
-                   $survey_client->answer = $request->option;
-                }
-                else {
-                $survey_client->option = json_encode("");
+        if ($option_1 == $correct &&$survey_detail[0]->evaluate=="yes" &&$request->type=="multiple_option") {
+            $survey_client->option = json_encode($request->option);
+            $survey_client->answer = 2; 
+        }
+        else if($option_1 != $correct &&$survey_detail[0]->evaluate=="yes" &&$request->type=="multiple_option"){
+              $survey_client->option = json_encode($request->option);
+            $survey_client->answer = 0; 
+        }
+        else if($survey_detail[0]->evaluate=="not" &&$request->type=="multiple_option"){
+                   $survey_client->answer = $request->option; 
+        
+        }
+        else{
+    $survey_client->option = json_encode("");
+        }
 
-   
-            }
+
+    
+      
+
+
+
+
          if ($request->type == "file" && $request->hasFile('answer')) {
     $file = $request->file('answer'); // Obtener el archivo del input
 
@@ -109,8 +128,8 @@ class SurveyClientController extends Controller
             
       
 
-            $survey_client->save();
-  // return $this->create();
+             $survey_client->save();
+ // return $this->create();
     }
 
     public function associate_show(Request $request)

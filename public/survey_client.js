@@ -22,7 +22,10 @@ var answerValue = formData.get("answer");
   })
     .then(function(response) {
       // handle success
+      //var contentdiv = document.getElementById("mycontent");
       nextPage();
+      
+    //  contentdiv.innerHTML = response.data;
     })
     .catch(function(error) {
       // handle error

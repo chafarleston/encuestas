@@ -80,7 +80,7 @@
        
         <div class="col-lg-12">
         <p></p>
-            <h2 style="color:#042d89;text-align:left"><b>{{ $survey->description }}</b></h2>
+            {{-- <h2 style="color:#042d89;text-align:left"><b>{{ $survey->description }}</b></h2> --}}
            
                 <div id="mycontent">
             

@@ -40,7 +40,7 @@
 
                                        <div class="col col-lg-8">
                                            <form action="" name="client" id="client">
-
+                                                <h2 style="color:#042d89;text-align:justify"><b>{{ $survey->description }}</b></h2>
                                                @if ($survey_details->survey->state == 'private')
                                                    <p>Este es un formulario privado, ingrese el código por favor:</p>
                                                    <input type="hidden" value="private" name="state" id="state">
@@ -51,9 +51,11 @@
                                                @endif
 
                                                <p></p>
+                                              
                                                <button id="next" class="btn btn-lg"
                                                    style="background-color: #00bf6f; color: white"
                                                    onclick="clientStore(); return false;">&nbsp; Iniciar &nbsp;</button>
+                                                    &nbsp;&nbsp;<b style="color:black">Cantidad de Preguntas :{{$survey_count}} </b>
                                            </form>
                                        </div>
 
@@ -78,6 +80,7 @@
                                        id="type">
 
                                    {{ csrf_field() }}
+                                   <h3 style="color:black"> {{ $survey_details->title }}</h3>
                                     <span style="color:red"> {{ $survey_details->detail }}</span>
                                     <p></p>
                                    <h4 style="color:black">
@@ -111,14 +114,26 @@
                                        <?php
                                        $array = json_decode($survey_details->option);
                                        ?>
-                                       @foreach ($array as $item)
+                                       {{-- @foreach ($array as $item)
                                            <label style="display: flex; align-items: center;">
 
                                                <input style="" type="radio" name="option"
                                                    value="{{ $item }}" id="option">&nbsp;
                                                {{ $item }}
                                            </label>
-                                       @endforeach
+                                       @endforeach --}}
+
+@foreach ($array as $index => $item)
+    @php
+        $enumeration = $index + 1;
+    @endphp
+    <label style="display: flex; align-items: center;">
+        <input style="" type="radio" name="option" value="{{$enumeration}}-{{$item}}" id="option">&nbsp;
+        {{ $item }}
+    </label>
+@endforeach
+
+
                                        <label style="display: none; align-items: center;">
 
                                            <input style="" type="radio" name="option" value="no_respondido"
