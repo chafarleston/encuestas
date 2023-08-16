@@ -23,7 +23,7 @@ class SelectionDetailController extends Controller
      */
     public function create($id)
     {
-                    $selection = Selection::find($id);
+                    $selection = Selection::where('id','=',$id)->orderBy('description','asc')->get();;   
             return view("selection_detailtable", compact("selection"));
     }
 

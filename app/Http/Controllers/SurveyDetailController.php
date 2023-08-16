@@ -19,7 +19,7 @@ class SurveyDetailController extends Controller
     {
             $survey_id = Session::get('survey_id');
         $survey = Survey::find($survey_id);
-        $selection = Selection::all();
+        $selection = Selection::orderBy('description','asc')->get();
         
         $survey_detail = surveyDetail::where("survey_id","=",$survey_id)->get();
             return view("survey_detail", compact("survey_detail","survey",'selection'));
@@ -32,7 +32,7 @@ class SurveyDetailController extends Controller
     {
         $survey_id = Session::get('survey_id');
         $survey = Survey::find($survey_id);
-          $selection = Selection::all();
+        $selection = Selection::orderBy('description','asc')->get();
         $survey_detail = surveyDetail::where("survey_id","=",$survey_id)->get();
         return view("survey_detailtable", compact("survey_detail","survey",'selection'));
     }

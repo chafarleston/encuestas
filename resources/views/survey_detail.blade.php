@@ -47,7 +47,7 @@
         <div class="col col-md-12">
             <p></p>
         </div>
-        <div class="col col-md-6">
+        <div class="col col-md-3">
             <h2>Tipo de Pregunta</h2>
             <select name="type" id="type" class="form-control">
                 <option value="short_answer">Eligir Tipo de Pregunta</option>
@@ -65,12 +65,33 @@
         </div>
 
 
-        <div class="col col-md-6">
-            <h2>Requerido</h2>
+        <div class="col col-md-2">
+            <h4>Requerido</h4>
             <input type="radio" name="requerid" id="requerid" value="yes" checked> &nbsp;&nbsp;Sí &nbsp;&nbsp;
             <input type="radio" name="requerid" id="requerid"value="not"> &nbsp;&nbsp;No
         </div>
+
+        <div class="col col-md-2">
+            <h4>Evaluado</h4>
+            <input type="radio" name="evaluate" id="evaluated" value="yes" checked> &nbsp;&nbsp;Sí &nbsp;&nbsp;
+            <input type="radio" name="evaluate" id="evaluated"value="not" checked> &nbsp;&nbsp;No
+        </div>
+        <div class="col col-md-3">
+            <h4>Alternativa correcta</h4> 
+            <input type="number" value="1" class="form-control">
+            Puntaje o valor dado :
+            <input type="text" name="point" id="point" class="form-control">
+        </div>
+              <div class="col col-md-3">
+            <h4>Alternativa correcta</h4> 
+            <input type="number" value="1" class="form-control">
+            Puntaje o valor dado :
+            <input type="text" name="point" id="point" class="form-control">
+        </div>
         <p></p>
+
+        <p></p>
+
         <div class="col col-md-12">
             <div id="selectionContainer" style="display: none;">
                 <h3>Opciones</h3>
@@ -260,7 +281,7 @@
             } else {
                 codeContainer.style.display = 'none';
             }
-                 if (selectElement.value === 'file') {
+            if (selectElement.value === 'file') {
                 fileContainer.style.display = 'block';
 
             } else {

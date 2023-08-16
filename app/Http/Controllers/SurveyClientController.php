@@ -22,6 +22,9 @@ class SurveyClientController extends Controller
         $survey_count =SurveyDetail::where("survey_id","=", $request->survey_id)->count();
             $survey = Survey::find($request->survey_id);
           $survey_detail = SurveyDetail::where("survey_id","=", $request->survey_id)->get();
+       
+
+       
 
           if ($survey->type=="encuesta") {
             return view('survey_client',compact("survey_detail","survey","survey_count"));

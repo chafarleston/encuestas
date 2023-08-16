@@ -152,7 +152,7 @@
                                        @if ($survey_details->selection->state == '0')
                                            <select name="selection_detail_id" id="selection_detail_id"
                                                class="form-control">
-                                               @foreach ($survey_details->selection->selection_detail as $item)
+                                               @foreach ($survey_details->selection->selection_detail()->orderBy('description', 'asc')->get() as $item)
                                                    <option value="{{ $item->id . '-' . $item->description }}">
                                                        {{ $item->description }} </option>
                                                @endforeach
