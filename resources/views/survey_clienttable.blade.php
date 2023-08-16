@@ -28,6 +28,7 @@
                                         </div> --}}
                        @php
                            $enumeracion = 0;
+                            $enumeracion2 = 0;
                        @endphp
                        @foreach ($survey_detail as $survey_details)
                            @if ($loop->first)
@@ -83,8 +84,14 @@
                                    <h3 style="color:black"> {{ $survey_details->title }}</h3>
                                     <span style="color:red"> {{ $survey_details->detail }}</span>
                                     <p></p>
+                                  @php
+                                      if ($survey_details->initialize == "yes") {
+                                        $enumeracion2 =0;
+                                      }
+                                        $enumeracion = $enumeracion + 1
+                                  @endphp
                                    <h4 style="color:black">
-                                       {{ $enumeracion = $enumeracion + 1 }}
+                                       {{ $enumeracion2 = $enumeracion2 + 1 }}
                                        {{ '. ' . $survey_details->question }}</h4>
                                   <p></p>
 
