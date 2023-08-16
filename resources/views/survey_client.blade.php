@@ -107,7 +107,7 @@
     &nbsp;
 </p>
 <p class="container" style="text-align:justify">
-    {{ $survey->detail }}
+    {{-- {{ $survey->detail }} --}}
 </p>
 
 

@@ -52,11 +52,12 @@
                                                @endif
 
                                                <p></p>
-                                              
+                                              <b style="color:black">Cantidad de Preguntas :{{$survey_count}} </b>
+                                              <br>
                                                <button id="next" class="btn btn-lg"
                                                    style="background-color: #00bf6f; color: white"
                                                    onclick="clientStore(); return false;">&nbsp; Iniciar &nbsp;</button>
-                                                    &nbsp;&nbsp;<b style="color:black">Cantidad de Preguntas :{{$survey_count}} </b>
+                                                    &nbsp;&nbsp;
                                            </form>
                                        </div>
 
@@ -82,7 +83,8 @@
 
                                    {{ csrf_field() }}
                                    <h3 style="color:black"> {{ $survey_details->title }}</h3>
-                                    <span style="color:red"> {{ $survey_details->detail }}</span>
+                                    <span style="color:red"> {{ $survey_details->detail }}</span><br>
+                                     <span style="color:rgb(46, 46, 46)"> {{ $survey_details->detail_3 }}</span>
                                     <p></p>
                                   @php
                                       if ($survey_details->initialize == "yes") {
