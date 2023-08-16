@@ -13,8 +13,15 @@ return new class extends Migration
     {
         Schema::table('survey_details', function (Blueprint $table) {
 
-               $table->longText('question')->change();
-              
+           //    $table->longText('title')->nullable();
+           //    $table->longText('detail_2')->nullable();
+           //   $table->longText('detail_3')->nullable();
+           //   $table->string('evaluate')->default("not");
+         //    $table->string('correct')->nullable();
+           
+  
+
+ 
         });
         
     }

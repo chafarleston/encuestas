@@ -42,7 +42,14 @@ function survey_detailEdit(id) {
      
       survey_detail_edit.id.value = response.data["id"];
       survey_detail_edit.question_edit.value = response.data["question"];
-     survey_detail_edit.detail_edit.value = response.data["detail"];
+      survey_detail_edit.detail_edit.value = response.data["detail"];
+      survey_detail_edit.detail_2_edit.value = response.data["detail_2"];
+      survey_detail_edit.detail_3_edit.value = response.data["detail_3"];
+      survey_detail_edit.correct_edit.value = response.data["correct"];
+      survey_detail_edit.evaluate_edit.value = response.data["evaluate"];
+       survey_detail_edit.title_edit.value = response.data["title"];
+        survey_detail_edit.point_edit.value = response.data["point"];
+      
     })
     .catch(function(response) {
       //handle error

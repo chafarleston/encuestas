@@ -105,6 +105,12 @@ foreach ($options as $option) {
             $survey_detail = SurveyDetail::find($request->id);
         $survey_detail->question = $request->question_edit;
         $survey_detail->detail = $request->detail_edit;
+           $survey_detail->detail_2 = $request->detail_2_edit;
+           $survey_detail->detail_3 = $request->detail_3_edit;
+           $survey_detail->correct = $request->correct_edit;
+           $survey_detail->evaluate = $request->evaluate_edit;
+           $survey_detail->point = $request->point_edit;
+           $survey_detail->title = $request->title_edit;
         $survey_detail->save();
         return $this->create();
     }

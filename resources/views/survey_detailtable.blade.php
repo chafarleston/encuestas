@@ -22,7 +22,14 @@
                                     <th class="sorting">Opciones</th>
                                     <th class="sorting">Lista</th>
                                     <th class="sorting">Obligatorio</th>
-<th class="sorting">Detalle</th>
+                                    <th class="sorting">Título</th>
+                                    <th class="sorting">Detalle 1</th>
+                                    <th class="sorting">Detalle 2</th>
+                                    <th class="sorting">Detalle 3</th>
+                                    <th class="sorting">¿Evaluado?</th>
+                                    <th class="sorting">Correcto</th>
+                                    <th class="sorting">Puntos</th>
+
 
                                     <th><img width="20"
                                             src="https://img1.freepng.es/20180622/aac/kisspng-computer-icons-download-share-icon-nut-vector-5b2d36055f5105.9823437615296896053904.jpg"
@@ -41,18 +48,25 @@
                                             <td>{{ $survey_details->type }}</td>
                                             <td>
                                                 @php
-                                                
+                                                    
                                                     $arrayDatos = json_decode($survey_details->option);
                                                 @endphp
                                                 @if (is_array($arrayDatos))
-                                                @foreach ($arrayDatos as $index => $valor)
-                                                    {{$valor.","}}
-                                                @endforeach
-                                                @endif   
+                                                    @foreach ($arrayDatos as $index => $valor)
+                                                        {{ $valor . ',' }}
+                                                    @endforeach
+                                                @endif
                                             </td>
                                             <td>{{ $survey_details->selection->description }}</td>
                                             <td>{{ $survey_details->requerid }}</td>
-                                                 <td>{{ $survey_details->detail }}</td>
+                                            <td>{{ $survey_details->title }}</td>
+                                            <td>{{ $survey_details->detail }}</td>
+                                            <td>{{ $survey_details->detail_2 }}</td>
+                                            <td>{{ $survey_details->detail_3 }}</td>
+                                            <td>{{ $survey_details->evaluate }}</td>
+                                            <td>{{ $survey_details->correct }}</td>
+                                            <td>{{ $survey_details->point }}</td>
+
                                             <td>
                                                 <!-- Button trigger modal -->
                                                 <button type="button" class="btn btn-success note-icon-pencil"

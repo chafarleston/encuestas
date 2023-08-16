@@ -76,16 +76,14 @@
             <input type="radio" name="evaluate" id="evaluated" value="yes" checked> &nbsp;&nbsp;Sí &nbsp;&nbsp;
             <input type="radio" name="evaluate" id="evaluated"value="not" checked> &nbsp;&nbsp;No
         </div>
-        <div class="col col-md-3">
-            <h4>Alternativa correcta</h4> 
+        <div class="col col-md-2">
+            <h4>Alternativa correcta</h4>
             <input type="number" value="1" class="form-control">
-            Puntaje o valor dado :
-            <input type="text" name="point" id="point" class="form-control">
+           
         </div>
-              <div class="col col-md-3">
-            <h4>Alternativa correcta</h4> 
-            <input type="number" value="1" class="form-control">
-            Puntaje o valor dado :
+        <div class="col col-md-2">
+           <h4>Puntaje o valor dado :</h4>
+            
             <input type="text" name="point" id="point" class="form-control">
         </div>
         <p></p>
@@ -325,12 +323,29 @@
                         <input type="hidden" name="id"id="id">
                         Pregunta:
                         <input type="text" class="form-control" name="question_edit" id="question_edit">
-                        Detalle:
-                        <input type="text" class="form-control" name="detail_edit"id="detail_id">
+                        ¿Evaluado?:
+                        <select name="evaluate_edit" id="evaluate_edit"class="form-control">
+                            <option value="not">No</option>
+                            <option value="yes">Sí</option>
+                        </select>
+                        Título:
+                        <input type="text" class="form-control" name="title_edit" id="title_edit">
+                        Detalle 1:
+                        <input type="text" class="form-control" name="detail_edit"id="detail_edit">
+                        Detalle 2:
+                        <input type="text" class="form-control" name="detail_2_edit"id="detail_3_edit">
+                        Detalle 3:
+                        <input type="text" class="form-control" name="detail_3_edit"id="detail_3_edit">
+                        Correcto:
+                        <input type="number" class="form-control" name="correct_edit"id="correct_edit">
+                        Point:
+                        <input type="text" class="form-control" name="point_edit"id="point_edit">
+
                         <div class="modal-footer">
+
                             <input type="button" value="Modificar" class="btn btn-danger"id="update"
                                 onclick="survey_detailUpdate();" name="update">
-
+                        </div>
                     </form>
 
                 </div>
