@@ -28,20 +28,21 @@
                                         </div> --}}
                        @php
                            $enumeracion = 0;
-                            $enumeracion2 = 0;
+                           $enumeracion2 = 0;
                        @endphp
                        @foreach ($survey_detail as $survey_details)
                            @if ($loop->first)
                                <div class="page" style="display: none;">
                                    <div class="row container d-flex justify-content-center align-items-center">
-                                        <div class="col col-lg-4 col-mb-4">
-                                           <img src="{{ asset('imagen-de-encuesta.png') }}" alt=""
-                                               srcset="" width="95%">
+                                       <div class="col col-lg-4 col-mb-4">
+                                           <img src="{{ asset('imagen-de-encuesta.png') }}" alt="" srcset=""
+                                               width="95%">
                                        </div>
 
                                        <div class="col col-lg-8">
                                            <form action="" name="client" id="client">
-                                                <h2 style="color:#042d89;text-align:justify"><b>{{ $survey->description }}</b></h2>
+                                               <h2 style="color:#042d89;text-align:justify">
+                                                   <b>{{ $survey->description }}</b></h2>
                                                @if ($survey_details->survey->state == 'private')
                                                    <p>Este es un formulario privado, ingrese el código por favor:</p>
                                                    <input type="hidden" value="private" name="state" id="state">
@@ -52,16 +53,16 @@
                                                @endif
 
                                                <p></p>
-                                              <b style="color:black">Cantidad de Preguntas :{{$survey_count}} </b>
-                                              <br>
+                                               <b style="color:black">Cantidad de Preguntas :{{ $survey_count }} </b>
+                                               <br>
                                                <button id="next" class="btn btn-lg"
                                                    style="background-color: #00bf6f; color: white"
                                                    onclick="clientStore(); return false;">&nbsp; Iniciar &nbsp;</button>
-                                                    &nbsp;&nbsp;
+                                               &nbsp;&nbsp;
                                            </form>
                                        </div>
 
-                                      
+
                                    </div>
                                </div>
                            @endif
@@ -69,6 +70,27 @@
 
 
                            <div class="page" style="display: none;">
+                         @php
+   // $enumeracion = 0;
+    $porcentaje = (($enumeracion + 1) / $survey_count) * 100;
+
+    // Redondear al número entero más cercano
+    $porcentajeRedondeado = round($porcentaje);
+
+    
+@endphp
+
+
+
+                               <div class="progress" style="background-color: #7cfddd; border: 2px">
+                                   
+                                   <div class="progress-bar"
+                                       style="background-color: #00cc99;width: {{$porcentajeRedondeado}}%">
+                                    {{$enumeracion +1}} de {{$survey_count}}
+                                </div>
+
+
+                               </div>
                                {{-- {{$survey_details->id}} --}}
 
                                <form action="" method="post" id="survey_client{{ $enumeracion + 1 }}"
@@ -83,19 +105,19 @@
 
                                    {{ csrf_field() }}
                                    <h3 style="color:black"> {{ $survey_details->title }}</h3>
-                                    <span style="color:red"> {{ $survey_details->detail }}</span><br>
-                                     <span style="color:rgb(46, 46, 46)"> {{ $survey_details->detail_3 }}</span>
-                                    <p></p>
-                                  @php
-                                      if ($survey_details->initialize == "yes") {
-                                        $enumeracion2 =0;
-                                      }
-                                        $enumeracion = $enumeracion + 1
-                                  @endphp
+                                   <span style="color:red"> {{ $survey_details->detail }}</span><br>
+                                   <span style="color:rgb(46, 46, 46)"> {{ $survey_details->detail_3 }}</span>
+                                   <p></p>
+                                   @php
+                                       if ($survey_details->initialize == 'yes') {
+                                           $enumeracion2 = 0;
+                                       }
+                                       $enumeracion = $enumeracion + 1;
+                                   @endphp
                                    <h4 style="color:black">
                                        {{ $enumeracion2 = $enumeracion2 + 1 }}
                                        {{ '. ' . $survey_details->question }}</h4>
-                                  <p></p>
+                                   <p></p>
 
                                    @if ($survey_details->type == 'short_answer')
                                        <input id="answer" name="answer" class="form-control" required>
@@ -104,7 +126,6 @@
                                        @enderror
 
                                        <p></p>
-
                                    @elseif($survey_details->type == 'code')
                                        <input id="answer" name="answer" class="form-control" required>
                                        @error('answer')
@@ -112,8 +133,9 @@
                                        @enderror
 
                                        <p></p>
-                                    @elseif($survey_details->type == 'file')
-                                       <input id="answer" type="file" name="answer" class="form-control" required>
+                                   @elseif($survey_details->type == 'file')
+                                       <input id="answer" type="file" name="answer" class="form-control"
+                                           required>
                                        @error('answer')
                                            <div class="alert alert-danger">{{ $message }}</div>
                                        @enderror
@@ -132,15 +154,17 @@
                                            </label>
                                        @endforeach --}}
 
-@foreach ($array as $index => $item)
-    @php
-        $enumeration = $index + 1;
-    @endphp
-    <label style="display: flex; align-items: center;">
-        <input style="" type="radio" name="option" value="{{$enumeration}}-{{$item}}" id="option">&nbsp;
-        {{ $item }}
-    </label>
-@endforeach
+                                       @foreach ($array as $index => $item)
+                                           @php
+                                               $enumeration = $index + 1;
+                                           @endphp
+                                           <label style="display: flex; align-items: center;">
+                                               <input style="" type="radio" name="option"
+                                                   value="{{ $enumeration }}-{{ $item }}"
+                                                   id="option">&nbsp;
+                                               {{ $item }}
+                                           </label>
+                                       @endforeach
 
 
                                        <label style="display: none; align-items: center;">
@@ -217,7 +241,8 @@
                                    @if (!$loop->last)
                                        {{-- <button id="prev" class="btn btn-warning btn-lg"
                                            onclick="prevPage()">atras</button> --}}
-                                       <button id="next" class="btn btn-lg" style="background-color: #00bf6f;color: white"
+                                       <button id="next" class="btn btn-lg"
+                                           style="background-color: #00bf6f;color: white"
                                            onclick="survey_clientStore('{{ $enumeracion }}'); return false;">Siguiente</button>
                                        <p></p>
                                    @endif
