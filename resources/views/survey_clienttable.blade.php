@@ -42,7 +42,8 @@
                                        <div class="col col-lg-8">
                                            <form action="" name="client" id="client">
                                                <h2 style="color:#042d89;text-align:justify">
-                                                   <b>{{ $survey->description }}</b></h2>
+                                                   <b>{{ $survey->description }}</b>
+                                               </h2>
                                                @if ($survey_details->survey->state == 'private')
                                                    <p>Este es un formulario privado, ingrese el código por favor:</p>
                                                    <input type="hidden" value="private" name="state" id="state">
@@ -70,27 +71,18 @@
 
 
                            <div class="page" style="display: none;">
-                         @php
-   // $enumeracion = 0;
-    $porcentaje = (($enumeracion + 1) / $survey_count) * 100;
-
-    // Redondear al número entero más cercano
-    $porcentajeRedondeado = round($porcentaje);
-
-    
-@endphp
-
-
-
-                               <div class="progress" style="background-color: #7cfddd; border: 2px">
+                               @php
+                                   // $enumeracion = 0;
+                                   $porcentaje = (($enumeracion + 1) / $survey_count) * 100;
                                    
-                                   <div class="progress-bar"
-                                       style="background-color: #00cc99;width: {{$porcentajeRedondeado}}%">
-                                    {{$enumeracion +1}} de {{$survey_count}}
-                                </div>
+                                   // Redondear al número entero más cercano
+                                   $porcentajeRedondeado = round($porcentaje);
+                                   
+                               @endphp
 
 
-                               </div>
+
+
                                {{-- {{$survey_details->id}} --}}
 
                                <form action="" method="post" id="survey_client{{ $enumeracion + 1 }}"
@@ -105,6 +97,15 @@
 
                                    {{ csrf_field() }}
                                    <h3 style="color:black"> {{ $survey_details->title }}</h3>
+                                   <div class="progress" style="background-color: #7cfddd; border: 2px">
+
+                                       <div class="progress-bar"
+                                           style="background-color: #00cc99;width: {{ $porcentajeRedondeado }}%">
+                                           {{ $enumeracion + 1 }} de {{ $survey_count }}
+                                       </div>
+
+
+                                   </div>
                                    <span style="color:red"> {{ $survey_details->detail }}</span><br>
                                    <span style="color:rgb(46, 46, 46)"> {{ $survey_details->detail_3 }}</span>
                                    <p></p>
