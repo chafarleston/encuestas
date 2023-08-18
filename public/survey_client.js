@@ -37,7 +37,7 @@ var answerValue = formData.get("answer");
 
 }
 function refresh() {
-  alert("Registrado Correctamente");
+  alert("¡Muchas Gracias por completar el cuestionario!");
   window.location.reload();
 }
 

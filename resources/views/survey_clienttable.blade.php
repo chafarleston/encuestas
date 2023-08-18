@@ -96,7 +96,7 @@
                                        id="type">
 
                                    {{ csrf_field() }}
-                                   <h3 style="color:black"> {{ $survey_details->title }}</h3>
+                                   <h3 style="color:black"><b>{{ $survey_details->title }}</b> </h3>
                                    <div class="progress" style="background-color: #7cfddd; border: 2px">
 
                                        <div class="progress-bar"
