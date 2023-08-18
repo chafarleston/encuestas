@@ -118,13 +118,63 @@
 
 
 
+   <footer class="" style="background-color:#003399;color:white">
 
 
 
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                    <!-- Descripción a la izquierda -->
+                    <p>
+                        &nbsp;
+                        &nbsp;
+                    </p>
+                    <h3><b>SDC RESEARCH</b> </h3>
+                    <p></p>
+                    <p class="text-justify">
+                        Somos la marca relacionada a servicios de investigación de mercados y opinión pública para Perú y Latinoamerica. Nuestros servicios generan y analizan datos entorno a personas, consumidores y mercados; ayudando a la toma de decisiones estratégicas basadas en datos.
+                    </p>
+                    <p>
+                        &nbsp;
+                        &nbsp;
+                    </p>
+                    <p>
+                        &nbsp;
+                        &nbsp;
+                    </p>
+                    <span
+                        style="background-image: linear-gradient(45deg, rgb(255, 0, 149), red); -webkit-background-clip: text; color: transparent;">
+                        <a href="https://anthonycode.com"target="_blank">Copyright © 2023 Dev. AnthonyCode</a></span>
+                </div>
+                <div class="col-lg-4 text-center">
+                    <p>
+                        &nbsp;
+                        &nbsp;
+                    </p>
+                    <!-- Enlaces en el centro -->
+                    <a href="#">Nosotros</a> |
+                    <a href="#">Cursos</a> |
+                    <a href="#">Política de Privacidad</a>
+                </div>
+                <div class="col-lg-4 text-right">
+                    <p>
+                        &nbsp;
+                        &nbsp;
+                    </p>
+                    <iframe
+                        src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fsdc.learning.pe&tabs=timeline&width=340&height=450&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=859285638195545"
+                        width="340" height="450" style="border:none;overflow:hidden" scrolling="no" frameborder="0"
+                        allowfullscreen="true"
+                        allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+                </div>
+            </div>
 
 
+        </div>
 
-    <div id="mycontent"></div>
+    </footer>
+
 
 
 
