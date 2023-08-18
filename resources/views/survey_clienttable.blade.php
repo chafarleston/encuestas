@@ -248,8 +248,11 @@
                                        <p></p>
                                    @endif
 
-                                   <p style="text-align: justify">Muchas gracias por haber completado el cuestionario de : {{$survey_details->survey->description}}</p>
+                                 
                                    @if ($loop->last)
+                                     <p style="text-align: justify">Muchas gracias por haber completado el cuestionario de : 
+                                        <br>
+                                        {{$survey_details->survey->description}}</p>
                                        <button class="btn  btn-lg" style="background-color: #00bf6f;color: white"
                                            onclick="survey_clientStore('{{ $enumeracion }}'); refresh();return false;">Finalizar</button>
                                    @endif
