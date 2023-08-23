@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::table('survey_details', function (Blueprint $table) {
 
-          //  $table->longText('point')->nullable();
+            $table->longText('point')->nullable();
   
 
  

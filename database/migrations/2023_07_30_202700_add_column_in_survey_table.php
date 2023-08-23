@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::table('surveys', function (Blueprint $table) {
     //     $table->engine = 'InnoDB';
-       // $table->string('type')->nullable();
+       $table->string('type')->nullable();
     // $table->string('pollster_t')->nullable();
     // $table->bigInteger('pollster_r')->nullable()->unsigned();
 

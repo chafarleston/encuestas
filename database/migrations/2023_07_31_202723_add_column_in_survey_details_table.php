@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-use Illuminate\Support\Facades\DB;
+
 return new class extends Migration
 {
     /**
@@ -11,11 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('registry_details', function (Blueprint $table) {
+        Schema::table('survey_details', function (Blueprint $table) {
 
-             DB::statement('ALTER TABLE registry_details ADD average bigINT  AS ((n1 + n2 + n3) /3)');
-            //
+            $table->string('category')->default("all");
+  
+
+ 
         });
+        
     }
 
     /**
@@ -23,8 +26,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('registry_detail', function (Blueprint $table) {
-            //
+   Schema::table('survey_details', function (Blueprint $table) {
+          $table->dropColumn('category');
         });
     }
 };

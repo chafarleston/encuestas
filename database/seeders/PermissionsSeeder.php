@@ -33,6 +33,7 @@ class PermissionsSeeder extends Seeder
             'cellphone' => '967687216',
             'sex' => 'F',
             'email' => 'monica.herrera@unmsm.edu.pe',
+               'google_id' => '2',
         ]);
         //asignar rol
         $user1->assignRole('Administrador');
@@ -54,6 +55,7 @@ $user3= User::create([
     'cellphone' => '999999999',
     'sex' => 'M',
     'email' => 'logicainformatica18@gmail.com',
+       'google_id' => '3',
 ]);
 //
 $user3->assignRole('Encuestador');

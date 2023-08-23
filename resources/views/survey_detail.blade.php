@@ -341,6 +341,14 @@
                         Point:
                         <input type="text" class="form-control" name="point_edit"id="point_edit">
 
+                         Categoria para Reporte:
+                        <select name="evaluate_edit" id="evaluate_edit"class="form-control">
+                            <option value="all">Todo</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                        </select>
                         <div class="modal-footer">
 
                             <input type="button" value="Modificar" class="btn btn-danger"id="update"

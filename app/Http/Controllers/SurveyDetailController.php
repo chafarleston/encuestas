@@ -111,6 +111,7 @@ foreach ($options as $option) {
            $survey_detail->evaluate = $request->evaluate_edit;
            $survey_detail->point = $request->point_edit;
            $survey_detail->title = $request->title_edit;
+                  $survey_detail->category = $request->category_edit;
         $survey_detail->save();
         return $this->create();
     }
