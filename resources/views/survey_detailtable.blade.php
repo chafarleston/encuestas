@@ -29,7 +29,7 @@
                                     <th class="sorting">¿Evaluado?</th>
                                     <th class="sorting">Correcto</th>
                                     <th class="sorting">Puntos</th>
-
+      <th class="sorting">Categoria</th>
 
                                     <th><img width="20"
                                             src="https://img1.freepng.es/20180622/aac/kisspng-computer-icons-download-share-icon-nut-vector-5b2d36055f5105.9823437615296896053904.jpg"
@@ -66,7 +66,7 @@
                                             <td>{{ $survey_details->evaluate }}</td>
                                             <td>{{ $survey_details->correct }}</td>
                                             <td>{{ $survey_details->point }}</td>
-
+   <td>{{ $survey_details->category }}</td>
                                             <td>
                                                 <!-- Button trigger modal -->
                                                 <button type="button" class="btn btn-success note-icon-pencil"

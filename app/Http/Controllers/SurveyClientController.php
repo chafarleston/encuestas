@@ -119,7 +119,7 @@ class SurveyClientController extends Controller
             $selection_detail_id = explode("-", $request->selection_detail_id);
 
                   $survey_client->selection_detail_id = $selection_detail_id[0];
-                     $survey_client->answer = $selection_detail_id[1];
+                     $survey_client->answer = $request->selection_detail_id;
 
                 }
                 else {
