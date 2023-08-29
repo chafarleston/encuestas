@@ -79,11 +79,11 @@
         <div class="col col-md-2">
             <h4>Alternativa correcta</h4>
             <input type="number" value="1" class="form-control">
-           
+
         </div>
         <div class="col col-md-2">
-           <h4>Puntaje o valor dado :</h4>
-            
+            <h4>Puntaje o valor dado :</h4>
+
             <input type="text" name="point" id="point" class="form-control">
         </div>
         <p></p>
@@ -341,7 +341,7 @@
                         Point:
                         <input type="text" class="form-control" name="point_edit"id="point_edit">
 
-                         Categoria para Reporte:
+                        Categoria para Reporte:
                         <select name="category_edit" id="category_edit"class="form-control">
                             <option value="all">Todo</option>
                             <option value="1">1</option>
@@ -349,6 +349,13 @@
                             <option value="3">3</option>
                             <option value="4">4</option>
                         </select>
+                        Enumeración:
+                        <select name="enumeration_edit" id="enumeration_edit" class="form-control">
+                            @for ($i = 1; $i <= 54; $i++)
+                                <option value="{{ $i }}">{{ $i }}</option>
+                            @endfor
+                        </select>
+
                         <div class="modal-footer">
 
                             <input type="button" value="Modificar" class="btn btn-danger"id="update"

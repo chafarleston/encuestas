@@ -21,7 +21,7 @@ class SurveyDetailController extends Controller
         $survey = Survey::find($survey_id);
         $selection = Selection::orderBy('description','asc')->get();
         
-        $survey_detail = surveyDetail::where("survey_id","=",$survey_id)->get();
+        $survey_detail = surveyDetail::where("survey_id","=",$survey_id)->orderBy('created_at','asc')->get();
             return view("survey_detail", compact("survey_detail","survey",'selection'));
     }
 
@@ -33,7 +33,7 @@ class SurveyDetailController extends Controller
         $survey_id = Session::get('survey_id');
         $survey = Survey::find($survey_id);
         $selection = Selection::orderBy('description','asc')->get();
-        $survey_detail = surveyDetail::where("survey_id","=",$survey_id)->get();
+        $survey_detail = surveyDetail::where("survey_id","=",$survey_id)->orderBy('created_at','asc')->get();
         return view("survey_detailtable", compact("survey_detail","survey",'selection'));
     }
 
@@ -72,9 +72,19 @@ foreach ($options as $option) {
               $survey_detail->option   =  json_encode($valor);
            $survey_detail->state   =   $request->state;
   $survey_detail->requerid   =   $request->requerid;
-    $survey_detail->selection_id   =   $request->selection_id;
+ 
 
-      $survey_detail->save();
+     $survey_detail->enumeration   =   "0";
+       $survey_detail->initialize   =   "not";
+    $survey_detail->selection_id   =   $request->selection_id;
+  $survey_detail->category   =   "all";
+  $survey_detail->evaluate   =   $request->evaluate;
+
+
+
+
+       
+     $survey_detail->save();
 
    return $this->create();
      
@@ -112,6 +122,7 @@ foreach ($options as $option) {
            $survey_detail->point = $request->point_edit;
            $survey_detail->title = $request->title_edit;
                   $survey_detail->category = $request->category_edit;
+                         $survey_detail->enumeration = $request->enumeration_edit;
         $survey_detail->save();
         return $this->create();
     }

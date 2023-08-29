@@ -21,7 +21,7 @@ class SurveyClientController extends Controller
     {
         $survey_count =SurveyDetail::where("survey_id","=", $request->survey_id)->count();
             $survey = Survey::find($request->survey_id);
-          $survey_detail = SurveyDetail::where("survey_id","=", $request->survey_id)->get();
+          $survey_detail = SurveyDetail::where("survey_id","=", $request->survey_id)->orderBy('created_at','asc')->get();
        
 
        

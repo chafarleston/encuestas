@@ -49,7 +49,8 @@ function survey_detailEdit(id) {
       survey_detail_edit.evaluate_edit.value = response.data["evaluate"];
       survey_detail_edit.title_edit.value = response.data["title"];
         survey_detail_edit.category_edit.value = response.data["category"];
-        survey_detail_edit.point_edit.value = response.data["point"];
+      survey_detail_edit.point_edit.value = response.data["point"];
+             survey_detail_edit.enumeration_edit.value = response.data["enumeration"];
       
     })
     .catch(function(response) {
