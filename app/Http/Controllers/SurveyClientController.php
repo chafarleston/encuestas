@@ -19,9 +19,9 @@ class SurveyClientController extends Controller
      */
     public function index(Request $request)
     {
-        $survey_count =SurveyDetail::where("survey_id","=", $request->survey_id)->count();
+        $survey_count =SurveyDetail::where("survey_id","=", $request->survey_id)->where("visible","=","yes")->count();
             $survey = Survey::find($request->survey_id);
-          $survey_detail = SurveyDetail::where("survey_id","=", $request->survey_id)->orderBy('created_at','asc')->get();
+          $survey_detail = SurveyDetail::where("survey_id","=", $request->survey_id)->where("visible","=","yes")->orderBy('created_at','asc')->get();
        
 
        

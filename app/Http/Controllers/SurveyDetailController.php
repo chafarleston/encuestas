@@ -21,7 +21,7 @@ class SurveyDetailController extends Controller
         $survey = Survey::find($survey_id);
         $selection = Selection::orderBy('description','asc')->get();
         
-        $survey_detail = surveyDetail::where("survey_id","=",$survey_id)->orderBy('created_at','asc')->get();
+        $survey_detail = surveyDetail::where("survey_id","=",$survey_id)->where("visible","=","yes")->orderBy('created_at','asc')->get();
             return view("survey_detail", compact("survey_detail","survey",'selection'));
     }
 
@@ -33,7 +33,7 @@ class SurveyDetailController extends Controller
         $survey_id = Session::get('survey_id');
         $survey = Survey::find($survey_id);
         $selection = Selection::orderBy('description','asc')->get();
-        $survey_detail = surveyDetail::where("survey_id","=",$survey_id)->orderBy('created_at','asc')->get();
+        $survey_detail = surveyDetail::where("survey_id","=",$survey_id)->where("visible","=","yes")->orderBy('created_at','asc')->get();
         return view("survey_detailtable", compact("survey_detail","survey",'selection'));
     }
 
