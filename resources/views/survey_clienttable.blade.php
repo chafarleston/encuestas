@@ -57,7 +57,7 @@
                                                <b style="color:black">Cantidad de Preguntas :{{ $survey_count }} </b>
                                                <br>
                                                <button id="next" class="btn btn-lg"
-                                                   style="background-color: #00bf6f; color: white"
+                                                   style="background-color: #bf0909; color: white"
                                                    onclick="clientStore(); return false;">&nbsp; Iniciar &nbsp;</button>
                                                &nbsp;&nbsp;
                                            </form>
@@ -97,10 +97,10 @@
 
                                    {{ csrf_field() }}
                                    <h3 style="color:black"><b>{{ $survey_details->title }}</b> </h3>
-                                   <div class="progress" style="background-color: #7cfddd; border: 2px">
+                                   <div class="progress" style="background-color: rgb(241, 72, 72); border: 2px">
 
                                        <div class="progress-bar"
-                                           style="background-color: #00cc99;width: {{ $porcentajeRedondeado }}%">
+                                           style="background-color: #bf0909;width: {{ $porcentajeRedondeado }}%">
                                            {{ $enumeracion + 1 }} de {{ $survey_count }}
                                        </div>
 
@@ -115,7 +115,7 @@
                                        }
                                        $enumeracion = $enumeracion + 1;
                                    @endphp
-                                   <h4 style="color:black">
+                                   <h4 style="color:#0056ac">
                                        {{ $enumeracion2 = $enumeracion2 + 1 }}
                                        {{ '. ' . $survey_details->question }}</h4>
                                    <p></p>
@@ -243,7 +243,7 @@
                                        {{-- <button id="prev" class="btn btn-warning btn-lg"
                                            onclick="prevPage()">atras</button> --}}
                                        <button id="next" class="btn btn-lg"
-                                           style="background-color: #00bf6f;color: white"
+                                           style="background-color: #bf0909;color: white"
                                            onclick="survey_clientStore('{{ $enumeracion }}'); return false;">Siguiente</button>
                                        <p></p>
                                    @endif
@@ -253,7 +253,7 @@
                                      <p style="text-align: justify">Muchas gracias por haber completado el cuestionario de : 
                                      </p>
                                       <span><b>{{$survey_details->survey->description}}.</b> </span>  
-                                       <button class="btn  btn-lg" style="background-color: #00bf6f;color: white"
+                                       <button class="btn  btn-lg" style="background-color: #bf0909;color: white"
                                            onclick="survey_clientStore('{{ $enumeracion }}'); refresh();return false;">Finalizar</button>
                                    @endif
                                </form>
