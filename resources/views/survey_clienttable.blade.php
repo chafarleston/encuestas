@@ -35,7 +35,7 @@
                                <div class="page" style="display: none;">
                                    <div class="row container d-flex justify-content-center align-items-center">
                                        <div class="col col-lg-4 col-mb-4">
-                                           <img src="{{ asset('imagen-de-encuesta.png') }}" alt="" srcset=""
+                                           <img src="{{ asset('imagen-de-encuesta1.png') }}" alt="" srcset=""
                                                width="95%">
                                        </div>
 
