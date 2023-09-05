@@ -41,7 +41,7 @@
 
                                        <div class="col col-lg-8">
                                            <form action="" name="client" id="client">
-                                               <h2 style="color:#042d89;text-align:justify">
+                                               <h2 style="color:#bf0909;text-align:justify">
                                                    <b>{{ $survey->description }}</b>
                                                </h2>
                                                @if ($survey_details->survey->state == 'private')
