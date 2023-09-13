@@ -35,8 +35,8 @@
                                <div class="page" style="display: none;">
                                    <div class="row container d-flex justify-content-center align-items-center">
                                        <div class="col col-lg-4 col-mb-4">
-                                           <img src="{{ asset('imagen-de-encuesta1.png') }}" alt="" srcset=""
-                                               width="95%">
+                                           <img src="{{ asset('imagen-de-encuesta1.png') }}" alt=""
+                                               srcset="" width="95%">
                                        </div>
 
                                        <div class="col col-lg-8">
@@ -56,9 +56,13 @@
                                                <p></p>
                                                <b style="color:black">Cantidad de Preguntas :{{ $survey_count }} </b>
                                                <br>
-                                               <button id="next" class="btn btn-lg"
+                                               <button id="next" class="btn btn"
                                                    style="background-color: #bf0909; color: white"
                                                    onclick="clientStore(); return false;">&nbsp; Iniciar &nbsp;</button>
+                                               <button type="button" class="btn btn" style="background-color: #061dcd; color: white" data-toggle="modal"
+                                                   data-target="#ventanaModal">
+                                                   Mostrar Información
+                                               </button>
                                                &nbsp;&nbsp;
                                            </form>
                                        </div>
@@ -248,11 +252,12 @@
                                        <p></p>
                                    @endif
 
-                                 
+
                                    @if ($loop->last)
-                                     <p style="text-align: justify">Muchas gracias por haber completado el cuestionario de : 
-                                     </p>
-                                      <span><b>{{$survey_details->survey->description}}.</b> </span>  
+                                       <p style="text-align: justify">Muchas gracias por haber completado el
+                                           cuestionario de :
+                                       </p>
+                                       <span><b>{{ $survey_details->survey->description }}.</b> </span>
                                        <button class="btn  btn-lg" style="background-color: #bf0909;color: white"
                                            onclick="survey_clientStore('{{ $enumeracion }}'); refresh();return false;">Finalizar</button>
                                    @endif
