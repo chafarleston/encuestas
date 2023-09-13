@@ -238,17 +238,22 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">¡Hola equipo!,</h4>
+                    <h4 class="modal-title">¡Hola equipo!</h4>
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
                 <div class="modal-body">
-                    <p style="text-align: justify">Agradecemos desde ya su participación en este estudio de diagnóstico de las unidades orgánicas sobre madurez de datos, conocimientos de datos y capacidades técnicas. La información recopilada se utilizará únicamente para la elaboración de una matriz de diagnóstico sobre madurez de datos a nivel de unidades orgánicas e individual. Valoramos tu tiempo y participación.</p>
-                      <a  class="btn" style="background-color: #bf0909;color:white" href="{{asset("imageusers/Guía de aplicación de instrumento metodológico para el diagnóstico de madurez de datos, conocimiento de datos y capacidades técnicas(1).pdf")}}" download>Descargar Guía de Aplicación</a>
-                      <p>
+                    <p style="text-align: justify">Agradecemos desde ya su participación en este estudio de diagnóstico de las unidades orgánicas sobre madurez de datos, conocimientos de datos y capacidades técnicas. </p>
+                         <p  style="text-align: justify">La información recopilada se utilizará únicamente para la elaboración de una matriz de diagnóstico sobre madurez de datos a nivel de unidades orgánicas e individual.</p>
+                
+                        <p>Valoramos tu tiempo y participación.</p>
+                          <p style="text-align: right"><b>UGI – OGTI</b> </p>
+                    <p style="text-align: right"><b>Ministerio de Economía y Finanzas</b> </p>
+                       <p>
                         &nbsp;&nbsp;&nbsp;&nbsp;
                       </p>
-                        <p style="text-align: right"><b>UGI – OGTI</b> </p>
-                    <p style="text-align: right"><b>Ministerio de Economía y Finanzas</b> </p>
+                      
+                      <a  class="btn" style="background-color: #bf0909;color:white" href="{{asset("imageusers/Guía de aplicación de instrumento metodológico para el diagnóstico de madurez de datos, conocimiento de datos y capacidades técnicas(1).pdf")}}" download>Descargar Guía de Aplicación</a>
+                   
                   
                 </div>
                 <div class="modal-footer">
