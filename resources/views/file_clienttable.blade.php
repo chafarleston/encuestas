@@ -46,6 +46,10 @@
                                        <button id="next" class="btn btn-danger btn-lg"
                                            onclick="clientStore(); return false;">Responder
                                            Formulario</button>
+                                       @if ($survey_details->survey->state == 'public')
+                                         
+                                           <input type="hidden" value="public" name="state" id="state">
+                                       @endif
 
                                    </form>
                                </div>
