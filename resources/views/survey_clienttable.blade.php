@@ -45,9 +45,12 @@
                                                    <b>{{ $survey->description }}</b>
                                                </h2>
                                              
-                                               {{-- @if ($survey_details->survey->date_end < )
-                                                   
-                                               @endif --}}
+                                              @php
+                                           $date_now= \Carbon\Carbon::now('America/Lima')->format('Y-m-d H:i:s');
+                                       @endphp
+                                        @if ($survey_details->survey->date_end <=  $date_now)
+                                        <input type="hidden" value="true" name="date_end" id="date_end">          
+                                        @endif 
                                                @if ($survey_details->survey->state == 'private')
                                                    <p>Este es un formulario privado, ingrese el código por favor:</p>
                                                    <input type="hidden" value="private" name="state" id="state">
