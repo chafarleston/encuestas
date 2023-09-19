@@ -32,7 +32,7 @@ class ClientController extends Controller
     {
            
     
-if ($request->state =="private" && $request->code=="researcH35920184") {
+if ($request->state =="private" && $request->code=="researcH35920184" &&$request->date_end!="true") {
        $client = new Client;
 $client->save();
         $report = new Report;
@@ -46,7 +46,7 @@ $client->save();
         return $client->id;
 
 }
-else if($request->state=="public"){
+else if($request->state=="public" &&$request->date_end!="true"){
     
      $client = new Client;
 $client->save();

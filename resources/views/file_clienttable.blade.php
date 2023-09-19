@@ -42,6 +42,12 @@
                                        <p>&nbsp; </p>
                                        <p>&nbsp; </p>
                                        <p>&nbsp; </p>
+                                       @php
+                                           $date_now= \Carbon\Carbon::now('America/Lima')->format('Y-m-d H:i:s');
+                                       @endphp
+                                        @if ($survey_details->survey->date_end <=  $date_now)
+                                        <input type="hidden" value="true" name="date_end" id="date_end">          
+                                        @endif 
 
                                        <button id="next" class="btn btn-danger btn-lg"
                                            onclick="clientStore(); return false;">Responder

@@ -44,6 +44,10 @@
                                                <h2 style="color:black;text-align:justify">
                                                    <b>{{ $survey->description }}</b>
                                                </h2>
+                                             
+                                               {{-- @if ($survey_details->survey->date_end < )
+                                                   
+                                               @endif --}}
                                                @if ($survey_details->survey->state == 'private')
                                                    <p>Este es un formulario privado, ingrese el código por favor:</p>
                                                    <input type="hidden" value="private" name="state" id="state">
