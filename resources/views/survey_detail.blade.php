@@ -57,6 +57,7 @@
                 <option value="date">Fecha</option>
                 <option value="code">Código</option>
                 <option value="file">File</option>
+                <option value="email">Email</option>
                 {{--  <option value="selection">Casillas</option>
                
                 <option value="option_date">Fecha</option>
@@ -132,6 +133,12 @@
         <div id="codeContainer" style="display: none;">
             <div class="input-group mb-3">
                 <input type="text" class="form-control"placeholder="Código aquí" disabled>
+            </div>
+
+        </div>
+        <div id="emailContainer" style="display: none;">
+            <div class="input-group mb-3">
+                <input type="email" class="form-control"placeholder="Email aquí" disabled>
             </div>
 
         </div>
@@ -240,6 +247,7 @@
         const radioContainer = document.getElementById('radioContainer');
         const dateContainer = document.getElementById('dateContainer');
         const codeContainer = document.getElementById('codeContainer');
+        const emailContainer = document.getElementById('emailContainer');
         const textContainer = document.getElementById('textContainer');
         const fileContainer = document.getElementById('fileContainer');
         const selectionContainer = document.getElementById('selectionContainer');
@@ -284,6 +292,12 @@
 
             } else {
                 fileContainer.style.display = 'none';
+            }
+            if (selectElement.value === 'email') {
+                emailContainer.style.display = 'block';
+
+            } else {
+                emailContainer.style.display = 'none';
             }
         });
 

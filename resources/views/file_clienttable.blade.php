@@ -88,6 +88,10 @@
                                        @enderror
 
                                        <p></p>
+                                         @elseif($survey_details->type == 'email')
+                                       <input type="email" id="answer" name="answer"  class="form-control" required>
+                                      
+                                       <p></p>
                                    @elseif($survey_details->type == 'multiple_option')
                                        <?php
                                        $array = json_decode($survey_details->option);

@@ -44,13 +44,13 @@
                                                <h2 style="color:black;text-align:justify">
                                                    <b>{{ $survey->description }}</b>
                                                </h2>
-                                             
-                                              @php
-                                           $date_now= \Carbon\Carbon::now('America/Lima')->format('Y-m-d H:i:s');
-                                       @endphp
-                                        @if ($survey_details->survey->date_end <=  $date_now)
-                                        <input type="hidden" value="true" name="date_end" id="date_end">          
-                                        @endif 
+
+                                               @php
+                                                   $date_now = \Carbon\Carbon::now('America/Lima')->format('Y-m-d H:i:s');
+                                               @endphp
+                                               @if ($survey_details->survey->date_end <= $date_now)
+                                                   <input type="hidden" value="true" name="date_end" id="date_end">
+                                               @endif
                                                @if ($survey_details->survey->state == 'private')
                                                    <p>Este es un formulario privado, ingrese el código por favor:</p>
                                                    <input type="hidden" value="private" name="state" id="state">
@@ -66,7 +66,8 @@
                                                <button id="next" class="btn btn"
                                                    style="background-color: #bf0909; color: white"
                                                    onclick="clientStore(); return false;">&nbsp; Iniciar &nbsp;</button>
-                                               <button type="button" class="btn btn" style="background-color: #061dcd; color: white" data-toggle="modal"
+                                               <button type="button" class="btn btn"
+                                                   style="background-color: #061dcd; color: white" data-toggle="modal"
                                                    data-target="#ventanaModal">
                                                    Mostrar Información
                                                </button>
@@ -144,6 +145,10 @@
                                            <div class="alert alert-danger">{{ $message }}</div>
                                        @enderror
 
+                                       <p></p>
+                                   @elseif($survey_details->type == 'email')
+                                       <input  id="answer" name="answer"  class="form-control" required>
+                                      
                                        <p></p>
                                    @elseif($survey_details->type == 'file')
                                        <input id="answer" type="file" name="answer" class="form-control"

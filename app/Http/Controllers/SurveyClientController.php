@@ -12,6 +12,10 @@ use App\Models\Survey;
 use App\Http\Requests\StoreSurveyClientRequest;
 use App\Http\Requests\UpdateSurveyClientRequest;
 use Illuminate\Http\Request;
+
+use Illuminate\Support\Facades\Mail;
+use App\Mail\AgradecimientoEmail;
+
 class SurveyClientController extends Controller
 {
     /**
@@ -104,6 +108,16 @@ class SurveyClientController extends Controller
 
               if ($request->type=="short_answer") {
                   $survey_client->answer = $request->answer;
+                }
+                else {
+             //   $survey_client->answer = "";
+          
+            }
+                   if ($request->type=="email") {
+                  $survey_client->answer = $request->answer;
+                  //enviar a correo agradecimiento
+                   // Enviar correo de agradecimiento
+    Mail::to($request->answer)->send(new AgradecimientoEmail());
                 }
                 else {
              //   $survey_client->answer = "";
