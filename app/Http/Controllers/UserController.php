@@ -11,9 +11,12 @@ use Spatie\Permission\Models\Permission;
 // con esto le damos roles a los usuarios
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Notifications\Notifiable;
+
+use Laravel\Sanctum\HasApiTokens;
+
 class UserController extends Controller
 {
-    use Notifiable;
+    use HasApiTokens, Notifiable;
     use HasRoles;
     /**
      * Display a listing of the resource.

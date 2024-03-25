@@ -76,7 +76,8 @@ Route::resource('Estudiante', App\Http\Controllers\StudentController::class);
 
 Route::resource('Mis-certificados', App\Http\Controllers\CertificationStudentController::class);
  Route::resource('Docente', App\Http\Controllers\TeacherController::class);
-Route::get('/Administrador', [App\Http\Controllers\HomeController::class, 'sistema'])->name('sistema');
+
+
 Route::get('/Administrador', [App\Http\Controllers\HomeController::class, 'sistema'])->name('sistema');
 /////////////////////////////////////////
 
@@ -282,6 +283,8 @@ Route::get('/auth/google/callback', function () {
                 //login as the new user
                 Auth::login($newUser);
                 $newUser->assignRole('Encuestador');
+                //
+                $newUser->createToken(request()->device_name)->plainTextToken ;
                 // go to the dashboard
                 return redirect('/home');
             }
