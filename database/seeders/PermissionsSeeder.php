@@ -28,11 +28,11 @@ class PermissionsSeeder extends Seeder
             'firstname' => 'Herrera',
             'lastname' => 'Bendezú',
             'names' => 'Monica Arizú',
-            'password' => Hash::make('sdc123456'),
+            'password' => Hash::make('12345678'),
             'datebirth' => '1994-03-08',
-            'cellphone' => '967687216',
+            'cellphone' => '978452687',
             'sex' => 'F',
-            'email' => 'monica.herrera@unmsm.edu.pe',
+            'email' => 'logicainformatica18@gmail.com',
                'google_id' => '2',
         ]);
         //asignar rol
@@ -50,11 +50,11 @@ $user3= User::create([
     'firstname' => 'Cardenas',
     'lastname' => 'Aquino',
     'names' => 'Anthony Robert',
-    'password' => Hash::make('sdc123456'),
+    'password' => Hash::make('12345678'),
     'datebirth' => '2000-10-10',
     'cellphone' => '999999999',
     'sex' => 'M',
-    'email' => 'logicainformatica18@gmail.com',
+    'email' => 'logicainformatica20@gmail.com',
        'google_id' => '3',
 ]);
 //

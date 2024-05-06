@@ -16,6 +16,7 @@ class SurveyDetailSeeder extends Seeder
                 'survey_id' => '1',
                 'selection_id' => '1',
            'question' => 'pregunta1',
+           'enumeration' => '1',
             'type' => 'multiple_option',
             'requerid' => 'yes',
                 'state' => '',
