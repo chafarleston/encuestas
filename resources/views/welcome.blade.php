@@ -36,7 +36,7 @@
         <div class="card">
             <div class="card-body login-card-body">
                 <div class="login-logo">
-                    <b class="text-blue" style="font-family: Arial 50px">Formularios SDC Research</b>
+                    <b class="text-blue" style="font-family: Arial 50px">Formularios CICEC</b>
                 </div>
                 <p class="login-box-msg">Ingrese sus datos para iniciar sesión</p>
                 <form method="POST" action="{{ route('login') }}">

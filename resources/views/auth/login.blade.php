@@ -98,13 +98,13 @@
                     <div class="">
                         <div class="card-body login-card-body">
 &nbsp;&nbsp;&nbsp;
-<img src="{{ asset('logosdcre-azul.png') }}" alt="" srcset=""width="50%">
+
 
                             <div class="login-logo">
-                                     
+                                <img src="{{ asset('logo_cicec.png') }}" alt="" srcset=""width="30%">
                                 <h1 style="font-weight: bold;font-size:55px; color: #042d89;"><b>FORMULARIOS</b>
                                 </h1>
-                                <h1 style="font-weight: bold;font-size:50px; color: #042d89;"><b>SDC RESEARCH</b>
+                                <h1 style="font-weight: bold;font-size:50px; color: #042d89;"><b>CICEC</b>
                                 </h1>
                             </div>
                             <p class="login-box-msg" style="color:#042d89;">Ingrese sus datos para iniciar sesión</p>
