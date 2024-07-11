@@ -61,7 +61,7 @@ Route::get('encuesta/{survey_id}',[App\Http\Controllers\SurveyClientController::
 
    
 
-   Route::post('associateShow',[App\Http\Controllers\surveyClientController::class, 'associate_show']);
+   Route::post('encuesta/associateShow',[App\Http\Controllers\surveyClientController::class, 'associate_show']);
 
 
 
