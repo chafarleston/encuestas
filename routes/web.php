@@ -59,9 +59,11 @@ Route::get('encuesta/{survey_id}',[App\Http\Controllers\SurveyClientController::
    Route::post('selection_detailDestroy',[App\Http\Controllers\SelectionDetailController::class, 'destroy']);
 
 
-   
 
-   Route::post('encuesta/associateShow',[App\Http\Controllers\surveyClientController::class, 'associate_show']);
+
+
+
+   Route::post('associateShow',[App\Http\Controllers\surveyClientController::class, 'associate_show']);
 
 
 
