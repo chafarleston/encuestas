@@ -6,7 +6,7 @@ function associateShow(id, formulario) {
     formData.append('id', id);
     axios({
             method: 'post',
-            url: '../associateShow',
+            url: '../../associateShow',
             data: formData,
         })
         .then(function(response) {
