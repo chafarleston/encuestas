@@ -25,13 +25,13 @@ class PermissionsSeeder extends Seeder
         // create user
         $user1= User::create([
             'dni' => '70066422',
-            'firstname' => 'Herrera',
-            'lastname' => 'Bendezú',
-            'names' => 'Monica Arizú',
+            'firstname' => 'Cardenas',
+            'lastname' => 'A.',
+            'names' => 'Anthony',
             'password' => Hash::make('12345678'),
             'datebirth' => '1994-03-08',
-            'cellphone' => '978452687',
-            'sex' => 'F',
+            'cellphone' => '986547813',
+            'sex' => 'M',
             'email' => 'logicainformatica18@gmail.com',
                'google_id' => '2',
         ]);
