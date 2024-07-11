@@ -60,7 +60,7 @@ Route::get('encuesta/{survey_id}',[App\Http\Controllers\SurveyClientController::
 
 
    
-   Route::resource("associateShow", App\Http\Controllers\surveyClientController::class);
+
    Route::post('associateShow',[App\Http\Controllers\surveyClientController::class, 'associate_show']);
 
 
