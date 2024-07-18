@@ -88,8 +88,8 @@
             <ul class="navbar-nav">
                 <li class="nav-item">
                     <a href="{{ url('/') }}" class="nav-link">
-                        <img src="{{ asset('logo-sdcre-corto-azul.png') }}" alt="Logo"
-                            class="brand-image img-circle elevation-3"  width="70%">
+                        <img src="{{ asset('logo_anthonycode.png') }}" alt="Logo"
+                            class="brand-image img-circle elevation-3"  width="50px">
                         <span class="brand-text font-weight-light"></span>
                     </a>
                 </li>
@@ -191,7 +191,7 @@
                             &nbsp;
                             &nbsp;
                         </p>
-                        <h3><b>SDC Certificate</b> </h3>
+                        <h3><b>Anthony Code</b> </h3>
                         <p></p>
                         <p class="text-justify">
                             AnthonyCode Encuestas hace más de 6 años nuestra organización inicio sus actividades en respuesta a

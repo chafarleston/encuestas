@@ -55,14 +55,16 @@
     <nav class="navbar navbar-expand-md  shadow-sm"style="background-color: #042d89">
         <div class="row">
             <div class="col col-lg-4">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    <img src="{{ asset('LOGO-CERTIFICACIONES.png') }}" alt="" width="100%">
-                </a>
 
             </div>
             <div class="col col-lg-4">
+                <a class="navbar-brand text-white" href="{{ url('/') }}">
+                    Anthony Code
+                    {{-- <img src="{{ asset('logo_anthonycode.png') }}" alt="" width="50px"> --}}
+                </a>
 
             </div>
+          
 
             <div class="col col-lg-4" style="justify-content: center; align-items: center; display: flex;">
                 {{-- <img src="{{ asset('CERRAR-SESION-BLANCO.png') }}" alt="" width="10%"> --}}

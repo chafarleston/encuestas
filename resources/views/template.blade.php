@@ -113,21 +113,21 @@
             </ul>
 
             <div class="row">
-                <div class="col col-lg-4">
+                <div class="col col-lg-7">
 
-                    <a class="navbar-brand" href="{{ url('/') }}">
-                        <img src="{{ asset('LOGO-CERTIFICACIONES.png') }}" alt="" width="60%">
+                    <a class="navbar-brand" href="{{ url('Administrador') }}">
+                   Anthony Code    
                     </a>
 
                 </div>
-                <div class="col col-lg-4">
+                <div class="col col-lg-1">
 
                 </div>
-
-                <div class="col col-lg-4" style="justify-content: center; align-items: center; display: flex;">
+{{-- 
+                <div class="col col-lg-4" style="justify-content: right; align-items: center; display: flex;">
                     <img src="{{ asset('CERRAR-SESION-BLANCO.png') }}" alt="" width="10%">
                     <a href="{{ route('logout') }}" style="color: white;">Cerrar Sesión</a>
-                </div>
+                </div> --}}
 
             </div>
         </nav>
@@ -137,9 +137,9 @@
         <aside class="main-sidebar sidebar-dark-primary elevation-4" style="background-color: #042d89;color:white">
             <!-- Brand Logo -->
             <a href="" class="brand-link">
-     
+               
                 <span class="brand-text font-weight-light center">
-  <img src="{{asset('logo-sdcre-corto-blanco.png')}}" alt="AdminLTE Logo" class="" width="100%"                 style="">
+  <img src="{{ asset('logo_anthonycode.png')}}" alt="AdminLTE Logo" class="" width="200px"                 style="">
                 </span>
                 <p></p>
             </a>
